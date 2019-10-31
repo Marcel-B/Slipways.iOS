@@ -21,6 +21,7 @@
 		1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* DataLoader.swift */; };
 		1F823051236ACC8100E6513F /* Slipway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Slipway.swift */; };
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
+		1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823054236ACF5200E6513F /* SlipwayDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		1F82304E236ACC0A00E6513F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		1F823050236ACC8100E6513F /* Slipway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slipway.swift; sourceTree = "<group>"; };
 		1F823052236ACCA900E6513F /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		1F823054236ACF5200E6513F /* SlipwayDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */,
 				1F0D5B36236AC54E00EA9476 /* SceneDelegate.swift */,
 				1F0D5B38236AC54E00EA9476 /* SlipwayList.swift */,
+				1F823054236ACF5200E6513F /* SlipwayDetails.swift */,
 				1F0D5B3A236AC54F00EA9476 /* Assets.xcassets */,
 				1F0D5B3F236AC54F00EA9476 /* LaunchScreen.storyboard */,
 				1F0D5B42236AC54F00EA9476 /* Info.plist */,
@@ -321,6 +324,7 @@
 				1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */,
 				1F823051236ACC8100E6513F /* Slipway.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
+				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
