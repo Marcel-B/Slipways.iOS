@@ -22,6 +22,7 @@
 		1F823051236ACC8100E6513F /* Slipway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Slipway.swift */; };
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
 		1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823054236ACF5200E6513F /* SlipwayDetails.swift */; };
+		1F823058236ACFD100E6513F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823057236ACFD100E6513F /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		1F823050236ACC8100E6513F /* Slipway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slipway.swift; sourceTree = "<group>"; };
 		1F823052236ACCA900E6513F /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		1F823054236ACF5200E6513F /* SlipwayDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDetails.swift; sourceTree = "<group>"; };
+		1F823057236ACFD100E6513F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		1F0D5B33236AC54E00EA9476 /* Slipways */ = {
 			isa = PBXGroup;
 			children = (
+				1F823056236ACFB200E6513F /* Components */,
 				1F823049236AC94800E6513F /* Resources */,
 				1F823048236AC92F00E6513F /* Services */,
 				1F823047236AC92600E6513F /* Models */,
@@ -178,6 +181,14 @@
 				1F82304A236AC96C00E6513F /* slipways.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1F823056236ACFB200E6513F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1F823057236ACFD100E6513F /* MapView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +336,7 @@
 				1F823051236ACC8100E6513F /* Slipway.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
+				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

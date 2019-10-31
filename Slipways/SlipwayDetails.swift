@@ -11,7 +11,10 @@ import SwiftUI
 struct SlipwayDetails: View {
     var slipway: Slipway
     var body: some View {
-        Text(slipway.name)
+        VStack{
+            Text(slipway.name)
+            MapView(coordinate: slipway.locationCoordinate)
+        }
     }
 }
 
