@@ -12,8 +12,12 @@ struct SlipwayDetails: View {
     var slipway: Slipway
     var body: some View {
         VStack{
-            Text(slipway.name)
             MapView(coordinate: slipway.locationCoordinate)
+                .frame(height: 300)
+            NameSign(name: slipway.name)
+                .padding(.top, -30)
+            
+            Spacer()
         }
     }
 }

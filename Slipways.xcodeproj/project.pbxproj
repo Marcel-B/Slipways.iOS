@@ -23,6 +23,8 @@
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
 		1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823054236ACF5200E6513F /* SlipwayDetails.swift */; };
 		1F823058236ACFD100E6513F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823057236ACFD100E6513F /* MapView.swift */; };
+		1F82305A236AD54600E6513F /* NameSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823059236AD54600E6513F /* NameSign.swift */; };
+		1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82305B236B52DF00E6513F /* SlipwayInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		1F823052236ACCA900E6513F /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		1F823054236ACF5200E6513F /* SlipwayDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDetails.swift; sourceTree = "<group>"; };
 		1F823057236ACFD100E6513F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1F823059236AD54600E6513F /* NameSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSign.swift; sourceTree = "<group>"; };
+		1F82305B236B52DF00E6513F /* SlipwayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				1F823057236ACFD100E6513F /* MapView.swift */,
+				1F823059236AD54600E6513F /* NameSign.swift */,
+				1F82305B236B52DF00E6513F /* SlipwayInfo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -332,11 +338,13 @@
 				1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */,
 				1F82304D236ACA4400E6513F /* WsvService.swift in Sources */,
 				1F823053236ACCA900E6513F /* Coordinates.swift in Sources */,
+				1F82305A236AD54600E6513F /* NameSign.swift in Sources */,
 				1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */,
 				1F823051236ACC8100E6513F /* Slipway.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
 				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
+				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
