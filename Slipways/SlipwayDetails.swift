@@ -16,7 +16,8 @@ struct SlipwayDetails: View {
                 .frame(height: 300)
             NameSign(name: slipway.name)
                 .padding(.top, -30)
-            
+            SlipwayInfo(slipway: slipway)
+                .padding(.top, 30)
             Spacer()
         }
     }
