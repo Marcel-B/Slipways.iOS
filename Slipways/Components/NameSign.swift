@@ -16,7 +16,7 @@ struct NameSign: View {
             .padding(10)
             .foregroundColor(.white)
             .background(Color .blue)
-            .overlay(Rectangle().stroke(Color.white, lineWidth: 4))
+            .overlay(Rectangle().stroke(Color.purple, lineWidth: 4))
             .shadow(radius: 12)
     }
 }

@@ -13,8 +13,10 @@ struct SlipwayList: View {
     var body: some View {
         NavigationView{
             List{
-                ForEach(slipways) {slipway in
-                    Text(slipway.name)
+                ForEach(slipways) { slipway in
+                    NavigationLink(destination: SlipwayDetails(slipway: slipway)) {
+                        Text(slipway.name)
+                    }
                 }
             }
             .navigationBarTitle("Slipanlagen")
