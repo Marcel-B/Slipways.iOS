@@ -10,7 +10,14 @@ import Alamofire
 
 func loadWsv(){
     // Alamofire 4
-    Alamofire.request("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json").response { response in // method defaults to `.get`
-        debugPrint(response)
-    }
+ //        "https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json?waters=RUHR"
+            Alamofire.request("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/12a3037f-cbf3-49d3-8da5-77fb38730bba/W/measurements.json", method: .get).responseJSON
+                { response in
+                    guard response.result.isSuccess,
+                        let value = response.result.value else{
+                            print("Error")
+                            return
+                    }
+                    debugPrint(value)
+            }
 }
