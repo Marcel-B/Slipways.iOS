@@ -17,6 +17,7 @@
 		1F0D5B57236AC55000EA9476 /* SlipwaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */; };
 		1F823046236AC7C600E6513F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1F823045236AC7C600E6513F /* Alamofire */; };
 		1F82304B236AC96C00E6513F /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
+		1F82304D236ACA4400E6513F /* WsvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304C236ACA4400E6513F /* WsvService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwaysUITests.swift; sourceTree = "<group>"; };
 		1F0D5B58236AC55000EA9476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F82304A236AC96C00E6513F /* slipways.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = slipways.json; sourceTree = "<group>"; };
+		1F82304C236ACA4400E6513F /* WsvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsvService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		1F823048236AC92F00E6513F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1F82304C236ACA4400E6513F /* WsvService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F82304D236ACA4400E6513F /* WsvService.swift in Sources */,
 				1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
