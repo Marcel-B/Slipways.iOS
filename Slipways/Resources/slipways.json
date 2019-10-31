@@ -1,0 +1,70 @@
+[
+    {
+        "name": "Essen Kettwig",
+        "water": "Ruhr",
+        "rating": 1,
+        "id": 0,
+        "street": "Zur Alten Fähre 27",
+        "postalcode": "45219",
+        "city": "Essen",
+        "pro": "",
+        "contra": "",
+        "comment": "Öffentliche Slipanlage.",
+        "costs": 0.0,
+        "coordinates":{
+            "longitude": 6.935595,
+            "latitude": 51.359924
+        }
+    },
+    {
+        "name": "Slipanlage Duisburg Ruhrort",
+        "water": "Ruhr",
+        "rating": 1,
+        "id": 1,
+        "street": "Am Bört",
+        "postalcode": "47059",
+        "city": "Duisburg",
+        "pro": "viel Platz und ruhiges Wasser, keine Felsen",
+        "contra": "Deichbefahrungserlaubnis erforderlich",
+        "comment": "Direkt an der Ruhrmündung.",
+        "costs": 10.0,
+        "coordinates":{
+            "longitude": 6.724266,
+            "latitude": 51.447588
+        }
+    },
+    {
+        "name": "Rote Mühle",
+        "water": "Ruhr",
+        "rating": 1,
+        "id": 2,
+        "street": "Rotemühle 1",
+        "postalcode": "45259",
+        "city": "Essen",
+        "pro": "Dafür wunderschönes Gebiet auf dem Baldeneysee",
+        "contra": "Eher für kleinere Boote geeignet, da alles recht eng und klein. Parkplätze begrenzt vorhanden.",
+        "comment": "Öffentliche Slipanlage an einer gemütlichen Gaststätte.",
+        "costs": 0.0,
+        "coordinates":{
+            "longitude": 7.079467,
+            "latitude": 51.410093
+        }
+    },
+    {
+        "name": "Wolf",
+        "water": "Mosel",
+        "rating": 1,
+        "id": 3,
+        "street": "Brunnenpl.",
+        "postalcode": "56850",
+        "city": "Enkirch",
+        "pro": "",
+        "contra": "",
+        "comment": "Direkt am Wohnmobilstellplatz Enkirch",
+        "costs": 0.0,
+        "coordinates":{
+            "longitude": 7.119978,
+            "latitude": 49.983661
+        }
+    }
+]
