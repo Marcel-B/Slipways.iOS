@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marcel Benders. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 func loadWsv(){
