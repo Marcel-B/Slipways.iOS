@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct SlipwayList: View {
+    var slipways: [Slipway]
     var body: some View {
-        Text("Hello World")
+        NavigationView{
+            List{
+                ForEach(slipways) {slipway in
+                    Text(slipway.name)
+                }
+            }
+            .navigationBarTitle("Slipanlagen")
+        }
     }
 }
 
 struct SlipwayList_Previews: PreviewProvider {
     static var previews: some View {
-        SlipwayList()
+        SlipwayList(slipways: slipways)
     }
 }
