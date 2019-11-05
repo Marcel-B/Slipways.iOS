@@ -16,7 +16,7 @@
 		1F0D5B4C236AC55000EA9476 /* SlipwaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B4B236AC55000EA9476 /* SlipwaysTests.swift */; };
 		1F0D5B57236AC55000EA9476 /* SlipwaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */; };
 		1F823046236AC7C600E6513F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1F823045236AC7C600E6513F /* Alamofire */; };
-		1F82304B236AC96C00E6513F /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
+		1F82304B236AC96C00E6513F /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; settings = {ASSET_TAGS = (New, ); }; };
 		1F82304D236ACA4400E6513F /* WsvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304C236ACA4400E6513F /* WsvService.swift */; };
 		1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* DataLoader.swift */; };
 		1F823051236ACC8100E6513F /* Slipway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Slipway.swift */; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				1F823056236ACFB200E6513F /* Components */,
-				1F823049236AC94800E6513F /* Resources */,
+				1F823049236AC94800E6513F /* Ressources */,
 				1F823048236AC92F00E6513F /* Services */,
 				1F823047236AC92600E6513F /* Models */,
 				1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */,
@@ -179,12 +179,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		1F823049236AC94800E6513F /* Resources */ = {
+		1F823049236AC94800E6513F /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
 				1F82304A236AC96C00E6513F /* slipways.json */,
 			);
-			path = Resources;
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 		1F823056236ACFB200E6513F /* Components */ = {
@@ -262,6 +262,9 @@
 		1F0D5B29236AC54E00EA9476 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Marcel Benders";
@@ -511,8 +514,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"Slipways/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content Slipways/Ressources/slipways.json";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Slipways/Info.plist;
@@ -532,8 +535,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"Slipways/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content Slipways/Ressources/slipways.json";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Slipways/Info.plist;
