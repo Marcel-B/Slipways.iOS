@@ -14,9 +14,11 @@ struct SlipwayRow: View {
         HStack{
             Text(slipway.name)
             Spacer()
-            Image(systemName: "star.fill")
-                .imageScale(.medium)
-                .foregroundColor(.yellow)
+            if(slipway.isFavorite){
+                Image(systemName: "star.fill")
+                    .imageScale(.medium)
+                    .foregroundColor(.yellow)
+            }
         }
     }
 }
