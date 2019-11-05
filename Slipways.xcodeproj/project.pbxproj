@@ -25,6 +25,7 @@
 		1F82305A236AD54600E6513F /* NameSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823059236AD54600E6513F /* NameSign.swift */; };
 		1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82305B236B52DF00E6513F /* SlipwayInfo.swift */; };
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
+		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		1F823057236ACFD100E6513F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1F823059236AD54600E6513F /* NameSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSign.swift; sourceTree = "<group>"; };
 		1F82305B236B52DF00E6513F /* SlipwayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfo.swift; sourceTree = "<group>"; };
+		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				1F823057236ACFD100E6513F /* MapView.swift */,
 				1F823059236AD54600E6513F /* NameSign.swift */,
 				1F82305B236B52DF00E6513F /* SlipwayInfo.swift */,
+				1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				1F823051236ACC8100E6513F /* Slipway.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
+				1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */,
 				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
