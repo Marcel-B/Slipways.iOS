@@ -7,7 +7,7 @@
 //
 import SwiftUI
 
-var slipways: [Slipway] = load(filename: "slipways.json")
+var slipwaysData: [Slipway] = load(filename: "slipways.json")
 
 func load<T: Decodable>(filename: String, as type: T.Type = T.self ) -> T {
     let data:  Data
