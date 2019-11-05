@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				1F823056236ACFB200E6513F /* Components */,
-				1F823049236AC94800E6513F /* Resources */,
+				1F823049236AC94800E6513F /* Ressources */,
 				1F823048236AC92F00E6513F /* Services */,
 				1F823047236AC92600E6513F /* Models */,
 				1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */,
@@ -179,12 +179,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		1F823049236AC94800E6513F /* Resources */ = {
+		1F823049236AC94800E6513F /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
 				1F82304A236AC96C00E6513F /* slipways.json */,
 			);
-			path = Resources;
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 		1F823056236ACFB200E6513F /* Components */ = {
@@ -511,8 +511,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"Slipways/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content Slipways/Ressources/slipways.json";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Slipways/Info.plist;
@@ -532,8 +532,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"Slipways/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content Slipways/Ressources/slipways.json";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Slipways/Info.plist;
