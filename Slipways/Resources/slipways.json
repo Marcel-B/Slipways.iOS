@@ -11,6 +11,7 @@
         "contra": "",
         "comment": "Öffentliche Slipanlage.",
         "costs": 0.0,
+        "isFavorite": true,
         "coordinates":{
             "longitude": 6.935595,
             "latitude": 51.359924
@@ -28,6 +29,7 @@
         "contra": "Deichbefahrungserlaubnis erforderlich",
         "comment": "Direkt an der Ruhrmündung.",
         "costs": 10.0,
+        "isFavorite": false,
         "coordinates":{
             "longitude": 6.724266,
             "latitude": 51.447588
@@ -45,6 +47,7 @@
         "contra": "Eher für kleinere Boote geeignet, da alles recht eng und klein. Parkplätze begrenzt vorhanden.",
         "comment": "Öffentliche Slipanlage an einer gemütlichen Gaststätte.",
         "costs": 0.0,
+        "isFavorite": false,
         "coordinates":{
             "longitude": 7.079467,
             "latitude": 51.410093
@@ -62,6 +65,7 @@
         "contra": "",
         "comment": "Direkt am Wohnmobilstellplatz Enkirch",
         "costs": 0.0,
+        "isFavorite": false,
         "coordinates":{
             "longitude": 7.119978,
             "latitude": 49.983661

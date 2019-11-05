@@ -21,6 +21,7 @@ struct Slipway: Identifiable, Codable, Hashable {
     var costs: Decimal
     var pro: String
     var contra: String
+    var isFavorite: Bool
     
     fileprivate var coordinates: Coordinates
     
