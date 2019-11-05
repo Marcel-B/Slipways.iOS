@@ -25,6 +25,7 @@ struct SlipwayRow: View {
 
 struct SlipwayRow_Previews: PreviewProvider {
     static var previews: some View {
-        SlipwayRow(slipway: slipways[0])
+        let userData = UserData()
+        return SlipwayRow(slipway: userData.slipways[0])
     }
 }

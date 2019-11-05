@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct SlipwayList: View {
-    var slipways: [Slipway]
+    @EnvironmentObject private var userData: UserData
+    
     var body: some View {
         NavigationView{
             List{
-                ForEach(slipways) { slipway in
-                    NavigationLink(destination: SlipwayDetails(slipway: slipway)) {
+                ForEach(userData.slipways) { slipway in
+                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
                         SlipwayRow(slipway: slipway)
                     }
                 }
@@ -26,6 +27,6 @@ struct SlipwayList: View {
 
 struct SlipwayList_Previews: PreviewProvider {
     static var previews: some View {
-        SlipwayList(slipways: slipways)
+        SlipwayList()
     }
 }
