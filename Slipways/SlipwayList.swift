@@ -15,7 +15,7 @@ struct SlipwayList: View {
             List{
                 ForEach(slipways) { slipway in
                     NavigationLink(destination: SlipwayDetails(slipway: slipway)) {
-                        Text(slipway.name)
+                        SlipwayRow(slipway: slipway)
                     }
                 }
             }
