@@ -9,6 +9,6 @@ import Foundation
 import RealmSwift
 
 class SlipwayDb: Object {
-    @objc dynamic var index = 0
+    @objc dynamic var id = 0
     @objc dynamic var isFavorite = false
 }
