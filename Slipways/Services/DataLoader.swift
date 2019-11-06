@@ -6,10 +6,11 @@
 //  Copyright © 2019 Marcel Benders. All rights reserved.
 //
 import SwiftUI
+import RealmSwift
 
 var slipwaysData: [Slipway] = load(filename: "slipways.json")
 
-func load<T: Decodable>(filename: String, as type: T.Type = T.self ) -> T {
+func load(filename: String) -> [Slipway] {
     let data:  Data
     
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
@@ -25,8 +26,22 @@ func load<T: Decodable>(filename: String, as type: T.Type = T.self ) -> T {
     
     do{
         let decoder =  JSONDecoder()
-        return try decoder.decode(T.self, from: data)
+        var values = try decoder.decode([Slipway].self, from: data)
+        let realm = try! Realm()
+        let savedData = realm.objects(SlipwayDb.self)
+        
+        savedData.forEach { userSetting in
+            let entity = values.first(where: { $0.id == userSetting.id })
+            if let row = values.firstIndex(where: {$0.id == userSetting.id}) {
+                if var slipway = entity{
+                    slipway.isFavorite = userSetting.isFavorite
+                    values[row] = slipway
+                }
+            }
+        }
+        return values
+        
     } catch{
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        fatalError("Couldn't parse \(filename) as \([Slipway].self):\n\(error)")
     }
 }

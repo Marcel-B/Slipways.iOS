@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NameSign: View {
     @EnvironmentObject var userData: UserData
@@ -22,7 +23,26 @@ struct NameSign: View {
                 .font(.subheadline)
             
             Button(action: {
+                let realm = try! Realm()
+                var slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
+                
+                if(slip == nil){
+                    slip = SlipwayDb()
+                    slip?.id = self.slipway.id
+                    try! realm.write {
+                        realm.add(slip!)
+                    }
+                }
+                slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
+
+                
+                
                 self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
+          
+                try! realm.write {
+                    slip!.isFavorite = self.userData.slipways[self.slipwayIndex].isFavorite
+                }
+                
             }){
                 if self.userData.slipways[self.slipwayIndex].isFavorite{
                     Image(systemName: "star.fill").foregroundColor(Color.yellow)
