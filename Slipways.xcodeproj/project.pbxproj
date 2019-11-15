@@ -130,16 +130,15 @@
 			isa = PBXGroup;
 			children = (
 				1F823056236ACFB200E6513F /* Components */,
-				1F823049236AC94800E6513F /* Resources */,
-				1F823048236AC92F00E6513F /* Services */,
+				1FB7B4AE237F519E0065302D /* View */,
 				1F823047236AC92600E6513F /* Models */,
+				1F823048236AC92F00E6513F /* Services */,
 				1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */,
 				1F0D5B36236AC54E00EA9476 /* SceneDelegate.swift */,
-				1F0D5B38236AC54E00EA9476 /* SlipwayList.swift */,
-				1F823054236ACF5200E6513F /* SlipwayDetails.swift */,
 				1F0D5B3A236AC54F00EA9476 /* Assets.xcassets */,
 				1F0D5B3F236AC54F00EA9476 /* LaunchScreen.storyboard */,
 				1F0D5B42236AC54F00EA9476 /* Info.plist */,
+				1F823049236AC94800E6513F /* Resources */,
 				1F0D5B3C236AC54F00EA9476 /* Preview Content */,
 			);
 			path = Slipways;
@@ -208,6 +207,15 @@
 				1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		1FB7B4AE237F519E0065302D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D5B38236AC54E00EA9476 /* SlipwayList.swift */,
+				1F823054236ACF5200E6513F /* SlipwayDetails.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -515,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -535,6 +543,7 @@
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Slipways/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,6 +565,7 @@
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Slipways/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,7 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				INFOPLIST_FILE = SlipwaysTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -597,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				INFOPLIST_FILE = SlipwaysTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
