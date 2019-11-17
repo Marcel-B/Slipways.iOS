@@ -6,18 +6,45 @@
 //  Copyright © 2019 Marcel Benders. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
-func loadWsv(){
-    // Alamofire 4
-    // "https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json?waters=RUHR"
-    Alamofire.request("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/12a3037f-cbf3-49d3-8da5-77fb38730bba/W/measurements.json", method: .get).responseJSON
-        { response in
-            guard response.result.isSuccess,
-                let value = response.result.value else{
-                    print("Error")
+class WsvService : ObservableObject{
+    @Published var waters = [Water]()
+    
+    func parseJSON(_ waters: Data) -> [Water]? {
+        let decoder = JSONDecoder()
+        do{
+            let decodedData = try decoder.decode([Water].self, from: waters)
+            return decodedData
+        }catch{
+            print(error)
+            return nil
+        }
+    }
+    
+    func loadWsv(){
+        // Create a url
+        if let url =  URL(string: Links().waters){
+            
+            // Create a URLSession
+            let urlSession = URLSession(configuration: .default)
+            
+            // Give the session a task
+            let task =  urlSession.dataTask(with: url) { (data, response, error) in
+                if error != nil{
+                    print("Shit happens")
                     return
+                }
+                if let safeData = data{
+                    if let waters =  self.parseJSON(safeData){
+                        DispatchQueue.main.async {
+                            self.waters = waters
+                        }
+                    }
+                }
             }
-            debugPrint(value)
+            // Start the task
+            task.resume()
+        }
     }
 }
