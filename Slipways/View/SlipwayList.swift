@@ -15,7 +15,7 @@ struct SlipwayList: View {
         NavigationView{
             VStack{
                 NavigationLink(destination: WaterListView()) {
-                    Text("Waters")
+                    Text("Gewässer")
                 }
                 
                 List{
