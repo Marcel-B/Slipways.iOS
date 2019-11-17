@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SlipwayList: View {
     @EnvironmentObject private var userData: UserData
+    @State var showFavoritesOnly = true
     
     var body: some View {
         NavigationView{
@@ -19,13 +20,17 @@ struct SlipwayList: View {
                 }
                 
                 List{
-                    ForEach(userData.slipways) { slipway in
-                        NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
-                            SlipwayRow(slipway: slipway)
+                    Toggle(isOn: $showFavoritesOnly){
+                        Text("Favoriten anzeigen")
+                    }
+                    ForEach(userData.slipways){ slipway in
+                        if !self.showFavoritesOnly || slipway.isFavorite{
+                            NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
+                                SlipwayRow(slipway: slipway)
+                            }
                         }
                     }
-                }
-                .navigationBarTitle("Slipanlagen")
+                }.navigationBarTitle("Slipanlagen")
             }
         }
     }
