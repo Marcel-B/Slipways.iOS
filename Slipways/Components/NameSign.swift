@@ -33,10 +33,8 @@ struct NameSign: View {
                         realm.add(slip!)
                     }
                 }
+                
                 slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
-
-                
-                
                 self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
           
                 try! realm.write {

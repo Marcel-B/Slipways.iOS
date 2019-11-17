@@ -13,14 +13,20 @@ struct SlipwayList: View {
     
     var body: some View {
         NavigationView{
-            List{
-                ForEach(userData.slipways) { slipway in
-                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
-                        SlipwayRow(slipway: slipway)
+            VStack{
+                NavigationLink(destination: WaterListView()) {
+                    Text("Waters")
+                }
+                
+                List{
+                    ForEach(userData.slipways) { slipway in
+                        NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
+                            SlipwayRow(slipway: slipway)
+                        }
                     }
                 }
+                .navigationBarTitle("Slipanlagen")
             }
-            .navigationBarTitle("Slipanlagen")
         }
     }
 }
