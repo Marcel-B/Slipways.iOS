@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
+        
         NavigationView{
             VStack{
                 Spacer()
@@ -17,17 +18,12 @@ struct WelcomeView: View {
                     NavigationLink(destination: StationListView()) {
                         Text("Stationen")
                     }
-                    
                     NavigationLink(destination: WaterListView()){
                         Text("Gewässer")
                     }
-                    
                 }.padding()
-                
                 HStack{
-                    NavigationLink(destination: SlipwayList().environmentObject(UserData())
-                    
-                    ){
+                    NavigationLink(destination: SlipwayList().environmentObject(UserData())){
                         Text("Slipanlagen")
                     }
                 }.padding()

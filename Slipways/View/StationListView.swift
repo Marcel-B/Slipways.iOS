@@ -13,7 +13,9 @@ struct StationListView: View {
     
     var body: some View {
         List(stationService.stations){ station in
-            Text(station.longname)
+            NavigationLink(destination: StationDetailsView(station: station)){
+                Text(station.longname)
+            }
         }.navigationBarTitle("Stationen").onAppear(){
             self.stationService.loadStations()
         }

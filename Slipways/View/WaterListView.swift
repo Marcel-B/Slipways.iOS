@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct WaterListView: View {
-    
     @ObservedObject var wsvService = WsvService()
     
     var body: some View {
