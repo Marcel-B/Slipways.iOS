@@ -14,6 +14,10 @@ struct SlipwayRow: View {
         HStack{
             Text(slipway.name)
             Spacer()
+            if(slipway.costs > 0){
+                Image(systemName: "dollarsign.circle")
+                    .imageScale(.medium)
+            }
             if(slipway.isFavorite){
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
