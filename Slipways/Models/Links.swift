@@ -10,4 +10,5 @@ import Foundation
 
 struct Links{
     let waters = "https://www.pegelonline.wsv.de/webservices/rest-api/v2/waters.json"
+    let stations = "https://slipways.de/api/station"
 }
