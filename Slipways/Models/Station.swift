@@ -18,4 +18,6 @@ struct Station : Codable, Identifiable{
     let longitude: Double
     let latitude: Double
     let waterFk: String
+    
+    let water: Water
 }
