@@ -18,7 +18,6 @@
 		1F729E42238193420068954C /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E41238193420068954C /* Water.swift */; };
 		1F729E44238193890068954C /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E43238193890068954C /* Links.swift */; };
 		1F729E46238196950068954C /* WaterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E45238196950068954C /* WaterListView.swift */; };
-		1F82304D236ACA4400E6513F /* WsvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304C236ACA4400E6513F /* WsvService.swift */; };
 		1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* DataLoader.swift */; };
 		1F823051236ACC8100E6513F /* Slipway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Slipway.swift */; };
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
@@ -30,6 +29,7 @@
 		1FAFA9DF23830C8700CB85F7 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DE23830C8700CB85F7 /* Station.swift */; };
 		1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E023830FB600CB85F7 /* StationListView.swift */; };
 		1FAFA9E3238311AB00CB85F7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */; };
+		1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */; };
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
 		1FF4D05F2371E6C900B7D1D1 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05E2371E6C900B7D1D1 /* UserData.swift */; };
@@ -74,7 +74,6 @@
 		1F729E43238193890068954C /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F729E45238196950068954C /* WaterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterListView.swift; sourceTree = "<group>"; };
 		1F82304A236AC96C00E6513F /* slipways.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = slipways.json; sourceTree = "<group>"; };
-		1F82304C236ACA4400E6513F /* WsvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsvService.swift; sourceTree = "<group>"; };
 		1F82304E236ACC0A00E6513F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		1F823050236ACC8100E6513F /* Slipway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slipway.swift; sourceTree = "<group>"; };
 		1F823052236ACCA900E6513F /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		1FAFA9DE23830C8700CB85F7 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		1FAFA9E023830FB600CB85F7 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
 		1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsView.swift; sourceTree = "<group>"; };
 		1FB7B4AF237F591A0065302D /* Slipways.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slipways.entitlements; sourceTree = "<group>"; };
 		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
 		1FF4D05E2371E6C900B7D1D1 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -201,7 +201,6 @@
 		1F823048236AC92F00E6513F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F82304C236ACA4400E6513F /* WsvService.swift */,
 				1F82304E236ACC0A00E6513F /* DataLoader.swift */,
 				1FAFA9DC23830C0800CB85F7 /* SlipwayService.swift */,
 			);
@@ -233,8 +232,9 @@
 				1F0D5B38236AC54E00EA9476 /* SlipwayList.swift */,
 				1F823054236ACF5200E6513F /* SlipwayDetails.swift */,
 				1F729E45238196950068954C /* WaterListView.swift */,
-				1FAFA9E023830FB600CB85F7 /* StationListView.swift */,
 				1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */,
+				1FAFA9E023830FB600CB85F7 /* StationListView.swift */,
+				1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,7 +381,6 @@
 				1FF4D05F2371E6C900B7D1D1 /* UserData.swift in Sources */,
 				1FAFA9DD23830C0800CB85F7 /* SlipwayService.swift in Sources */,
 				1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */,
-				1F82304D236ACA4400E6513F /* WsvService.swift in Sources */,
 				1F823053236ACCA900E6513F /* Coordinates.swift in Sources */,
 				1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */,
 				1F82305A236AD54600E6513F /* NameSign.swift in Sources */,
@@ -396,6 +395,7 @@
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
 				1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */,
 				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
+				1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F729E42238193420068954C /* Water.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
@@ -565,7 +565,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
@@ -590,7 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;

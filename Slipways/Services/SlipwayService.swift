@@ -8,13 +8,13 @@
 
 import Foundation
 
-class SlipwayService : ObservableObject{
-    @Published var stations = [Station]()
+class SlipwayService<T: Decodable> : ObservableObject{
+    @Published var data = [T]()
     
-    func parseJSON(_ stations: Data) -> [Station]? {
+    func parse(data: Data) -> [T]? {
         let decoder = JSONDecoder()
         do{
-            let decodedData = try decoder.decode([Station].self, from: stations)
+            let decodedData = try decoder.decode([T].self, from: data)
             return decodedData
         }catch{
             print(error)
@@ -22,28 +22,21 @@ class SlipwayService : ObservableObject{
         }
     }
     
-    func loadStations(){
-        // Create a url
-        if let url =  URL(string: Links().stations){
-            
-            // Create a URLSession
+    func fetchData(link: String) {
+        if let url = URL(string: link){
             let urlSession = URLSession(configuration: .default)
-            
-            // Give the session a task
-            let task =  urlSession.dataTask(with: url) { (data, response, error) in
+            let task = urlSession.dataTask(with: url) { (data, response, error) in
                 if error != nil{
-                    print("Shit happens")
                     return
                 }
                 if let safeData = data{
-                    if let stations =  self.parseJSON(safeData){
+                    if let types = self.parse(data: safeData){
                         DispatchQueue.main.async {
-                            self.stations = stations
+                            self.data = types
                         }
                     }
                 }
             }
-            // Start the task
             task.resume()
         }
     }
