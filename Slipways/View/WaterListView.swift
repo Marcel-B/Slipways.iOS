@@ -13,13 +13,11 @@ struct WaterListView: View {
     @ObservedObject var wsvService = WsvService()
     
     var body: some View {
-        NavigationView{
-            List(wsvService.waters){ water in
-                Text(water.longname)
-            }.onAppear{
-                self.wsvService.loadWsv()
-            }
-        }.navigationBarTitle("Gewässer")
+        List(wsvService.waters){ water in
+            Text(water.longname)
+        }.navigationBarTitle("Gewässer").onAppear{
+            self.wsvService.loadWsv()
+        }
     }
 }
 

@@ -13,26 +13,18 @@ struct SlipwayList: View {
     @State var showFavoritesOnly = true
     
     var body: some View {
-        NavigationView{
-            VStack{
-                NavigationLink(destination: WaterListView()) {
-                    Text("Gewässer")
-                }
-                
-                List{
-                    Toggle(isOn: $showFavoritesOnly){
-                        Text("Favoriten anzeigen")
-                    }
-                    ForEach(userData.slipways){ slipway in
-                        if !self.showFavoritesOnly || slipway.isFavorite{
-                            NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
-                                SlipwayRow(slipway: slipway)
-                            }
-                        }
-                    }
-                }.navigationBarTitle("Slipanlagen")
+        List{
+            Toggle(isOn: $showFavoritesOnly){
+                Text("Favoriten anzeigen")
             }
-        }
+            ForEach(userData.slipways){ slipway in
+                if !self.showFavoritesOnly || slipway.isFavorite{
+                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
+                        SlipwayRow(slipway: slipway)
+                    }
+                }
+            }
+        }.navigationBarTitle("Slipanlagen")
     }
 }
 
