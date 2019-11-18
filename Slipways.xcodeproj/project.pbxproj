@@ -18,7 +18,6 @@
 		1F729E42238193420068954C /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E41238193420068954C /* Water.swift */; };
 		1F729E44238193890068954C /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E43238193890068954C /* Links.swift */; };
 		1F729E46238196950068954C /* WaterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E45238196950068954C /* WaterListView.swift */; };
-		1F82304D236ACA4400E6513F /* WsvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304C236ACA4400E6513F /* WsvService.swift */; };
 		1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* DataLoader.swift */; };
 		1F823051236ACC8100E6513F /* Slipway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Slipway.swift */; };
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
@@ -75,7 +74,6 @@
 		1F729E43238193890068954C /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F729E45238196950068954C /* WaterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterListView.swift; sourceTree = "<group>"; };
 		1F82304A236AC96C00E6513F /* slipways.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = slipways.json; sourceTree = "<group>"; };
-		1F82304C236ACA4400E6513F /* WsvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsvService.swift; sourceTree = "<group>"; };
 		1F82304E236ACC0A00E6513F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		1F823050236ACC8100E6513F /* Slipway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slipway.swift; sourceTree = "<group>"; };
 		1F823052236ACCA900E6513F /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		1F823048236AC92F00E6513F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F82304C236ACA4400E6513F /* WsvService.swift */,
 				1F82304E236ACC0A00E6513F /* DataLoader.swift */,
 				1FAFA9DC23830C0800CB85F7 /* SlipwayService.swift */,
 			);
@@ -384,7 +381,6 @@
 				1FF4D05F2371E6C900B7D1D1 /* UserData.swift in Sources */,
 				1FAFA9DD23830C0800CB85F7 /* SlipwayService.swift in Sources */,
 				1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */,
-				1F82304D236ACA4400E6513F /* WsvService.swift in Sources */,
 				1F823053236ACCA900E6513F /* Coordinates.swift in Sources */,
 				1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */,
 				1F82305A236AD54600E6513F /* NameSign.swift in Sources */,
@@ -569,7 +565,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
@@ -594,7 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;

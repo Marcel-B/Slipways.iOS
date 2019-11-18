@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct StationListView: View {
-    @ObservedObject var stationService = SlipwayService()
+    @ObservedObject var stationService = SlipwayService<Station>()
     
     var body: some View {
-        List(stationService.stations){ station in
+        List(stationService.data){ station in
             NavigationLink(destination: StationDetailsView(station: station)){
                 Text(station.longname)
             }
         }.navigationBarTitle("Stationen").onAppear(){
-            self.stationService.loadStations()
+            self.stationService.fetchData(link: Links().stations)
         }
     }
 }
