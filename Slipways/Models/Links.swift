@@ -11,4 +11,7 @@ import Foundation
 struct Links{
     let waters = "https://www.pegelonline.wsv.de/webservices/rest-api/v2/waters.json"
     let stations = "https://slipways.de/api/station"
+    func pegel(station: String) -> String{
+        "https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/\(station)/W.json?includeCurrentMeasurement=true"
+    }
 }
