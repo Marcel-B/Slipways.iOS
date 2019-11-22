@@ -10,32 +10,27 @@ import SwiftUI
 
 struct StationListView: View {
     @ObservedObject var dataStore = DataStore()
-    @State var input: String
+    @State var search: String
     
     var body: some View {
         
         return VStack{
             HStack{
-                TextField("Suche", text: $input)
+                TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")
             }.padding()
             
-            //            List(dataStore.stations){ station in
-            List(dataStore.getStations()){ station in
-                
+            List(dataStore.getStations(filter: self.search)){ station in
                 NavigationLink(destination: StationDetailsView(station: station)){
                     Text(station.longname)
                 }
-            }.navigationBarTitle("Stationen")
-            //                .onAppear(){
-            //                self.dataStore.getStations()
-            //            }
-        }
+            }
+        }.navigationBarTitle("Stationen")
     }
 }
 
 struct StationListView_Previews: PreviewProvider {
     static var previews: some View {
-        StationListView(input: "")
+        StationListView(search: "")
     }
 }

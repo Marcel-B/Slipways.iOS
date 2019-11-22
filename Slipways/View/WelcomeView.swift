@@ -21,7 +21,7 @@ struct WelcomeView: View {
                     }
                 }.padding()
                 
-                NavigationLink(destination: StationListView(input: "")) {
+                NavigationLink(destination: StationListView(search: "")) {
                     Text("Stationen")
                         .font(.system(size: 42))
                     
