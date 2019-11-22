@@ -14,19 +14,24 @@ struct WelcomeView: View {
         NavigationView{
             VStack{
                 Spacer()
-                HStack{
-                    NavigationLink(destination: StationListView()) {
-                        Text("Stationen")
-                    }
-                    NavigationLink(destination: WaterListView()){
-                        Text("Gewässer")
-                    }
-                }.padding()
-                HStack{
-                    NavigationLink(destination: SlipwayList().environmentObject(UserData())){
+                NavigationLink(destination: SlipwayList().environmentObject(UserData())){
+                    HStack{
                         Text("Slipanlagen")
+                            .font(.system(size: 42))
                     }
                 }.padding()
+                
+                NavigationLink(destination: StationListView(search: "")) {
+                    Text("Stationen")
+                        .font(.system(size: 42))
+                    
+                }.padding()
+                
+                NavigationLink(destination: WaterListView()){
+                    Text("Gewässer")
+                        .font(.system(size: 42))
+                }.padding()
+                
                 Spacer()
             }
         }

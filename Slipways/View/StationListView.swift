@@ -9,21 +9,28 @@
 import SwiftUI
 
 struct StationListView: View {
-    @ObservedObject var stationService = SlipwayService<Station>()
+    @ObservedObject var dataStore = DataStore()
+    @State var search: String
     
     var body: some View {
-        List(stationService.data){ station in
-            NavigationLink(destination: StationDetailsView(station: station)){
-                Text(station.longname)
+        
+        return VStack{
+            HStack{
+                TextField("Suche", text: $search)
+                Image(systemName: "magnifyingglass")
+            }.padding()
+            
+            List(dataStore.getStations(filter: self.search)){ station in
+                NavigationLink(destination: StationDetailsView(station: station)){
+                    Text(station.longname)
+                }
             }
-        }.navigationBarTitle("Stationen").onAppear(){
-            self.stationService.fetchData(link: Links().stations)
-        }
+        }.navigationBarTitle("Stationen")
     }
 }
 
 struct StationListView_Previews: PreviewProvider {
     static var previews: some View {
-        StationListView()
+        StationListView(search: "")
     }
 }

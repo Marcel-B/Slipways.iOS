@@ -9,14 +9,12 @@
 import SwiftUI
 
 struct WaterListView: View {
-    @ObservedObject var slipwayService = SlipwayService<Water>()
+    @ObservedObject var dataStore = DataStore()
     
     var body: some View {
-        List(slipwayService.data){ water in
+        List(dataStore.getWaters()){ water in
             Text(water.longname)
-        }.navigationBarTitle("Gewässer").onAppear{
-            self.slipwayService.fetchData(link: Links().waters)
-        }
+        }.navigationBarTitle("Gewässer")
     }
 }
 

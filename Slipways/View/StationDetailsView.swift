@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation
 
 struct StationDetailsView: View {
-    @ObservedObject var slipwayService = SlipwayService<CurrentMeasurementResponse>()
+    @ObservedObject var dataStore = DataStore()
     let station: Station
     
     var body: some View {
@@ -47,11 +47,12 @@ struct StationDetailsView: View {
             HStack{
                 Text("Pegel").font(.footnote)
                 Spacer()
-                Text("\(slipwayService.single?.pegel ?? "")")
+//                Text("\(slipwayService.single?.pegel ?? "")")
             }.padding()
             Spacer()
-        }.onAppear{self.slipwayService.fetchSingleData(link: Links().pegel(station: self.station.id))
         }
+//        .onAppear{self.slipwayService.fetchSingleData(link: Links().pegel(station: self.station.id))
+//        }
     }
 }
 
