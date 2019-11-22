@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F04943423867B4F005B8D16 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04943323867B4E005B8D16 /* DataStore.swift */; };
 		1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */; };
 		1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B36236AC54E00EA9476 /* SceneDelegate.swift */; };
 		1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B38236AC54E00EA9476 /* SlipwayList.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F04943323867B4E005B8D16 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		1F0D5B31236AC54E00EA9476 /* Slipways.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slipways.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F0D5B36236AC54E00EA9476 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				1F82304E236ACC0A00E6513F /* DataLoader.swift */,
 				1FAFA9DC23830C0800CB85F7 /* SlipwayService.swift */,
+				1F04943323867B4E005B8D16 /* DataStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */,
 				1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
+				1F04943423867B4F005B8D16 /* DataStore.swift in Sources */,
 				1F729E42238193420068954C /* Water.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);
