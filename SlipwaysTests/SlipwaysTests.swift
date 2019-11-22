@@ -22,7 +22,7 @@ class SlipwaysTests: XCTestCase {
     func testGetStationsReturnsInstanceWithZeroValues() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        var dataStore = DataStore()
+        let dataStore = DataStore()
         let stations = dataStore.getStations()
         
         XCTAssert(stations.count > 0, "Stations have more than one element")

@@ -29,6 +29,18 @@ class DataStore: ObservableObject{
         return stations
     }
     
+    func getStations(filter: String) -> [Station] {
+        if(stations.count == 0){
+            let service = SlipwayService<Station>()
+            service.fetchData(link: Links().stations) { (stations) in
+                self.stations = stations
+            }
+        }
+        return stations.filter { (station) -> Bool in
+            station.longname.lowercased().starts(with: filter.lowercased())
+        }
+    }
+    
     func getWaters() -> [Water] {
         if(waters.count == 0){
             let service = SlipwayService<Water>()
@@ -39,7 +51,7 @@ class DataStore: ObservableObject{
         return waters
     }
     
-    func getWaters() -> [Slipway] {
+    func getSlipways() -> [Slipway] {
         if(waters.count == 0){
             let service = SlipwayService<Slipway>()
             service.fetchData(link: Links().slipways) { (slipways) in
