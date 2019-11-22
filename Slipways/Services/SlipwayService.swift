@@ -8,16 +8,10 @@
 
 import Foundation
 
-class PegelService : ObservableObject{
+class SlipwayService<T: Codable>{
     
-}
-
-
-
-class SlipwayService<T: Codable> : ObservableObject{
-    
-    @Published var data = [T]()
-    @Published var single: T?
+    var data = [T]()
+    var single: T?
     
     func parse(data: Data) -> [T]? {
         let decoder = JSONDecoder()
@@ -61,17 +55,23 @@ class SlipwayService<T: Codable> : ObservableObject{
         }
     }
     
-    func fetchData(link: String) {
+    func fetchData(link: String, completion: @escaping  (_ result: [T]) -> Void) {
+        print("Load data \(link)")
         if let url = URL(string: link){
+            
             let urlSession = URLSession(configuration: .default)
+            
             let task = urlSession.dataTask(with: url) { (data, response, error) in
                 if error != nil{
+                    completion([T]())
                     return
                 }
-                if let safeData = data{
+                
+                if let safeData = data {
                     if let types = self.parse(data: safeData){
                         DispatchQueue.main.async {
                             self.data = types
+                            completion(types)
                         }
                     }
                 }
