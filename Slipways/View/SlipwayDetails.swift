@@ -28,8 +28,8 @@ struct SlipwayDetails: View {
 
 struct SlipwayDetails_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = UserData()
-        return SlipwayDetails(slipway: userData.slipways[0])
+//        let userData = UserData()
+        return SlipwayDetails(slipway: Slipway(id: "ww", name: "ww", waterFk: "ww", rating: 1, comment: "ee", postalcode: "ww", city: "ww", costs: 2.2, pro: "ff", contra: "fd", latitude: 2.2, longitude: 3.3))
         .environmentObject(UserData())
     }
 }

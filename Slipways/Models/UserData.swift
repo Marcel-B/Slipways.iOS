@@ -10,5 +10,5 @@ import SwiftUI
 import Combine
 
 final class UserData: ObservableObject{
-    @Published var slipways = slipwaysData
+//    @Published var slipways = slipwaysData
 }

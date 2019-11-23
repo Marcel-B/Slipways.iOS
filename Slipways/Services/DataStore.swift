@@ -75,8 +75,20 @@ class DataStore: ObservableObject{
         return waters
     }
     
+    func getSlipways(completion: @escaping  (_ result: [Slipway]) -> Void) {
+        if(slipways.count == 0){
+            let service = SlipwayService<Slipway>()
+            service.fetchData(link: Links().slipways) { (slipways) in
+                self.slipways = slipways
+                completion(slipways)
+            }
+        }else{
+            completion(slipways)
+        }
+    }
+    
     func getSlipways() -> [Slipway] {
-        if(waters.count == 0){
+        if(slipways.count == 0){
             let service = SlipwayService<Slipway>()
             service.fetchData(link: Links().slipways) { (slipways) in
                 self.slipways = slipways

@@ -10,23 +10,21 @@ import SwiftUI
 import CoreLocation
 
 struct Slipway: Identifiable, Codable, Hashable {
-    var id: Int
+    var id: String
     var name: String
-    var street: String
-    var water: String
+    var waterFk: String
     var rating: Int
-    var comment: String
-    var postalcode: String
+    var comment: String?
+    var postalcode: String?
     var city: String
     var costs: Decimal
-    var pro: String
-    var contra: String
-    var isFavorite: Bool
-    
-    fileprivate var coordinates: Coordinates
+    var pro: String?
+    var contra: String?
+    var latitude: Double
+    var longitude: Double
     
     var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D (
-            latitude: coordinates.latitude, longitude: coordinates.longitude)
+            latitude: latitude, longitude: longitude)
     }
 }

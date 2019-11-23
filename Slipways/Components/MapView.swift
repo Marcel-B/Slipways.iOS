@@ -26,6 +26,6 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinate: slipwaysData[0].locationCoordinate)
+        MapView(coordinate: CLLocationCoordinate2D(latitude: 2.2, longitude: 2.2))
     }
 }
