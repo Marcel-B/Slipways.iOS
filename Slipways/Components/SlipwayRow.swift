@@ -18,7 +18,7 @@ struct SlipwayRow: View {
                 Image(systemName: "dollarsign.circle")
                     .imageScale(.medium)
             }
-            if(slipway.isFavorite){
+            if(slipway.isFavorite ?? false){
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)

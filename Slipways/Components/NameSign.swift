@@ -28,25 +28,25 @@ struct NameSign: View {
                 
                 if(slip == nil){
                     slip = SlipwayDb()
-                    slip?.id = self.slipway.id
+                    slip?.id = 1 // self.slipway.id
                     try! realm.write {
                         realm.add(slip!)
                     }
                 }
                 
                 slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
-                self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
+//                self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
           
-                try! realm.write {
-                    slip!.isFavorite = self.userData.slipways[self.slipwayIndex].isFavorite
-                }
+//                try! realm.write {
+//                    slip!.isFavorite = self.userData.slipways[self.slipwayIndex].isFavorite
+//                }
                 
             }){
-                if self.userData.slipways[self.slipwayIndex].isFavorite{
-                    Image(systemName: "star.fill").foregroundColor(Color.yellow)
-                }else{
+//                if self.userData.slipways[self.slipwayIndex].isFavorite{
+//                    Image(systemName: "star.fill").foregroundColor(Color.yellow)
+//                }else{
                     Image(systemName: "star").foregroundColor(Color.gray)
-                }
+//                }
             }
         }
         .padding(10)

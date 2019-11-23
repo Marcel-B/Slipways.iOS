@@ -19,7 +19,7 @@ struct WaterListView: View {
                 Image(systemName: "magnifyingglass")
             }.padding()
             
-            List(dataStore.getWater(filter: self.search)){ water in
+            List(dataStore.getWaters(filter: self.search)){ water in
                 NavigationLink(destination: WaterDetailsView(water: water)) {
                     Text(water.longname)
                 }

@@ -150,8 +150,8 @@
 			children = (
 				1FB7B4AF237F591A0065302D /* Slipways.entitlements */,
 				1F823056236ACFB200E6513F /* Components */,
-				1FB7B4AE237F519E0065302D /* View */,
 				1F823047236AC92600E6513F /* Models */,
+				1FB7B4AE237F519E0065302D /* View */,
 				1F823048236AC92F00E6513F /* Services */,
 				1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */,
 				1F0D5B36236AC54E00EA9476 /* SceneDelegate.swift */,

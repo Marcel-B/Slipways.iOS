@@ -17,19 +17,19 @@ struct SlipwayInfo: View {
                 Text("straße")
                     .font(.footnote)
                 Spacer()
-                Text(slipway.street)
+//                Text(slipway.street)
             }.padding(.horizontal, 20)
             HStack{
                 Text("ort")
                     .font(.footnote)
                 Spacer()
-                Text("\(slipway.postalcode) \(slipway.city)")
+//                Text("\(slipway.postalcode) \(slipway.city)")
             }.padding(.horizontal, 20)
             HStack{
-                     Text("gewässer")
-                         .font(.footnote)
-                     Spacer()
-                     Text(slipway.water)
+                Text("gewässer")
+                    .font(.footnote)
+                Spacer()
+//                Text(slipway.waterFk)
             }.padding(.horizontal, 20)
         }
     }
