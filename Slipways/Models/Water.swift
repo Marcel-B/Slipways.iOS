@@ -9,7 +9,7 @@
 import Foundation
 
 struct Water: Codable, Identifiable{
-    let id = UUID()
+    var id: String
     let shortname: String
     let longname: String
 }

@@ -26,6 +26,7 @@
 		1F823058236ACFD100E6513F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823057236ACFD100E6513F /* MapView.swift */; };
 		1F82305A236AD54600E6513F /* NameSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823059236AD54600E6513F /* NameSign.swift */; };
 		1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82305B236B52DF00E6513F /* SlipwayInfo.swift */; };
+		1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA52212388A6DA0065280B /* WaterDetailsView.swift */; };
 		1FAFA9DD23830C0800CB85F7 /* SlipwayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DC23830C0800CB85F7 /* SlipwayService.swift */; };
 		1FAFA9DF23830C8700CB85F7 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DE23830C8700CB85F7 /* Station.swift */; };
 		1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E023830FB600CB85F7 /* StationListView.swift */; };
@@ -84,6 +85,7 @@
 		1F823057236ACFD100E6513F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1F823059236AD54600E6513F /* NameSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSign.swift; sourceTree = "<group>"; };
 		1F82305B236B52DF00E6513F /* SlipwayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfo.swift; sourceTree = "<group>"; };
+		1FAA52212388A6DA0065280B /* WaterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDetailsView.swift; sourceTree = "<group>"; };
 		1FAFA9DC23830C0800CB85F7 /* SlipwayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayService.swift; sourceTree = "<group>"; };
 		1FAFA9DE23830C8700CB85F7 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		1FAFA9E023830FB600CB85F7 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				1F0D5B38236AC54E00EA9476 /* SlipwayList.swift */,
 				1F823054236ACF5200E6513F /* SlipwayDetails.swift */,
 				1F729E45238196950068954C /* WaterListView.swift */,
+				1FAA52212388A6DA0065280B /* WaterDetailsView.swift */,
 				1FAFA9E023830FB600CB85F7 /* StationListView.swift */,
 				1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */,
 			);
@@ -405,6 +408,7 @@
 				1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F04943423867B4F005B8D16 /* DataStore.swift in Sources */,
+				1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */,
 				1F729E42238193420068954C /* Water.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);

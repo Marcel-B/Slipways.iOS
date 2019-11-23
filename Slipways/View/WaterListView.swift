@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct WaterListView: View {
-    @ObservedObject var dataStore = DataStore()
+    @ObservedObject var dataStore = DataStore.shared
     
     var body: some View {
         List(dataStore.getWaters()){ water in
-            Text(water.longname)
+            NavigationLink(destination: WaterDetailsView(water: water)) {
+                  Text(water.longname)
+            }
         }.navigationBarTitle("Gewässer")
     }
 }
