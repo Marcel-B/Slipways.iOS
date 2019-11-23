@@ -13,6 +13,8 @@ class DataStore: ObservableObject{
     @Published var slipways: [Slipway]
     @Published var waters: [Water]
     
+    static let shared = DataStore()
+    
     init() {
         stations = [Station]()
         slipways = [Slipway]()
@@ -27,6 +29,16 @@ class DataStore: ObservableObject{
             }
         }
         return stations
+    }
+    
+    func getByExpression(exp: (_ isIncluded: Station) throws -> Bool) -> [Station]{
+        let st = getStations()
+        do{
+            return try st.filter(exp)
+        }catch{
+            print(error)
+        }
+        return [Station]()
     }
     
     func getStations(filter: String) -> [Station] {
