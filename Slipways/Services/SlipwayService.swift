@@ -19,7 +19,6 @@ class SlipwayService<T: Codable>{
             let decodedData = try decoder.decode([T].self, from: data)
             return decodedData
         }catch{
-            print("Foobar")
             print(error)
             return nil
         }
@@ -31,7 +30,6 @@ class SlipwayService<T: Codable>{
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
         }catch{
-            print("Foobar")
             print(error)
             return nil
         }
@@ -56,7 +54,6 @@ class SlipwayService<T: Codable>{
     }
     
     func fetchData(link: String, completion: @escaping  (_ result: [T]) -> Void) {
-        print("Load data \(link)")
         if let url = URL(string: link){
             
             let urlSession = URLSession(configuration: .default)
