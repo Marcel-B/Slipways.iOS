@@ -15,7 +15,7 @@ struct WaterDetailsView: View {
         VStack {
             Text(water.longname)
                 .padding()
-            List(dataStore.getStationsByExpression(exp: { (station) -> Bool in
+            List(dataStore.getByExpression(exp: { (station) -> Bool in
                 self.water.id == station.waterFk
             })) { station in
                 Text(station.longname)

@@ -31,12 +31,7 @@ class DataStore: ObservableObject{
         return stations
     }
     
-    func getWatersByExpression(exp: (_ isIncluded: Water) -> Bool) -> [Water]{
-        getWaters()
-            .filter(exp)
-    }
-    
-    func getStationsByExpression(exp: (_ isIncluded: Station) throws -> Bool) -> [Station]{
+    func getByExpression(exp: (_ isIncluded: Station) throws -> Bool) -> [Station]{
         let st = getStations()
         do{
             return try st.filter(exp)
@@ -44,13 +39,6 @@ class DataStore: ObservableObject{
             print(error)
         }
         return [Station]()
-    }
-    
-    func getWaters(filter: String) -> [Water]{
-        getWaters()
-            .filter{ (water) -> Bool in
-                water.longname.lowercased().starts(with: filter.lowercased())
-        }
     }
     
     func getStations(filter: String) -> [Station] {

@@ -27,7 +27,7 @@ struct WelcomeView: View {
                     
                 }.padding()
                 
-                NavigationLink(destination: WaterListView(search: "")){
+                NavigationLink(destination: WaterListView()){
                     Text("Gewässer")
                         .font(.system(size: 42))
                 }.padding()
