@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
 
 class DataStore: ObservableObject{
     @Published var stations: [Station]
     @Published var slipways: [Slipway]
     @Published var waters: [Water]
+    var userSettings: [SlipwayDb]
     
     static let shared = DataStore()
     
@@ -19,6 +21,7 @@ class DataStore: ObservableObject{
         stations = [Station]()
         slipways = [Slipway]()
         waters = [Water]()
+        userSettings = [SlipwayDb]()
     }
     
     func getStations() -> [Station] {
@@ -35,7 +38,33 @@ class DataStore: ObservableObject{
         if(waters.count == 0){
             let service = SlipwayService<Slipway>()
             service.fetchData(link: Links().slipways) { (slipways) in
-                self.slipways = slipways
+                let config = Realm.Configuration(
+                    // Set the new schema version. This must be greater than the previously used
+                    // version (if you've never set a schema version before, the version is 0).
+                    schemaVersion: 1,
+                    migrationBlock: { migration, oldSchemaVersion in
+                        if oldSchemaVersion < 1 {
+                            // Apply any necessary migration logic here.
+                        }
+                })
+                Realm.Configuration.defaultConfiguration = config
+                let realm = try! Realm()
+                let userSettings = realm.objects(SlipwayDb.self)
+                
+                
+                let newSlipway = slipways.map({ (slipway) -> Slipway in
+                    var tmpSlipway = slipway
+                    let userFav = userSettings.first { (userSlipway) -> Bool in
+                        tmpSlipway.id == userSlipway.id
+                    }
+                    if let favorite = userFav{
+                        tmpSlipway.isFavorite = favorite.isFavorite
+                    }else{
+                        tmpSlipway.isFavorite = false
+                    }
+                    return tmpSlipway
+                })
+                self.slipways = newSlipway
             }
         }
         return slipways
@@ -67,12 +96,12 @@ class DataStore: ObservableObject{
     }
     
     func getStations(filter: String) -> [Station] {
-         getStations()
+        getStations()
             .filter { (station) -> Bool in
-             station.longname.lowercased().starts(with: filter.lowercased())
-         }
-     }
-   
+                station.longname.lowercased().starts(with: filter.lowercased())
+        }
+    }
+    
     func getSlipways(filter: String) -> [Slipway]{
         getSlipways()
             .filter { (slipway) -> Bool in

@@ -24,22 +24,22 @@ struct NameSign: View {
             
             Button(action: {
                 let realm = try! Realm()
-                var slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
+                var slip = realm.objects(SlipwayDb.self).filter("id == '\(self.slipway.id)'").first
                 
                 if(slip == nil){
                     slip = SlipwayDb()
-                    slip?.id = 1 // self.slipway.id
+                    slip?.id = self.slipway.id
                     try! realm.write {
                         realm.add(slip!)
                     }
                 }
                 
-                slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
+                slip = realm.objects(SlipwayDb.self).filter("id == '\(self.slipway.id)'").first
 //                self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
           
-//                try! realm.write {
-//                    slip!.isFavorite = self.userData.slipways[self.slipwayIndex].isFavorite
-//                }
+                try! realm.write {
+                    slip!.isFavorite = true// self.userData.slipways[self.slipwayIndex].isFavorite
+                }
                 
             }){
 //                if self.userData.slipways[self.slipwayIndex].isFavorite{

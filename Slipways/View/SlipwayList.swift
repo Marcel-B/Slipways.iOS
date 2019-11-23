@@ -19,13 +19,17 @@ struct SlipwayList: View {
                 Text("Favoriten anzeigen")
             }
             ForEach(dataStore.getSlipways()){ slipway in
-                if !self.showFavoritesOnly || slipway.isFavorite ?? false{
-                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
+                if !self.showFavoritesOnly || slipway.isFavorite ?? false {
+                    NavigationLink(destination: SlipwayDetails(slipway: slipway)
+                        .environmentObject(self.userData) ){
                         SlipwayRow(slipway: slipway)
                     }
                 }
             }
-        }.navigationBarTitle("Slipanlagen")
+        }.onAppear(perform: {
+            print("List appears")
+        })
+        .navigationBarTitle("Slipanlagen")
     }
 }
 

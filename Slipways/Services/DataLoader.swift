@@ -27,18 +27,18 @@ func load(filename: String) -> [Slipway] {
     do{
         let decoder =  JSONDecoder()
         let values = try decoder.decode([Slipway].self, from: data)
-//        let realm = try! Realm()
-//        let savedData = realm.objects(SlipwayDb.self)
-//
-//        savedData.forEach { userSetting in
-//            let entity = values.first(where: { $0.id == userSetting.id })
-//            if let row = values.firstIndex(where: {$0.id == userSetting.id}) {
-//                if var slipway = entity{
-//                    slipway.isFavorite = userSetting.isFavorite
-//                    values[row] = slipway
-//                }
-//            }
-//        }
+        //        let realm = try! Realm()
+        //        let savedData = realm.objects(SlipwayDb.self)
+        //
+        //        savedData.forEach { userSetting in
+        //            let entity = values.first(where: { $0.id == userSetting.id })
+        //            if let row = values.firstIndex(where: {$0.id == userSetting.id}) {
+        //                if var slipway = entity{
+        //                    slipway.isFavorite = userSetting.isFavorite
+        //                    values[row] = slipway
+        //                }
+        //            }
+        //        }
         return values
         
     } catch{
