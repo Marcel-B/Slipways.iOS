@@ -18,7 +18,7 @@ struct SlipwayList: View {
             Toggle(isOn: $showFavoritesOnly){
                 Text("Favoriten anzeigen")
             }
-            ForEach(userData.slipways){ slipway in
+            ForEach(dataStore.getSlipways()){ slipway in
                 if !self.showFavoritesOnly || slipway.isFavorite ?? false{
                     NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
                         SlipwayRow(slipway: slipway)
