@@ -31,6 +31,18 @@ class DataStore: ObservableObject{
         return stations
     }
     
+    func getWatersByExpression(exp: (_ isIncluded: Water) -> Bool) -> [Water] {
+        getWaters()
+            .filter(exp)
+    }
+    
+    func getWater(filter: String) -> [Water]{
+        getWaters()
+            .filter { (water) -> Bool in
+                water.longname.lowercased().starts(with: filter.lowercased())
+        }
+    }
+    
     func getByExpression(exp: (_ isIncluded: Station) throws -> Bool) -> [Station]{
         let st = getStations()
         do{
@@ -51,6 +63,17 @@ class DataStore: ObservableObject{
         return stations.filter { (station) -> Bool in
             station.longname.lowercased().starts(with: filter.lowercased())
         }
+    }
+    
+    func getWaters(completion: @escaping  (_ result: [Water]) -> Void){
+        if(waters.count == 0){
+            SlipwayService<Water>()
+                .fetchData(link: Links().waters) { (waters) in
+                    self.waters = waters
+                    completion(waters)
+            }
+        }
+        completion(waters)
     }
     
     func getWaters() -> [Water] {
