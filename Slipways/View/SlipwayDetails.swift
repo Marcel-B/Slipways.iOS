@@ -15,7 +15,7 @@ struct SlipwayDetails: View {
         VStack{
             MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 300)
-            NameSign(slipway: slipway, isFav: slipway.isFavorite ?? false)
+            NameSign(dataBase: RealmBase(), slipway: slipway, isFav: slipway.isFavorite ?? false)
                 .padding(.top, -7)
             SlipwayInfo(slipway: slipway)
                 .padding(.top, 23)

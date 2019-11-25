@@ -8,40 +8,46 @@
 import SwiftUI
 import RealmSwift
 
-var slipwaysData: [Slipway] = load(filename: "slipways.json")
 
-func load(filename: String) -> [Slipway] {
-    let data:  Data
+protocol DataBase{
+    func getSlipways() -> [SlipwayDb]
+    func getSlipwayById(id: String) -> SlipwayDb?
+    func updateSlipway(id: String, value: Bool)
+}
+
+class RealmBase: DataBase{
     
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else{
-            fatalError("Couldn't find \(filename) in main bundle.")
+    let realm = try! Realm(configuration: RealmConfig().config)
+    
+    func updateSlipway(id: String, value: Bool) {
+        do{
+            let sli = getSlipwayById(id: id)
+            if let slip = sli{
+                try realm.write {
+                    slip.isFavorite = value
+                }
+            }
+        }catch{
+            print("Error while update element")
+            print(error)
+        }
     }
     
-    do{
-        data = try Data(contentsOf: file)
-    }catch{
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+    func getSlipways() -> [SlipwayDb]{
+        try! Array(Realm().objects(SlipwayDb.self))
     }
     
-    do{
-        let decoder =  JSONDecoder()
-        let values = try decoder.decode([Slipway].self, from: data)
-        //        let realm = try! Realm()
-        //        let savedData = realm.objects(SlipwayDb.self)
-        //
-        //        savedData.forEach { userSetting in
-        //            let entity = values.first(where: { $0.id == userSetting.id })
-        //            if let row = values.firstIndex(where: {$0.id == userSetting.id}) {
-        //                if var slipway = entity{
-        //                    slipway.isFavorite = userSetting.isFavorite
-        //                    values[row] = slipway
-        //                }
-        //            }
-        //        }
-        return values
-        
-    } catch{
-        fatalError("Couldn't parse \(filename) as \([Slipway].self):\n\(error)")
+    func getSlipwayById(id: String) -> SlipwayDb?{
+        var slip = realm.objects(SlipwayDb.self).filter("id == '\(id)'").first
+        // Create slipway if not exists
+        if(slip == nil){
+            slip = SlipwayDb()
+            slip?.id = id
+            try! realm.write {
+                realm.add(slip!)
+            }
+            return getSlipwayById(id: id)
+        }
+        return slip
     }
 }

@@ -17,6 +17,7 @@
 		1F0D5B4C236AC55000EA9476 /* SlipwaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B4B236AC55000EA9476 /* SlipwaysTests.swift */; };
 		1F0D5B57236AC55000EA9476 /* SlipwaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */; };
 		1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369A5238BC1430007EBB0 /* FakeData.swift */; };
+		1F5369AB238BEEEC0007EBB0 /* RealmCongif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AA238BEEEC0007EBB0 /* RealmCongif.swift */; };
 		1F729E42238193420068954C /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E41238193420068954C /* Water.swift */; };
 		1F729E44238193890068954C /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E43238193890068954C /* Links.swift */; };
 		1F729E46238196950068954C /* WaterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E45238196950068954C /* WaterListView.swift */; };
@@ -36,7 +37,6 @@
 		1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E62383D1E600CB85F7 /* CurrentMeasurementResponse.swift */; };
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
-		1FF4D05F2371E6C900B7D1D1 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05E2371E6C900B7D1D1 /* UserData.swift */; };
 		1FF4D0682372B28F00B7D1D1 /* SlipwayDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */; };
 		1FF4D06B2372B5DB00B7D1D1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FF4D06A2372B5DB00B7D1D1 /* Realm */; };
 		1FF4D06D2372B5DB00B7D1D1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FF4D06C2372B5DB00B7D1D1 /* RealmSwift */; };
@@ -76,6 +76,7 @@
 		1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwaysUITests.swift; sourceTree = "<group>"; };
 		1F0D5B58236AC55000EA9476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F5369A5238BC1430007EBB0 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		1F5369AA238BEEEC0007EBB0 /* RealmCongif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCongif.swift; sourceTree = "<group>"; };
 		1F729E41238193420068954C /* Water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		1F729E43238193890068954C /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F729E45238196950068954C /* WaterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterListView.swift; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		1FAFA9E62383D1E600CB85F7 /* CurrentMeasurementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMeasurementResponse.swift; sourceTree = "<group>"; };
 		1FB7B4AF237F591A0065302D /* Slipways.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slipways.entitlements; sourceTree = "<group>"; };
 		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
-		1FF4D05E2371E6C900B7D1D1 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,7 +197,6 @@
 			children = (
 				1F823050236ACC8100E6513F /* Slipway.swift */,
 				1F823052236ACCA900E6513F /* Coordinates.swift */,
-				1FF4D05E2371E6C900B7D1D1 /* UserData.swift */,
 				1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */,
 				1F729E41238193420068954C /* Water.swift */,
 				1F729E43238193890068954C /* Links.swift */,
@@ -214,6 +213,7 @@
 				1F82304E236ACC0A00E6513F /* DataLoader.swift */,
 				1FAFA9DC23830C0800CB85F7 /* HttpService.swift */,
 				1F04943323867B4E005B8D16 /* DataStore.swift */,
+				1F5369AA238BEEEC0007EBB0 /* RealmCongif.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -390,7 +390,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF4D05F2371E6C900B7D1D1 /* UserData.swift in Sources */,
 				1FAFA9DD23830C0800CB85F7 /* HttpService.swift in Sources */,
 				1F82304F236ACC0A00E6513F /* DataLoader.swift in Sources */,
 				1F823053236ACCA900E6513F /* Coordinates.swift in Sources */,
@@ -413,6 +412,7 @@
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F04943423867B4F005B8D16 /* DataStore.swift in Sources */,
 				1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */,
+				1F5369AB238BEEEC0007EBB0 /* RealmCongif.swift in Sources */,
 				1F729E42238193420068954C /* Water.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);

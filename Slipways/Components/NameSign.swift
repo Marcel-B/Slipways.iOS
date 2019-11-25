@@ -10,36 +10,19 @@ import SwiftUI
 import RealmSwift
 
 struct NameSign: View {
+    var dataBase: DataBase
     var slipway: Slipway
     @State var isFav: Bool
     
     var body: some View {
         HStack{
-            
             Text(slipway.name)
                 .font(.subheadline)
             
             Button(action: {
-                let realm = try! Realm()
-                var slip = realm.objects(SlipwayDb.self).filter("id == '\(self.slipway.id)'").first
-                
-                // Create slipway if not exists
-                if(slip == nil){
-                    slip = SlipwayDb()
-                    slip?.id = self.slipway.id
-                    try! realm.write {
-                        realm.add(slip!)
-                    }
-                }
-                
-                slip = realm.objects(SlipwayDb.self).filter("id == '\(self.slipway.id)'").first
-                
-                if let tmp = slip{
-                    try! realm.write{
-                        tmp.isFavorite.toggle()
-                        self.isFav = tmp.isFavorite
-                    }
-                }
+                let fav = !self.isFav
+                self.isFav.toggle()
+                self.dataBase.updateSlipway(id: self.slipway.id, value: fav)
             })
             {
                 if self.isFav{
@@ -49,14 +32,19 @@ struct NameSign: View {
                 }
             }
         }
-            .padding(10)
-            .overlay(Rectangle().stroke(Color.blue, lineWidth: 4))
-            .shadow(radius: 12)
+        .padding(10)
+        .overlay(Rectangle().stroke(Color.blue, lineWidth: 4))
+        .shadow(radius: 12)
+        .onAppear(){
+            if let sl = self.dataBase.getSlipwayById(id: self.slipway.id){
+                self.isFav = sl.isFavorite
+            }
         }
     }
-    
-    struct NameSign_Previews: PreviewProvider {
-        static var previews: some View {
-            return NameSign(slipway: FakeData().slipway, isFav: false)
-        }
+}
+
+struct NameSign_Previews: PreviewProvider {
+    static var previews: some View {
+        return NameSign(dataBase: RealmBase(), slipway: FakeData().slipway, isFav: false)
+    }
 }

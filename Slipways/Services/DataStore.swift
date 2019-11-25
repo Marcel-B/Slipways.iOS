@@ -44,17 +44,8 @@ class DataStore: ObservableObject{
     func getSlipways() -> [Slipway] {
         if(waters.count == 0){
             slipwayService.fetchData(link: Links().slipways) { (slipways) in
-                let config = Realm.Configuration(
-                    // Set the new schema version. This must be greater than the previously used
-                    // version (if you've never set a schema version before, the version is 0).
-                    schemaVersion: 1,
-                    migrationBlock: { migration, oldSchemaVersion in
-                        if oldSchemaVersion < 1 {
-                            // Apply any necessary migration logic here.
-                        }
-                })
-                Realm.Configuration.defaultConfiguration = config
-                let realm = try! Realm()
+        
+                let realm = try! Realm(configuration: RealmConfig().config)
                 let userSettings = realm.objects(SlipwayDb.self)
                  
                 let newSlipway = slipways.map({ (slipway) -> Slipway in
