@@ -10,15 +10,12 @@ import SwiftUI
 import RealmSwift
 
 struct NameSign: View {
-    @EnvironmentObject var userData: UserData
     var slipway: Slipway
-    
-    var slipwayIndex: Int {
-        userData.slipways.firstIndex(where: {$0.id == slipway.id })!
-    }
+    @State var isFav: Bool
     
     var body: some View {
         HStack{
+            
             Text(slipway.name)
                 .font(.subheadline)
             
@@ -26,6 +23,7 @@ struct NameSign: View {
                 let realm = try! Realm()
                 var slip = realm.objects(SlipwayDb.self).filter("id == '\(self.slipway.id)'").first
                 
+                // Create slipway if not exists
                 if(slip == nil){
                     slip = SlipwayDb()
                     slip?.id = self.slipway.id
@@ -35,30 +33,30 @@ struct NameSign: View {
                 }
                 
                 slip = realm.objects(SlipwayDb.self).filter("id == '\(self.slipway.id)'").first
-//                self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
-          
-                try! realm.write {
-                    slip!.isFavorite = true// self.userData.slipways[self.slipwayIndex].isFavorite
-                }
                 
-            }){
-//                if self.userData.slipways[self.slipwayIndex].isFavorite{
-//                    Image(systemName: "star.fill").foregroundColor(Color.yellow)
-//                }else{
+                if let tmp = slip{
+                    try! realm.write{
+                        tmp.isFavorite.toggle()
+                        self.isFav = tmp.isFavorite
+                    }
+                }
+            })
+            {
+                if self.isFav{
+                    Image(systemName: "star.fill").foregroundColor(Color.yellow)
+                }else{
                     Image(systemName: "star").foregroundColor(Color.gray)
-//                }
+                }
             }
         }
-        .padding(10)
-        .overlay(Rectangle().stroke(Color.blue, lineWidth: 4))
-        .shadow(radius: 12)
+            .padding(10)
+            .overlay(Rectangle().stroke(Color.blue, lineWidth: 4))
+            .shadow(radius: 12)
+        }
     }
-}
-
-struct NameSign_Previews: PreviewProvider {
-    static var previews: some View {
-        let userData = UserData()
-        return NameSign(slipway: userData.slipways[0])
-            .environmentObject(userData)
-    }
+    
+    struct NameSign_Previews: PreviewProvider {
+        static var previews: some View {
+            return NameSign(slipway: FakeData().slipway, isFav: false)
+        }
 }

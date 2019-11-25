@@ -8,7 +8,36 @@
 
 import Foundation
 
-class SlipwayService<T: Codable>{
+
+//protocol CommonService{
+//    associatedtype T
+//    func fetchData(link: String, completion: @escaping  (_ result: [T]) -> Void)
+//    func fetchSingleData(link: String, completion: @escaping (_ result: T?) -> Void)
+//    func fetchSingleData(link: String)
+//}
+
+protocol CommonProtcol{
+    func fetchSingleData(link: String)
+}
+protocol StationProtocol : CommonProtcol{
+    func fetchData(link: String, completion: @escaping  (_ result: [Station]) -> Void)
+    func fetchSingleData(link: String, completion: @escaping (_ result: Station?) -> Void)
+}
+protocol WaterProtocol : CommonProtcol{
+    func fetchData(link: String, completion: @escaping  (_ result: [Water]) -> Void)
+    func fetchSingleData(link: String, completion: @escaping (_ result: Water?) -> Void)
+}
+
+protocol SlipwayProtocol: CommonProtcol{
+    func fetchData(link: String, completion: @escaping  (_ result: [Slipway]) -> Void)
+    func fetchSingleData(link: String, completion: @escaping (_ result: Slipway?) -> Void)
+}
+
+class WaterService: HttpService<Water>, WaterProtocol{}
+class StationService: HttpService<Station>, StationProtocol{}
+class SlipwayService: HttpService<Slipway>, SlipwayProtocol{}
+
+class HttpService<T: Codable> {
     
     var data = [T]()
     var single: T?
@@ -53,6 +82,25 @@ class SlipwayService<T: Codable>{
         }
     }
     
+    func fetchSingleData(link: String, completion: @escaping (_ result: T?) -> Void){
+        if let url = URL(string: link){
+            let urlSession = URLSession(configuration: .default)
+            let task = urlSession.dataTask(with: url)  {(data, response, error) in
+                if error != nil {
+                    completion(nil)
+                    return
+                }
+                if let safeData = data{
+                    if let type = self.parseSingle(data: safeData){
+                        DispatchQueue.main.async{
+                            completion(type)
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
     func fetchData(link: String, completion: @escaping  (_ result: [T]) -> Void) {
         if let url = URL(string: link){
             

@@ -15,9 +15,17 @@ class DataStore: ObservableObject{
     @Published var waters: [Water]
     var userSettings: [SlipwayDb]
     
-    static let shared = DataStore()
+    var waterService: WaterProtocol
+    var stationService: StationProtocol
+    var slipwayService: SlipwayProtocol
     
-    init() {
+    static let shared = DataStore(WaterService(), StationService(), SlipwayService())
+    
+    init(_ waterService: WaterProtocol, _ stationService: StationProtocol, _ slipwayService: SlipwayProtocol)  {
+        self.waterService = waterService
+        self.stationService = stationService
+        self.slipwayService = slipwayService
+        
         stations = [Station]()
         slipways = [Slipway]()
         waters = [Water]()
@@ -26,8 +34,7 @@ class DataStore: ObservableObject{
     
     func getStations() -> [Station] {
         if(stations.count == 0){
-            let service = SlipwayService<Station>()
-            service.fetchData(link: Links().stations) { (stations) in
+            stationService.fetchData(link: Links().stations) { (stations) in
                 self.stations = stations
             }
         }
@@ -36,8 +43,7 @@ class DataStore: ObservableObject{
     
     func getSlipways() -> [Slipway] {
         if(waters.count == 0){
-            let service = SlipwayService<Slipway>()
-            service.fetchData(link: Links().slipways) { (slipways) in
+            slipwayService.fetchData(link: Links().slipways) { (slipways) in
                 let config = Realm.Configuration(
                     // Set the new schema version. This must be greater than the previously used
                     // version (if you've never set a schema version before, the version is 0).
@@ -50,8 +56,7 @@ class DataStore: ObservableObject{
                 Realm.Configuration.defaultConfiguration = config
                 let realm = try! Realm()
                 let userSettings = realm.objects(SlipwayDb.self)
-                
-                
+                 
                 let newSlipway = slipways.map({ (slipway) -> Slipway in
                     var tmpSlipway = slipway
                     let userFav = userSettings.first { (userSlipway) -> Bool in
@@ -72,8 +77,7 @@ class DataStore: ObservableObject{
     
     func getWaters() -> [Water] {
         if(waters.count == 0){
-            let service = SlipwayService<Water>()
-            service.fetchData(link: Links().waters) { (waters) in
+            waterService.fetchData(link: Links().waters) { (waters) in
                 self.waters = waters
             }
         }
@@ -118,7 +122,7 @@ class DataStore: ObservableObject{
     
     func getWaters(completion: @escaping  (_ result: [Water]) -> Void){
         if(waters.count == 0){
-            SlipwayService<Water>()
+            waterService
                 .fetchData(link: Links().waters) { (waters) in
                     self.waters = waters
                     completion(waters)

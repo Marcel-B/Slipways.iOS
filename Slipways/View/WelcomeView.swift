@@ -14,7 +14,7 @@ struct WelcomeView: View {
         NavigationView{
             VStack{
                 Spacer()
-                NavigationLink(destination: SlipwayList().environmentObject(UserData())){
+                NavigationLink(destination: SlipwayList()){
                     HStack{
                         Text("Slipanlagen")
                             .font(.system(size: 42))

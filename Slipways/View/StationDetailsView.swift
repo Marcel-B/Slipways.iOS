@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation
 
 struct StationDetailsView: View {
-    @ObservedObject var dataStore = DataStore()
+    @ObservedObject var dataStore = DataStore.shared
     let station: Station
     
     var body: some View {

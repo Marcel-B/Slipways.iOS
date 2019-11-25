@@ -9,16 +9,14 @@
 import SwiftUI
 
 struct SlipwayDetails: View {
-    @EnvironmentObject var userData: UserData
     var slipway: Slipway
     
     var body: some View {
         VStack{
             MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 300)
-            NameSign(slipway: slipway)
+            NameSign(slipway: slipway, isFav: slipway.isFavorite ?? false)
                 .padding(.top, -7)
-                .environmentObject(userData)
             SlipwayInfo(slipway: slipway)
                 .padding(.top, 23)
             Spacer()
@@ -28,8 +26,6 @@ struct SlipwayDetails: View {
 
 struct SlipwayDetails_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = UserData()
-        return SlipwayDetails(slipway: userData.slipways[0])
-        .environmentObject(UserData())
+        return SlipwayDetails(slipway: FakeData().slipway)
     }
 }

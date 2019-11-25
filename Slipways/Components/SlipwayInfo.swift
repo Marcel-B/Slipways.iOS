@@ -37,7 +37,6 @@ struct SlipwayInfo: View {
 
 struct SlipwayInfo_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = UserData()
-        return SlipwayInfo(slipway: userData.slipways[0])
+        return SlipwayInfo(slipway: FakeData().slipway)
     }
 }
