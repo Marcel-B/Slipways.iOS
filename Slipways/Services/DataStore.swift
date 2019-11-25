@@ -60,7 +60,9 @@ class DataStore: ObservableObject{
                     }
                     return tmpSlipway
                 })
-                self.slipways = newSlipway
+                DispatchQueue.main.async {
+                    self.slipways = newSlipway
+                }
             }
         }
         return slipways
