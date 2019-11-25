@@ -7,7 +7,7 @@
 //
 import SwiftUI
 import RealmSwift
-
+import os.log
 
 protocol DataBase{
     func getSlipways() -> [SlipwayDb]
@@ -30,7 +30,8 @@ class RealmBase: DataBase{
         }catch{
             print("Error while update element")
             print(error)
-        }
+            os_log("Error while update element.", log: OSLog.default, type: .error)
+}
     }
     
     func getSlipways() -> [SlipwayDb]{
