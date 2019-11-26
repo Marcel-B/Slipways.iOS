@@ -16,13 +16,13 @@ struct SlipwayDetails: View {
         VStack{
             MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 300)
-            NameSign(slipway: slipway, isFav: slipway.isFavorite ?? false)
+            NameSign(slipway: slipway)
                 .environmentObject(self.dataStore)
                 .padding(.top, -7)
             SlipwayInfo(slipway: slipway)
                 .padding(.top, 23)
             Spacer()
-        }
+        }.navigationBarTitle(dataStore.getWater(id: slipway.waterFk)?.longname ?? "")
     }
 }
 

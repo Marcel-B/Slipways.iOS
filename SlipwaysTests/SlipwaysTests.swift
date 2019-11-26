@@ -44,7 +44,7 @@ class SlipwaysTests: XCTestCase {
     var dataStore: DataStore?
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        dataStore = DataStore(WaterServiceMock(), StationServiceMock())
+        dataStore = DataStore(WaterServiceMock(), StationServiceMock(), SlipwayService(), AppData())
     }
 
     override func tearDown() {

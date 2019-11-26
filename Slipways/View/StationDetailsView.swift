@@ -10,8 +10,10 @@ import SwiftUI
 import CoreLocation
 
 struct StationDetailsView: View {
-    @ObservedObject var dataStore = DataStore.shared
+    @EnvironmentObject var dataStore: DataStore
+    let service: HttpService<CurrentMeasurementResponse>
     let station: Station
+    var value: String
     
     var body: some View {
         VStack {
@@ -20,44 +22,45 @@ struct StationDetailsView: View {
                 .padding(.top, -40)
             
             HStack{
-                Text("Pegelname")
+                Text("pegelname")
                     .font(.footnote)
                 Spacer()
                 Text(station.longname)
             }.padding()
             
             HStack{
-                Text("Wasserstr- & Schifffahrtsamt").font(.footnote)
+                Text("wasserstr- & schifffahrtsamt").font(.footnote)
                 Spacer()
                 Text(station.agency)
             }.padding()
             
             HStack{
-                Text("Nummer").font(.footnote)
+                Text("nummer").font(.footnote)
                 Spacer()
                 Text(station.number)
             }.padding()
             
             HStack{
-                Text("Gewässer").font(.footnote)
+                Text("gewässer").font(.footnote)
                 Spacer()
                 Text(station.water.longname)
             }.padding()
             
             HStack{
-                Text("Pegel").font(.footnote)
+                Text("pegel").font(.footnote)
                 Spacer()
-//                Text("\(slipwayService.single?.pegel ?? "")")
+                Text(dataStore.pegel ?? "n")
             }.padding()
             Spacer()
         }
-//        .onAppear{self.slipwayService.fetchSingleData(link: Links().pegel(station: self.station.id))
-//        }
+        .onAppear{
+            self.dataStore.getPegel(id: self.station.id)
+        }
     }
 }
 
 struct StationDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        StationDetailsView(station: Station(id: "1", number: "123", shortname: "foo", longname: "foobar", km: 2.22, agency: "hello", longitude: 2.2, latitude: 2.2, waterFk: "0815", water: Water(id: "kk", shortname: "foo", longname: "foobar")))
+        StationDetailsView(service: HttpService<CurrentMeasurementResponse>(), station: FakeData().station, value: "").environmentObject(DataStore.shared)
     }
 }

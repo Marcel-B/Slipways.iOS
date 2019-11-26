@@ -12,7 +12,6 @@ struct NameSign: View {
     @EnvironmentObject var dataStore: DataStore
     var slipway: Slipway
     var db = AppData()
-    @State var isFav: Bool
     
     var slipwayIndex: Int {
         dataStore.slipways.firstIndex(where: { $0.id == slipway.id })!
@@ -49,6 +48,6 @@ struct NameSign: View {
 
 struct NameSign_Previews: PreviewProvider {
     static var previews: some View {
-        return NameSign(slipway: FakeData().slipway, isFav: false).environmentObject(DataStore.shared)
+        return NameSign(slipway: FakeData().slipway).environmentObject(DataStore.shared)
     }
 }

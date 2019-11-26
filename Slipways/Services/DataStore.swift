@@ -14,6 +14,7 @@ final class DataStore: ObservableObject{
     @Published var waters: [Water]
     @Published var userSettings: [SlipwayDb]
     @Published var showFavoritesOnly: Bool = false
+    @Published var pegel: String?
     
     var waterService: WaterProtocol
     var stationService: StationProtocol
@@ -43,6 +44,15 @@ final class DataStore: ObservableObject{
         return stations
     }
     
+    func getPegel(id: String) {
+        let s = HttpService<CurrentMeasurementResponse>()
+        s.fetchSingleData(link: Links().pegel(station: id)) { (respone) in
+            if let safe = respone{
+                self.pegel = safe.pegel
+            }
+        }
+    }
+    
     func getSlipways() -> [Slipway] {
         if(slipways.count == 0){
             slipwayService.fetchData(link: Links().slipways) { (slipways) in
@@ -60,6 +70,15 @@ final class DataStore: ObservableObject{
             }
         }
         return slipways
+    }
+    
+    func getWater(id: String) -> Water?{
+        if(waters.count == 0){
+            waterService.fetchData(link: Links().waters) { (waters) in
+                self.waters = waters
+            }
+        }
+        return self.waters.first(where: { $0.id == id})
     }
     
     func getWaters() -> [Water] {
