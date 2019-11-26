@@ -1,9 +1,9 @@
 [
     {
         "name": "Essen Kettwig",
-        "water": "Ruhr",
+        "waterFk": "Ruhr",
         "rating": 1,
-        "id": 0,
+        "id": "0",
         "street": "Zur Alten Fähre 27",
         "postalcode": "45219",
         "city": "Essen",
@@ -12,16 +12,15 @@
         "comment": "Öffentliche Slipanlage.",
         "costs": 0.0,
         "isFavorite": true,
-        "coordinates":{
-            "longitude": 6.935595,
-            "latitude": 51.359924
-        }
+        "longitude": 6.935595,
+        "latitude": 51.359924
     },
+    
     {
         "name": "Slipanlage Duisburg Ruhrort",
-        "water": "Ruhr",
+        "waterFk": "Ruhr",
         "rating": 1,
-        "id": 1,
+        "id": "1#2",
         "street": "Am Bört",
         "postalcode": "47059",
         "city": "Duisburg",
@@ -30,16 +29,14 @@
         "comment": "Direkt an der Ruhrmündung.",
         "costs": 10.0,
         "isFavorite": false,
-        "coordinates":{
-            "longitude": 6.724266,
-            "latitude": 51.447588
-        }
+        "longitude": 6.724266,
+        "latitude": 51.447588
     },
     {
         "name": "Rote Mühle",
-        "water": "Ruhr",
+        "waterFk": "Ruhr",
         "rating": 1,
-        "id": 2,
+        "id": "2",
         "street": "Rotemühle 1",
         "postalcode": "45259",
         "city": "Essen",
@@ -48,16 +45,15 @@
         "comment": "Öffentliche Slipanlage an einer gemütlichen Gaststätte.",
         "costs": 0.0,
         "isFavorite": false,
-        "coordinates":{
-            "longitude": 7.079467,
-            "latitude": 51.410093
-        }
+        "longitude": 7.079467,
+        "latitude": 51.410093
+        
     },
     {
         "name": "Wolf",
-        "water": "Mosel",
+        "waterFk": "Mosel",
         "rating": 1,
-        "id": 3,
+        "id": "3",
         "street": "Brunnenpl.",
         "postalcode": "56850",
         "city": "Enkirch",
@@ -66,9 +62,7 @@
         "comment": "Direkt am Wohnmobilstellplatz Enkirch",
         "costs": 0.0,
         "isFavorite": false,
-        "coordinates":{
-            "longitude": 7.119978,
-            "latitude": 49.983661
-        }
+        "longitude": 7.119978,
+        "latitude": 49.983661
     }
 ]

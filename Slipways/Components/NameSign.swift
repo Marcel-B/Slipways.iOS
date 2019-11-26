@@ -7,14 +7,15 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct NameSign: View {
-    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var dataStore: DataStore
     var slipway: Slipway
+    var db = AppData()
+    @State var isFav: Bool
     
     var slipwayIndex: Int {
-        userData.slipways.firstIndex(where: {$0.id == slipway.id })!
+        dataStore.slipways.firstIndex(where: { $0.id == slipway.id })!
     }
     
     var body: some View {
@@ -23,26 +24,17 @@ struct NameSign: View {
                 .font(.subheadline)
             
             Button(action: {
-                let realm = try! Realm()
-                var slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
-                
-                if(slip == nil){
-                    slip = SlipwayDb()
-                    slip?.id = self.slipway.id
-                    try! realm.write {
-                        realm.add(slip!)
-                    }
+                let tmpSlipwayDb = self.db.getSlipwayById(id: self.slipway.id)
+                if let safe = tmpSlipwayDb{
+                    self.db.updateSlipway(id: self.slipway.id, value: !safe.isFavorite)
+                    self.dataStore.slipways[self.slipwayIndex].isFavorite = !safe.isFavorite
+                }else{
+                    self.db.updateSlipway(id: self.slipway.id, value: true)
+                    self.dataStore.slipways[self.slipwayIndex].isFavorite = true
                 }
-                
-                slip = realm.objects(SlipwayDb.self).filter("id == \(self.slipway.id)").first
-                self.userData.slipways[self.slipwayIndex].isFavorite.toggle()
-          
-                try! realm.write {
-                    slip!.isFavorite = self.userData.slipways[self.slipwayIndex].isFavorite
-                }
-                
-            }){
-                if self.userData.slipways[self.slipwayIndex].isFavorite{
+            })
+            {
+                if self.dataStore.slipways[self.slipwayIndex].isFavorite ?? false{
                     Image(systemName: "star.fill").foregroundColor(Color.yellow)
                 }else{
                     Image(systemName: "star").foregroundColor(Color.gray)
@@ -57,8 +49,6 @@ struct NameSign: View {
 
 struct NameSign_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = UserData()
-        return NameSign(slipway: userData.slipways[0])
-            .environmentObject(userData)
+        return NameSign(slipway: FakeData().slipway, isFav: false).environmentObject(DataStore.shared)
     }
 }

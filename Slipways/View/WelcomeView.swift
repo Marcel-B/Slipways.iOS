@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject var dataStore: DataStore
     var body: some View {
         
         NavigationView{
             VStack{
                 Spacer()
-                NavigationLink(destination: SlipwayList().environmentObject(UserData())){
+                NavigationLink(destination: SlipwayList().environmentObject(self.dataStore)){
                     HStack{
                         Text("Slipanlagen")
                             .font(.system(size: 42))
@@ -27,7 +28,7 @@ struct WelcomeView: View {
                     
                 }.padding()
                 
-                NavigationLink(destination: WaterListView()){
+                NavigationLink(destination: WaterListView(search: "")){
                     Text("Gewässer")
                         .font(.system(size: 42))
                 }.padding()
@@ -40,6 +41,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView().environmentObject(DataStore.shared)
     }
 }

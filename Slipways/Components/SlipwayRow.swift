@@ -18,7 +18,7 @@ struct SlipwayRow: View {
                 Image(systemName: "dollarsign.circle")
                     .imageScale(.medium)
             }
-            if(slipway.isFavorite){
+            if(slipway.isFavorite ?? false){
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
@@ -29,7 +29,6 @@ struct SlipwayRow: View {
 
 struct SlipwayRow_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = UserData()
-        return SlipwayRow(slipway: userData.slipways[0])
+        return SlipwayRow(slipway: FakeData().slipway)
     }
 }

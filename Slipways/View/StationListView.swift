@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct StationListView: View {
-    @ObservedObject var dataStore = DataStore()
+    @ObservedObject var dataStore = DataStore.shared
     @State var search: String
     
     var body: some View {

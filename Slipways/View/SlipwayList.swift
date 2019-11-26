@@ -9,17 +9,17 @@
 import SwiftUI
 
 struct SlipwayList: View {
-    @EnvironmentObject private var userData: UserData
-    @State var showFavoritesOnly = true
+    @EnvironmentObject var baseDataStore: DataStore
     
     var body: some View {
         List{
-            Toggle(isOn: $showFavoritesOnly){
+            Toggle(isOn: $baseDataStore.showFavoritesOnly){
                 Text("Favoriten anzeigen")
             }
-            ForEach(userData.slipways){ slipway in
-                if !self.showFavoritesOnly || slipway.isFavorite{
-                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.userData) ){
+            
+            ForEach(baseDataStore.getSlipways()){ slipway in
+                if !self.baseDataStore.showFavoritesOnly || slipway.isFavorite ?? false {
+                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.baseDataStore)){
                         SlipwayRow(slipway: slipway)
                     }
                 }
@@ -30,6 +30,6 @@ struct SlipwayList: View {
 
 struct SlipwayList_Previews: PreviewProvider {
     static var previews: some View {
-        SlipwayList()
+        SlipwayList().environmentObject(DataStore.shared)
     }
 }
