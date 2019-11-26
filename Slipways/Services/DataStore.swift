@@ -18,13 +18,15 @@ class DataStore: ObservableObject{
     var waterService: WaterProtocol
     var stationService: StationProtocol
     var slipwayService: SlipwayProtocol
+    var db: DataBase
     
-    static let shared = DataStore(WaterService(), StationService(), SlipwayService())
+    static let shared = DataStore(WaterService(), StationService(), SlipwayService(), RealmBase())
     
-    init(_ waterService: WaterProtocol, _ stationService: StationProtocol, _ slipwayService: SlipwayProtocol)  {
+    init(_ waterService: WaterProtocol, _ stationService: StationProtocol, _ slipwayService: SlipwayProtocol, _ db: DataBase)  {
         self.waterService = waterService
         self.stationService = stationService
         self.slipwayService = slipwayService
+        self.db = db
         
         stations = [Station]()
         slipways = [Slipway]()
@@ -42,26 +44,25 @@ class DataStore: ObservableObject{
     }
     
     func getSlipways() -> [Slipway] {
-        if(waters.count == 0){
+        if(slipways.count == 0){
             slipwayService.fetchData(link: Links().slipways) { (slipways) in
-        
-                let realm = try! Realm(configuration: RealmConfig().config)
-                let userSettings = realm.objects(SlipwayDb.self)
-                 
-                let newSlipway = slipways.map({ (slipway) -> Slipway in
-                    var tmpSlipway = slipway
-                    let userFav = userSettings.first { (userSlipway) -> Bool in
-                        tmpSlipway.id == userSlipway.id
-                    }
-                    if let favorite = userFav{
-                        tmpSlipway.isFavorite = favorite.isFavorite
-                    }else{
-                        tmpSlipway.isFavorite = false
-                    }
-                    return tmpSlipway
-                })
+                
+//                let userSettings = self.db.getSlipways()
+//
+//                let newSlipway = slipways.map({ (slipway) -> Slipway in
+//                    var tmpSlipway = slipway
+//                    let userFav = userSettings.first { (userSlipway) -> Bool in
+//                        tmpSlipway.id == userSlipway.id
+//                    }
+//                    if let favorite = userFav{
+//                        tmpSlipway.isFavorite = favorite.isFavorite
+//                    }else{
+//                        tmpSlipway.isFavorite = false
+//                    }
+//                    return tmpSlipway
+//                })
                 DispatchQueue.main.async {
-                    self.slipways = newSlipway
+                    self.slipways = slipways
                 }
             }
         }

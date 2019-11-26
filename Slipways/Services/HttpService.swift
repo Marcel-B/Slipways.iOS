@@ -7,14 +7,7 @@
 //
 
 import Foundation
-
-
-//protocol CommonService{
-//    associatedtype T
-//    func fetchData(link: String, completion: @escaping  (_ result: [T]) -> Void)
-//    func fetchSingleData(link: String, completion: @escaping (_ result: T?) -> Void)
-//    func fetchSingleData(link: String)
-//}
+import os.log
 
 protocol CommonProtcol{
     func fetchSingleData(link: String)
@@ -48,7 +41,7 @@ class HttpService<T: Codable> {
             let decodedData = try decoder.decode([T].self, from: data)
             return decodedData
         }catch{
-            print(error)
+            os_log("Error while parsing element.", log: OSLog.default, type: .error)
             return nil
         }
     }
@@ -59,7 +52,7 @@ class HttpService<T: Codable> {
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
         }catch{
-            print(error)
+            os_log("Error while parsing single element.", log: OSLog.default, type: .error)
             return nil
         }
     }
@@ -70,6 +63,7 @@ class HttpService<T: Codable> {
             let urlSession = URLSession(configuration: .default)
             let task = urlSession.dataTask(with: url) { (data, response, error) in
                 if error != nil{
+                    os_log("Error while fetching single element.", log: OSLog.default, type: .error)
                     return
                 }
                 if let safeData = data{
@@ -87,6 +81,7 @@ class HttpService<T: Codable> {
             let urlSession = URLSession(configuration: .default)
             let task = urlSession.dataTask(with: url)  {(data, response, error) in
                 if error != nil {
+                    os_log("Error while fetching single element.", log: OSLog.default, type: .error)
                     completion(nil)
                     return
                 }
@@ -108,6 +103,7 @@ class HttpService<T: Codable> {
             
             let task = urlSession.dataTask(with: url) { (data, response, error) in
                 if error != nil{
+                    os_log("Error while fetching elements.", log: OSLog.default, type: .error)
                     completion([T]())
                     return
                 }
