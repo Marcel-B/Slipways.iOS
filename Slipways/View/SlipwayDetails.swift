@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct SlipwayDetails: View {
+    @EnvironmentObject var dataStore: DataStore
     var slipway: Slipway
     
     var body: some View {
         VStack{
             MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 300)
-            NameSign(dataBase: RealmBase(), slipway: slipway, isFav: slipway.isFavorite ?? false)
+            NameSign(slipway: slipway, isFav: slipway.isFavorite ?? false)
+                .environmentObject(self.dataStore)
                 .padding(.top, -7)
             SlipwayInfo(slipway: slipway)
                 .padding(.top, 23)
@@ -26,6 +28,6 @@ struct SlipwayDetails: View {
 
 struct SlipwayDetails_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayDetails(slipway: FakeData().slipway)
+        return SlipwayDetails(slipway: FakeData().slipway).environmentObject(DataStore.shared)
     }
 }

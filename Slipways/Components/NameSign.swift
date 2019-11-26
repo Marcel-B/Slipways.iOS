@@ -7,12 +7,16 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct NameSign: View {
-    var dataBase: DataBase
+    @EnvironmentObject var dataStore: DataStore
     var slipway: Slipway
+    var db = AppData()
     @State var isFav: Bool
+    
+    var slipwayIndex: Int {
+        dataStore.slipways.firstIndex(where: { $0.id == slipway.id })!
+    }
     
     var body: some View {
         HStack{
@@ -20,12 +24,17 @@ struct NameSign: View {
                 .font(.subheadline)
             
             Button(action: {
-                let fav = !self.isFav
-                self.isFav.toggle()
-                self.dataBase.updateSlipway(id: self.slipway.id, value: fav)
+                let tmpSlipwayDb = self.db.getSlipwayById(id: self.slipway.id)
+                if let safe = tmpSlipwayDb{
+                    self.db.updateSlipway(id: self.slipway.id, value: !safe.isFavorite)
+                    self.dataStore.slipways[self.slipwayIndex].isFavorite = !safe.isFavorite
+                }else{
+                    self.db.updateSlipway(id: self.slipway.id, value: true)
+                    self.dataStore.slipways[self.slipwayIndex].isFavorite = true
+                }
             })
             {
-                if self.isFav{
+                if self.dataStore.slipways[self.slipwayIndex].isFavorite ?? false{
                     Image(systemName: "star.fill").foregroundColor(Color.yellow)
                 }else{
                     Image(systemName: "star").foregroundColor(Color.gray)
@@ -35,16 +44,11 @@ struct NameSign: View {
         .padding(10)
         .overlay(Rectangle().stroke(Color.blue, lineWidth: 4))
         .shadow(radius: 12)
-        .onAppear(){
-            if let sl = self.dataBase.getSlipwayById(id: self.slipway.id){
-                self.isFav = sl.isFavorite
-            }
-        }
     }
 }
 
 struct NameSign_Previews: PreviewProvider {
     static var previews: some View {
-        return NameSign(dataBase: RealmBase(), slipway: FakeData().slipway, isFav: false)
+        return NameSign(slipway: FakeData().slipway, isFav: false).environmentObject(DataStore.shared)
     }
 }

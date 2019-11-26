@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,12 +17,12 @@
 		1F0D5B4C236AC55000EA9476 /* SlipwaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B4B236AC55000EA9476 /* SlipwaysTests.swift */; };
 		1F0D5B57236AC55000EA9476 /* SlipwaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */; };
 		1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369A5238BC1430007EBB0 /* FakeData.swift */; };
-		1F5369AB238BEEEC0007EBB0 /* RealmCongif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AA238BEEEC0007EBB0 /* RealmCongif.swift */; };
 		1F5369AD238C8DC10007EBB0 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AC238C8DC10007EBB0 /* DataBase.swift */; };
+		1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AF238D9AE10007EBB0 /* Properties.swift */; };
 		1F729E42238193420068954C /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E41238193420068954C /* Water.swift */; };
 		1F729E44238193890068954C /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E43238193890068954C /* Links.swift */; };
 		1F729E46238196950068954C /* WaterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E45238196950068954C /* WaterListView.swift */; };
-		1F82304F236ACC0A00E6513F /* RealmBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* RealmBase.swift */; };
+		1F82304F236ACC0A00E6513F /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* AppData.swift */; };
 		1F823051236ACC8100E6513F /* Slipway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Slipway.swift */; };
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
 		1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823054236ACF5200E6513F /* SlipwayDetails.swift */; };
@@ -39,8 +39,6 @@
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
 		1FF4D0682372B28F00B7D1D1 /* SlipwayDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */; };
-		1FF4D06B2372B5DB00B7D1D1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FF4D06A2372B5DB00B7D1D1 /* Realm */; };
-		1FF4D06D2372B5DB00B7D1D1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FF4D06C2372B5DB00B7D1D1 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,13 +75,13 @@
 		1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwaysUITests.swift; sourceTree = "<group>"; };
 		1F0D5B58236AC55000EA9476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F5369A5238BC1430007EBB0 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
-		1F5369AA238BEEEC0007EBB0 /* RealmCongif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCongif.swift; sourceTree = "<group>"; };
 		1F5369AC238C8DC10007EBB0 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		1F5369AF238D9AE10007EBB0 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		1F729E41238193420068954C /* Water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		1F729E43238193890068954C /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F729E45238196950068954C /* WaterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterListView.swift; sourceTree = "<group>"; };
 		1F82304A236AC96C00E6513F /* slipways.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = slipways.json; sourceTree = "<group>"; };
-		1F82304E236ACC0A00E6513F /* RealmBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBase.swift; sourceTree = "<group>"; };
+		1F82304E236ACC0A00E6513F /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		1F823050236ACC8100E6513F /* Slipway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slipway.swift; sourceTree = "<group>"; };
 		1F823052236ACCA900E6513F /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		1F823054236ACF5200E6513F /* SlipwayDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDetails.swift; sourceTree = "<group>"; };
@@ -107,8 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF4D06D2372B5DB00B7D1D1 /* RealmSwift in Frameworks */,
-				1FF4D06B2372B5DB00B7D1D1 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +148,7 @@
 		1F0D5B33236AC54E00EA9476 /* Slipways */ = {
 			isa = PBXGroup;
 			children = (
+				1F5369AE238D9AD10007EBB0 /* Infrastructure */,
 				1FB7B4AF237F591A0065302D /* Slipways.entitlements */,
 				1F823056236ACFB200E6513F /* Components */,
 				1F823047236AC92600E6513F /* Models */,
@@ -194,6 +191,14 @@
 			path = SlipwaysUITests;
 			sourceTree = "<group>";
 		};
+		1F5369AE238D9AD10007EBB0 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				1F5369AF238D9AE10007EBB0 /* Properties.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		1F823047236AC92600E6513F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,11 +217,10 @@
 		1F823048236AC92F00E6513F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F82304E236ACC0A00E6513F /* RealmBase.swift */,
+				1F82304E236ACC0A00E6513F /* AppData.swift */,
 				1F5369AC238C8DC10007EBB0 /* DataBase.swift */,
 				1FAFA9DC23830C0800CB85F7 /* HttpService.swift */,
 				1F04943323867B4E005B8D16 /* DataStore.swift */,
-				1F5369AA238BEEEC0007EBB0 /* RealmCongif.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -271,8 +275,6 @@
 			);
 			name = Slipways;
 			packageProductDependencies = (
-				1FF4D06A2372B5DB00B7D1D1 /* Realm */,
-				1FF4D06C2372B5DB00B7D1D1 /* RealmSwift */,
 			);
 			productName = Slipways;
 			productReference = 1F0D5B31236AC54E00EA9476 /* Slipways.app */;
@@ -347,7 +349,6 @@
 			);
 			mainGroup = 1F0D5B28236AC54E00EA9476;
 			packageReferences = (
-				1FF4D0692372B5DB00B7D1D1 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 1F0D5B32236AC54E00EA9476 /* Products */;
 			projectDirPath = "";
@@ -394,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FAFA9DD23830C0800CB85F7 /* HttpService.swift in Sources */,
-				1F82304F236ACC0A00E6513F /* RealmBase.swift in Sources */,
+				1F82304F236ACC0A00E6513F /* AppData.swift in Sources */,
 				1F5369AD238C8DC10007EBB0 /* DataBase.swift in Sources */,
 				1F823053236ACCA900E6513F /* Coordinates.swift in Sources */,
 				1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */,
@@ -411,12 +412,12 @@
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
 				1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */,
 				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
+				1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */,
 				1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */,
 				1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F04943423867B4F005B8D16 /* DataStore.swift in Sources */,
 				1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */,
-				1F5369AB238BEEEC0007EBB0 /* RealmCongif.swift in Sources */,
 				1F729E42238193420068954C /* Water.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);
@@ -585,7 +586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
@@ -610,7 +611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
@@ -753,30 +754,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1FF4D0692372B5DB00B7D1D1 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:realm/realm-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1FF4D06A2372B5DB00B7D1D1 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1FF4D0692372B5DB00B7D1D1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		1FF4D06C2372B5DB00B7D1D1 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1FF4D0692372B5DB00B7D1D1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F0D5B29236AC54E00EA9476 /* Project object */;
 }

@@ -7,20 +7,20 @@
 //
 
 import Foundation
-import RealmSwift
 
-class DataStore: ObservableObject{
+final class DataStore: ObservableObject{
     @Published var stations: [Station]
     @Published var slipways: [Slipway]
     @Published var waters: [Water]
-    var userSettings: [SlipwayDb]
+    @Published var userSettings: [SlipwayDb]
+    @Published var showFavoritesOnly: Bool = false
     
     var waterService: WaterProtocol
     var stationService: StationProtocol
     var slipwayService: SlipwayProtocol
     var db: DataBase
     
-    static let shared = DataStore(WaterService(), StationService(), SlipwayService(), RealmBase())
+    static let shared = DataStore(WaterService(), StationService(), SlipwayService(), AppData())
     
     init(_ waterService: WaterProtocol, _ stationService: StationProtocol, _ slipwayService: SlipwayProtocol, _ db: DataBase)  {
         self.waterService = waterService
@@ -46,23 +46,16 @@ class DataStore: ObservableObject{
     func getSlipways() -> [Slipway] {
         if(slipways.count == 0){
             slipwayService.fetchData(link: Links().slipways) { (slipways) in
-                
-//                let userSettings = self.db.getSlipways()
-//
-//                let newSlipway = slipways.map({ (slipway) -> Slipway in
-//                    var tmpSlipway = slipway
-//                    let userFav = userSettings.first { (userSlipway) -> Bool in
-//                        tmpSlipway.id == userSlipway.id
-//                    }
-//                    if let favorite = userFav{
-//                        tmpSlipway.isFavorite = favorite.isFavorite
-//                    }else{
-//                        tmpSlipway.isFavorite = false
-//                    }
-//                    return tmpSlipway
-//                })
+                let updatedSlipways = slipways.map { (slipway) -> Slipway in
+                    var tmpSlipway = slipway
+                    let userData = self.db.getSlipwayById(id: slipway.id)
+                    if let saveUserData = userData{
+                        tmpSlipway.isFavorite = saveUserData.isFavorite
+                    }
+                    return tmpSlipway
+                }
                 DispatchQueue.main.async {
-                    self.slipways = slipways
+                    self.slipways = updatedSlipways
                 }
             }
         }
