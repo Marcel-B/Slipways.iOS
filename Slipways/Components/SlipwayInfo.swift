@@ -12,26 +12,32 @@ struct SlipwayInfo: View {
     var slipway: Slipway
     
     var body: some View {
-        VStack{
-            HStack{
+        return VStack {
+            HStack {
                 Text("straße")
                     .font(.footnote)
                 Spacer()
-//                Text(slipway.street)
-            }.padding(.horizontal, 20)
-            HStack{
-                Text("ort")
+                Text(slipway.street ?? "-")
+            }
+            HStack {
+                Text("stadt / ort")
                     .font(.footnote)
                 Spacer()
-//                Text("\(slipway.postalcode) \(slipway.city)")
-            }.padding(.horizontal, 20)
-            HStack{
-                Text("gewässer")
+                Text(slipway.city ?? "-")
+            }
+            HStack {
+                Text("postleitzahl")
                     .font(.footnote)
                 Spacer()
-//                Text(slipway.waterFk)
-            }.padding(.horizontal, 20)
-        }
+                Text(slipway.postalcode ?? "-")
+            }
+            HStack {
+                Text("kosten")
+                    .font(.footnote)
+                Spacer()
+                Text("\(NSDecimalNumber(decimal: slipway.costs).stringValue) €")
+            }
+        }.padding(.horizontal, 20)
     }
 }
 

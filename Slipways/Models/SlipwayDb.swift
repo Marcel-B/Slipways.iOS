@@ -6,14 +6,9 @@
 //  Copyright © 2019 Marcel Benders. All rights reserved.
 //
 import Foundation
-//import RealmSwift
+
 struct SlipwayDb : Codable {
     var id = ""
     var isFavorite = false
 }
 
-
-//class SlipwayDb: Object {
-//    @objc dynamic var id = ""
-//    @objc dynamic var isFavorite = false
-//}

@@ -18,7 +18,7 @@ struct WaterDetailsView: View {
             List(dataStore.getStationsByExpression(exp: { (station) -> Bool in
                 self.water.id == station.waterFk
             })) { station in
-                NavigationLink(destination: StationDetailsView(station: station)){
+                NavigationLink(destination: StationDetailsView(service: HttpService<CurrentMeasurementResponse>() ,station: station, value: "")){
                     Text(station.longname)
                 }
             }
@@ -28,6 +28,6 @@ struct WaterDetailsView: View {
 
 struct WaterDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        WaterDetailsView(water: Water(id: "", shortname: "Foo", longname: "Bar"))
+        WaterDetailsView(water: FakeData().water)
     }
 }
