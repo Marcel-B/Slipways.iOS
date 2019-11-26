@@ -21,7 +21,7 @@ struct StationListView: View {
             }.padding()
             
             List(dataStore.getStations(filter: self.search)){ station in
-                NavigationLink(destination: StationDetailsView(station: station)){
+                NavigationLink(destination: StationDetailsView(service: HttpService<CurrentMeasurementResponse>(), station: station, value: "")){
                     Text(station.longname)
                 }
             }
