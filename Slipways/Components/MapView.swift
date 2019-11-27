@@ -12,16 +12,21 @@ import MapKit
 struct MapView: UIViewRepresentable {
     var coordinate: CLLocationCoordinate2D
     
-     func makeUIView(context: Context) -> MKMapView {
-         MKMapView(frame: .zero)
-     }
-     
-     func updateUIView(_ view: MKMapView, context: Context) {
-         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
-         view.mapType = MKMapType.satellite
-         let region = MKCoordinateRegion(center: coordinate, span: span)
-         view.setRegion(region, animated: true)
-     }
+    func makeUIView(context: Context) -> MKMapView {
+        MKMapView(frame: .zero)
+    }
+    
+    func updateUIView(_ view: MKMapView, context: Context) {
+        let annotiation = MKPointAnnotation()
+        annotiation.coordinate = coordinate
+        
+        view.addAnnotation(annotiation)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+        view.mapType = MKMapType.satellite
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        view.setRegion(region, animated: true)
+    }
 }
 
 struct MapView_Previews: PreviewProvider {
