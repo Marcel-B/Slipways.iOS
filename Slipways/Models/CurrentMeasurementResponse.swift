@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct CurrentMeasurement : Codable{
     let timestamp: String
     let value: Double
