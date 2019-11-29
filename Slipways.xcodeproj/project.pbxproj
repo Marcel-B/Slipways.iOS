@@ -47,6 +47,7 @@
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
 		1FF4D0682372B28F00B7D1D1 /* SlipwayDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */; };
 		1FFFAF5223916E350070EF9E /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF5123916E350070EF9E /* StationViewModel.swift */; };
+		1FFFAF54239181AF0070EF9E /* MapWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF53239181AF0070EF9E /* MapWrapperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
 		1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDb.swift; sourceTree = "<group>"; };
 		1FFFAF5123916E350070EF9E /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
+		1FFFAF53239181AF0070EF9E /* MapWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWrapperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				1F823057236ACFD100E6513F /* MapView.swift */,
+				1FFFAF53239181AF0070EF9E /* MapWrapperView.swift */,
 				1F823059236AD54600E6513F /* NameSign.swift */,
 				1F82305B236B52DF00E6513F /* SlipwayInfo.swift */,
 				1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */,
@@ -451,6 +454,7 @@
 				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
 				1F5369B2238FAB4C0007EBB0 /* TokenService.swift in Sources */,
 				1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */,
+				1FFFAF54239181AF0070EF9E /* MapWrapperView.swift in Sources */,
 				1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */,
 				1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,

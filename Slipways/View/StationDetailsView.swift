@@ -18,9 +18,8 @@ struct StationDetailsView: View {
     
     var body: some View {
         VStack {
-            MapView(coordinate: CLLocationCoordinate2D (latitude: station.latitude, longitude: station.longitude))
-                .frame(height: 450)
-                .padding(.top, -40)
+            MapWrapperView(coordinate: CLLocationCoordinate2D (latitude: station.latitude, longitude: station.longitude), targetName: station.longname)
+                .frame(height: 320)
             
             HStack{
                 Text("pegelname")
