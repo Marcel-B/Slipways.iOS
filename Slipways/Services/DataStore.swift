@@ -14,7 +14,8 @@ final class DataStore: ObservableObject{
     @Published var waters: [Water]
     @Published var userSettings: [SlipwayDb]
     @Published var showFavoritesOnly: Bool = false
-    @Published var pegel: String?
+    
+    var token: Token?
     
     var waterService: WaterProtocol
     var stationService: StationProtocol
@@ -34,28 +35,32 @@ final class DataStore: ObservableObject{
         waters = [Water]()
         userSettings = [SlipwayDb]()
     }
+    func fetchToken(result: @escaping (_ token: Token?) -> Void ) {
+        TokenService.getToken { (token) in
+            result(token)
+        }
+    }
     
     func getStations() -> [Station] {
         if(stations.count == 0){
-            stationService.fetchData(link: Links().stations) { (stations) in
-                self.stations = stations
+            if token == nil{
+                fetchToken { (token) in
+                    self.stationService.fetchData(link: Link.stations) { (stations) in
+                        self.stations = stations
+                    }
+                }
+            }else{
+                stationService.fetchData(link: Link.stations) { (stations) in
+                    self.stations = stations
+                }
             }
         }
         return stations
     }
     
-    func getPegel(id: String) {
-        let s = HttpService<CurrentMeasurementResponse>()
-        s.fetchSingleData(link: Links().pegel(station: id)) { (respone) in
-            if let safe = respone{
-                self.pegel = safe.pegel
-            }
-        }
-    }
-    
     func getSlipways() -> [Slipway] {
         if(slipways.count == 0){
-            slipwayService.fetchData(link: Links().slipways) { (slipways) in
+            slipwayService.fetchData(link: Link.slipways) { (slipways) in
                 let updatedSlipways = slipways.map { (slipway) -> Slipway in
                     var tmpSlipway = slipway
                     let userData = self.db.getSlipwayById(id: slipway.id)
@@ -74,7 +79,7 @@ final class DataStore: ObservableObject{
     
     func getWater(id: String) -> Water?{
         if(waters.count == 0){
-            waterService.fetchData(link: Links().waters) { (waters) in
+            waterService.fetchData(link: Link.waters) { (waters) in
                 self.waters = waters
             }
         }
@@ -83,7 +88,7 @@ final class DataStore: ObservableObject{
     
     func getWaters() -> [Water] {
         if(waters.count == 0){
-            waterService.fetchData(link: Links().waters) { (waters) in
+            waterService.fetchData(link: Link.waters) { (waters) in
                 self.waters = waters
             }
         }
@@ -129,7 +134,7 @@ final class DataStore: ObservableObject{
     func getWaters(completion: @escaping  (_ result: [Water]) -> Void){
         if(waters.count == 0){
             waterService
-                .fetchData(link: Links().waters) { (waters) in
+                .fetchData(link: Link.waters) { (waters) in
                     self.waters = waters
                     completion(waters)
             }

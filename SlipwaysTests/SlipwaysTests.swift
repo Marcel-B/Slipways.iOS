@@ -10,12 +10,13 @@ import XCTest
 @testable import Slipways
 
 class StationServiceMock: StationProtocol{
+    
     func fetchData(link: String, completion: @escaping ([Station]) -> Void) {
         let stations = [Station(id: "12345", number: "001", shortname: "Test", longname: "Teststation", km: 22.2, agency: "Riga", longitude: 2.2, latitude: 2.2, waterFk: "abc", water: Water(id: "12345", shortname: "RUHR", longname: "RUHR"))]
         completion(stations)
     }
     
-    func fetchSingleData(link: String, completion: @escaping (Station?) -> Void) {
+    func fetchSecureSingleData(link: String, completion: @escaping (Station?) -> Void) {
         completion(nil)
     }
     
@@ -29,7 +30,7 @@ class WaterServiceMock : WaterProtocol{
         completion([Water]())
     }
     
-    func fetchSingleData(link: String, completion: @escaping (Water?) -> Void) {
+    func fetchSecureSingleData(link: String, completion: @escaping (Water?) -> Void) {
         completion(nil)
     }
     
@@ -39,6 +40,21 @@ class WaterServiceMock : WaterProtocol{
     
 }
 
+class PegelDataMock: PegelData{
+    func getPegel(data: Data, completion: @escaping (CurrentMeasurementResponse?) -> Void) {
+        let response = CurrentMeasurementResponse(shortname: "Long", longname: "Short", unit: "fo", equidistance: 1, currentMeasurement: CurrentMeasurement(timestamp: "11", value: 2.2, trend: 2, stateMnwMhw: "ll", stateNswHsw: "ll"), gaugeZero: GaugeZero(unit: "kk", value: 2.2, validFrom: "kj"))
+        completion(response)
+    }
+}
+
+class PegelServiceMock: PegelServiceProtocol{
+    func getPegel(station: String, completion: @escaping (Data?) -> Void) {
+        
+    }
+    
+    
+}
+    
 class SlipwaysTests: XCTestCase {
 
     var dataStore: DataStore?
@@ -67,6 +83,12 @@ class SlipwaysTests: XCTestCase {
          
          XCTAssert(waters.count == 0)
      }
+    
+    func testGetPegelReturnsInstanceWithZeroValues() {
+            // This is an example of a functional test case.
+            // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

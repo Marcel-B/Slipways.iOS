@@ -14,16 +14,16 @@ protocol CommonProtcol{
 }
 protocol StationProtocol : CommonProtcol{
     func fetchData(link: String, completion: @escaping  (_ result: [Station]) -> Void)
-    func fetchSingleData(link: String, completion: @escaping (_ result: Station?) -> Void)
+    func fetchSecureSingleData(link: String, completion: @escaping (_ result: Station?) -> Void)
 }
 protocol WaterProtocol : CommonProtcol{
     func fetchData(link: String, completion: @escaping  (_ result: [Water]) -> Void)
-    func fetchSingleData(link: String, completion: @escaping (_ result: Water?) -> Void)
+    func fetchSecureSingleData(link: String, completion: @escaping (_ result: Water?) -> Void)
 }
 
 protocol SlipwayProtocol: CommonProtcol{
     func fetchData(link: String, completion: @escaping  (_ result: [Slipway]) -> Void)
-    func fetchSingleData(link: String, completion: @escaping (_ result: Slipway?) -> Void)
+    func fetchSecureSingleData(link: String, completion: @escaping (_ result: Slipway?) -> Void)
 }
 
 class WaterService: HttpService<Water>, WaterProtocol{}
@@ -31,44 +31,24 @@ class StationService: HttpService<Station>, StationProtocol{}
 class SlipwayService: HttpService<Slipway>, SlipwayProtocol{}
 
 class HttpService<T: Codable> {
-    
     var data = [T]()
     var single: T?
-    
-    func parse(data: Data) -> [T]? {
-        let decoder = JSONDecoder()
-        do{
-            let decodedData = try decoder.decode([T].self, from: data)
-            return decodedData
-        }catch{
-            os_log("Error while parsing element.", log: OSLog.default, type: .error)
-            return nil
-        }
-    }
-    
-    func parseSingle(data: Data) -> T? {
-        let decoder = JSONDecoder()
-        do{
-            let decodedData = try decoder.decode(T.self, from: data)
-            return decodedData
-        }catch{
-            os_log("Error while parsing single element.", log: OSLog.default, type: .error)
-            return nil
-        }
-    }
     
     func fetchSingleData(link: String) {
         print(link)
         if let url = URL(string: link){
             let urlSession = URLSession(configuration: .default)
-            let task = urlSession.dataTask(with: url) { (data, response, error) in
+            var request = URLRequest(url: url)
+            request.addValue(DataStore.shared.token!.accessToken, forHTTPHeaderField: "Authorization")
+            request.httpMethod = HttpMethod.get
+            let task = urlSession.dataTask(with: request) { (data, response, error) in
                 if error != nil{
                     os_log("Error while fetching single element.", log: OSLog.default, type: .error)
                     return
                 }
                 if let safeData = data{
                     DispatchQueue.main.async {
-                        self.single = self.parseSingle(data: safeData)
+                        self.single = Serializer.parseSingle(data: safeData)
                     }
                 }
             }
@@ -76,17 +56,20 @@ class HttpService<T: Codable> {
         }
     }
     
-    func fetchSingleData(link: String, completion: @escaping (_ result: T?) -> Void){
+    func fetchSecureSingleData(link: String, completion: @escaping (_ result: T?) -> Void){
         if let url = URL(string: link){
             let urlSession = URLSession(configuration: .default)
-            let task = urlSession.dataTask(with: url)  {(data, response, error) in
+            var request = URLRequest(url: url)
+            request.addValue(DataStore.shared.token!.accessToken, forHTTPHeaderField: "Authorization")
+            request.httpMethod = HttpMethod.get
+            let task = urlSession.dataTask(with: request)  {(data, response, error) in
                 if error != nil {
                     os_log("Error while fetching single element.", log: OSLog.default, type: .error)
                     completion(nil)
                     return
                 }
                 if let safeData = data{
-                    if let type = self.parseSingle(data: safeData){
+                    if let type: T = Serializer.parseSingle(data: safeData) {
                         DispatchQueue.main.async{
                             completion(type)
                         }
@@ -96,28 +79,56 @@ class HttpService<T: Codable> {
             task.resume()
         }
     }
+    
     func fetchData(link: String, completion: @escaping  (_ result: [T]) -> Void) {
         if let url = URL(string: link){
             
             let urlSession = URLSession(configuration: .default)
-            
-            let task = urlSession.dataTask(with: url) { (data, response, error) in
-                if error != nil{
-                    os_log("Error while fetching elements.", log: OSLog.default, type: .error)
-                    completion([T]())
-                    return
+            var request = URLRequest(url: url)
+            if DataStore.shared.token == nil{
+                TokenService.getToken { (token) in
+                    request.addValue("Bearer \(token!.accessToken)", forHTTPHeaderField: "Authorization")
+                    request.httpMethod = "GET"
+                    let task = urlSession.dataTask(with: request) { (data, response, error) in
+                        if error != nil{
+                            os_log("Error while fetching elements.", log: OSLog.default, type: .error)
+                            completion([T]())
+                            return
+                        }
+                        
+                        if let safeData = data {
+                            if let types: [T] = Serializer.parse(data: safeData) {
+                                DispatchQueue.main.async {
+                                    self.data = types
+                                    completion(types)
+                                }
+                            }
+                        }
+                    }
+                    task.resume()
                 }
-                
-                if let safeData = data {
-                    if let types = self.parse(data: safeData){
-                        DispatchQueue.main.async {
-                            self.data = types
-                            completion(types)
+            }else{
+                request.addValue(DataStore.shared.token!.accessToken, forHTTPHeaderField: "Authorization")
+                request.httpMethod = "GET"
+                let task = urlSession.dataTask(with: request) { (data, response, error) in
+                    if error != nil{
+                        os_log("Error while fetching elements.", log: OSLog.default, type: .error)
+                        completion([T]())
+                        return
+                    }
+                    
+                    if let safeData = data {
+                        if let types: [T] = Serializer.parse(data: safeData) {
+                            DispatchQueue.main.async {
+                                self.data = types
+                                completion(types)
+                            }
                         }
                     }
                 }
+                task.resume()
             }
-            task.resume()
+            
         }
     }
 }

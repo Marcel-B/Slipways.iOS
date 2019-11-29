@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Links{
-    let waters = "https://slipways.de/api/water"
-    let stations = "https://slipways.de/api/station"
-    let slipways = "https://slipways.de/api/slipway"
+struct Link{
+    static let waters = "https://slipways.de/api/water"
+    static let stations = "https://slipways.de/api/station"
+    static let slipways = "https://slipways.de/api/slipway"
 
-    func pegel(station: String) -> String{
+    static func pegel(station: String) -> String{
         "https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/\(station)/W.json?includeCurrentMeasurement=true"
     }
 }
