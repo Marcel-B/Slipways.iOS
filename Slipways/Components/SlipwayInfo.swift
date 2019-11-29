@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SlipwayInfo: View {
     var slipway: Slipway
-    
+    @EnvironmentObject var dataStore: DataStore
+
     var body: some View {
         return VStack {
             HStack {
@@ -37,12 +38,18 @@ struct SlipwayInfo: View {
                 Spacer()
                 Text("\(NSDecimalNumber(decimal: slipway.costs).stringValue) €")
             }
+            HStack {
+                Text("gewässer")
+                    .font(.footnote)
+                Spacer()
+                Text(dataStore.getWater(id: slipway.waterFk)?.longname ?? "")
+            }
         }.padding(.horizontal, 20)
     }
 }
 
 struct SlipwayInfo_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayInfo(slipway: FakeData().slipway)
+        return SlipwayInfo(slipway: FakeData().slipway).environmentObject(DataStore.shared)
     }
 }

@@ -49,7 +49,7 @@ struct StationDetailsView: View {
             HStack{
                 Text("pegel").font(.footnote)
                 Spacer()
-                Text(stationViewModel.pegel ?? "n")
+                Text(stationViewModel.pegel ?? "-")
             }.padding()
             Spacer()
         }

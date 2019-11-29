@@ -14,15 +14,20 @@ struct SlipwayDetails: View {
     
     var body: some View {
         VStack{
-            MapWrapperView(coordinate: slipway.locationCoordinate, targetName: slipway.name)
+            MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 320)
-            NameSign(slipway: slipway)
-                .environmentObject(self.dataStore)
-                .padding(.top, -7)
+            ButtonLineView(slipway: slipway).environmentObject(self.dataStore)
+                .padding(.horizontal)
+//                
+//            NameSign(slipway: slipway)
+//                .environmentObject(self.dataStore)
+//                .padding(.top, -7)
             SlipwayInfo(slipway: slipway)
+                .environmentObject(self.dataStore)
                 .padding(.top, 23)
             Spacer()
-        }.navigationBarTitle(dataStore.getWater(id: slipway.waterFk)?.longname ?? "")
+        }.navigationBarTitle(slipway.name)
+//        dataStore.getWater(id: slipway.waterFk)?.longname ?? "")
     }
 }
 

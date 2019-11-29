@@ -24,12 +24,14 @@ class StationViewModel: ObservableObject{
     func pegel(id: String, completion: @escaping (_ result: Double) -> Void) {
         pegelService.getPegel(station: id) { (data) in
             if let safeData = data{
-                let p: CurrentMeasurementResponse? = self.dataService.parseObject(data: safeData)
-                if let safeP = p{
+                let response: CurrentMeasurementResponse? = self.dataService.parseObject(data: safeData)
+                if let safeResponse = response{
                     DispatchQueue.main.async {
-                        self.pegel = "\(safeP.currentMeasurement.value)\(safeP.unit)/\(safeP.gaugeZero.value)\(safeP.gaugeZero.unit)"
+                        let v = String(format: "%.2f", safeResponse.currentMeasurement.value)
+                        let b = String(format: "%.2f", safeResponse.gaugeZero.value)
+                        self.pegel = "\(v)\(safeResponse.unit)/\(b)\(safeResponse.gaugeZero.unit)"
                     }
-                    completion(safeP.currentMeasurement.value)
+                    completion(safeResponse.currentMeasurement.value)
                 }
             }
         }
