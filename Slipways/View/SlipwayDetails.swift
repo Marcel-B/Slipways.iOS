@@ -14,8 +14,8 @@ struct SlipwayDetails: View {
     
     var body: some View {
         VStack{
-            MapView(coordinate: slipway.locationCoordinate)
-                .frame(height: 300)
+            MapWrapperView(coordinate: slipway.locationCoordinate, targetName: slipway.name)
+                .frame(height: 320)
             NameSign(slipway: slipway)
                 .environmentObject(self.dataStore)
                 .padding(.top, -7)
