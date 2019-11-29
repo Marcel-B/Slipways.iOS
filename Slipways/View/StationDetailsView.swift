@@ -11,7 +11,8 @@ import CoreLocation
 
 struct StationDetailsView: View {
     @EnvironmentObject var dataStore: DataStore
-    let service: HttpService<CurrentMeasurementResponse>
+    @ObservedObject var stationViewModel: StationViewModel
+    
     let station: Station
     var value: String
     
@@ -49,18 +50,20 @@ struct StationDetailsView: View {
             HStack{
                 Text("pegel").font(.footnote)
                 Spacer()
-                Text(dataStore.pegel ?? "n")
+                Text(stationViewModel.pegel ?? "n")
             }.padding()
             Spacer()
         }
         .onAppear{
-            self.dataStore.getPegel(id: self.station.id)
+            self.stationViewModel.pegel(id: self.station.id, completion: { (value) in
+                print("\(value)")
+            })
         }
     }
 }
 
 struct StationDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        StationDetailsView(service: HttpService<CurrentMeasurementResponse>(), station: FakeData().station, value: "").environmentObject(DataStore.shared)
+        StationDetailsView(stationViewModel: StationViewModel(nil, nil), station: FakeData().station, value: "").environmentObject(DataStore.shared)
     }
 }
