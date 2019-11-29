@@ -20,7 +20,7 @@ class SerializerBah: SerializerBoh{
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
         }catch{
-            os_log("Error while parsing single element.", log: OSLog.default, type: .error)
+            os_log("[SerializerBah] - Error while parsing single element.", log: OSLog.default, type: .error)
             return nil
         }
     }
