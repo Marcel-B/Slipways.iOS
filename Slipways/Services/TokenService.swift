@@ -24,7 +24,7 @@ class TokenService{
             let task =  session.uploadTask(with: request, from: data) { data, response, error in
                 // Do something...
                 if let json = data{
-                    let value: Token? = Serializer.parseSingle(data: json)
+                    let value: Token? = SerializerOld.parseSingle(data: json)
                     completion(value)
                 }
             }

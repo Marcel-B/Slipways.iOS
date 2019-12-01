@@ -12,4 +12,10 @@ struct Water: Codable, Identifiable{
     var id: String
     let shortname: String
     let longname: String
+    
+    var name: String{
+        get{
+            longname.capitalizingAllFirstLetters()
+        }
+    }
 }

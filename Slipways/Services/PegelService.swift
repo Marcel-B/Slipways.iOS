@@ -14,10 +14,10 @@ protocol PegelData{
 }
 
 class Pegel: PegelData{
-    let serializer: SerializerBoh
+    let serializer: ObjectParser
     
-    init(serializer: SerializerBoh?){
-        self.serializer = serializer ?? SerializerBah()
+    init(serializer: ObjectParser?){
+        self.serializer = serializer ?? Serializer()
     }
     
     func getPegel(data: Data, completion: (CurrentMeasurementResponse?) -> Void) {

@@ -2,25 +2,21 @@
 //  Serializer.swift
 //  Slipways
 //
-//  Created by Marcel Benders on 29.11.19.
+//  Created by Marcel Benders on 01.12.19.
 //  Copyright © 2019 Marcel Benders. All rights reserved.
 //
 
 import Foundation
 import os.log
 
-protocol SerializerBoh{
-    func parseObject<T: Codable>(data: Data) -> T?
-}
-
-class SerializerBah: SerializerBoh{
+class Serializer: ObjectParser{
     func parseObject<T: Codable>(data: Data) -> T? {
         let decoder = JSONDecoder()
         do{
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
         }catch{
-            os_log("[SerializerBah] - Error while parsing single element.", log: OSLog.default, type: .error)
+            os_log("[Serializer] - Error while parsing single element.", log: OSLog.default, type: .error)
             return nil
         }
     }

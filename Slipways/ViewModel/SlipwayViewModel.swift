@@ -10,5 +10,4 @@ import Foundation
 
 class SlipwayViewModel: ObservableObject{
     @Published var slipays = [Slipway]()
-    
 }

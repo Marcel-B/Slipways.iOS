@@ -87,7 +87,10 @@ class SlipwaysTests: XCTestCase {
     func testGetPegelReturnsInstanceWithZeroValues() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+        let str = "ALLER".lowercased()
+        let result = str.capitalizingFirstLetter()
+        print(result)
+        XCTAssert(result == "Aller")
         }
 
     func testPerformanceExample() {

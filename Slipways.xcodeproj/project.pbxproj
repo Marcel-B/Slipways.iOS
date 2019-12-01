@@ -21,11 +21,11 @@
 		1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AF238D9AE10007EBB0 /* Properties.swift */; };
 		1F5369B2238FAB4C0007EBB0 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B1238FAB4C0007EBB0 /* TokenService.swift */; };
 		1F5369B4238FB2760007EBB0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B3238FB2760007EBB0 /* Token.swift */; };
-		1F5369B6238FB4960007EBB0 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B5238FB4960007EBB0 /* Serializer.swift */; };
+		1F5369B6238FB4960007EBB0 /* SerializerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B5238FB4960007EBB0 /* SerializerOld.swift */; };
 		1F5369B92391446D0007EBB0 /* SlipwayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B82391446D0007EBB0 /* SlipwayViewModel.swift */; };
 		1F5369BB23915D7B0007EBB0 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */; };
 		1F5369BD23915F2E0007EBB0 /* PegelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BC23915F2E0007EBB0 /* PegelService.swift */; };
-		1F5369BF2391634E0007EBB0 /* SerializerBoh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BE2391634E0007EBB0 /* SerializerBoh.swift */; };
+		1F5369BF2391634E0007EBB0 /* ObjectParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BE2391634E0007EBB0 /* ObjectParser.swift */; };
 		1F729E42238193420068954C /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E41238193420068954C /* Water.swift */; };
 		1F729E44238193890068954C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E43238193890068954C /* Link.swift */; };
 		1F729E46238196950068954C /* WaterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E45238196950068954C /* WaterListView.swift */; };
@@ -37,6 +37,7 @@
 		1F82305A236AD54600E6513F /* NameSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823059236AD54600E6513F /* NameSign.swift */; };
 		1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82305B236B52DF00E6513F /* SlipwayInfo.swift */; };
 		1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA52212388A6DA0065280B /* WaterDetailsView.swift */; };
+		1FAC5438239408750008BE75 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC5437239408750008BE75 /* Serializer.swift */; };
 		1FAFA9DD23830C0800CB85F7 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DC23830C0800CB85F7 /* HttpService.swift */; };
 		1FAFA9DF23830C8700CB85F7 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DE23830C8700CB85F7 /* Station.swift */; };
 		1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E023830FB600CB85F7 /* StationListView.swift */; };
@@ -49,6 +50,8 @@
 		1FFFAF5223916E350070EF9E /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF5123916E350070EF9E /* StationViewModel.swift */; };
 		1FFFAF54239181AF0070EF9E /* MapWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF53239181AF0070EF9E /* MapWrapperView.swift */; };
 		1FFFAF56239190390070EF9E /* ButtonLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF55239190390070EF9E /* ButtonLineView.swift */; };
+		1FFFAF582391DE390070EF9E /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF572391DE390070EF9E /* StringHelper.swift */; };
+		1FFFAF5A2391E0270070EF9E /* WaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFAF592391E0270070EF9E /* WaterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,11 +92,11 @@
 		1F5369AF238D9AE10007EBB0 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		1F5369B1238FAB4C0007EBB0 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		1F5369B3238FB2760007EBB0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		1F5369B5238FB4960007EBB0 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		1F5369B5238FB4960007EBB0 /* SerializerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerOld.swift; sourceTree = "<group>"; };
 		1F5369B82391446D0007EBB0 /* SlipwayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayViewModel.swift; sourceTree = "<group>"; };
 		1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		1F5369BC23915F2E0007EBB0 /* PegelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegelService.swift; sourceTree = "<group>"; };
-		1F5369BE2391634E0007EBB0 /* SerializerBoh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerBoh.swift; sourceTree = "<group>"; };
+		1F5369BE2391634E0007EBB0 /* ObjectParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectParser.swift; sourceTree = "<group>"; };
 		1F729E41238193420068954C /* Water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		1F729E43238193890068954C /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		1F729E45238196950068954C /* WaterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterListView.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		1F823059236AD54600E6513F /* NameSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSign.swift; sourceTree = "<group>"; };
 		1F82305B236B52DF00E6513F /* SlipwayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfo.swift; sourceTree = "<group>"; };
 		1FAA52212388A6DA0065280B /* WaterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDetailsView.swift; sourceTree = "<group>"; };
+		1FAC5437239408750008BE75 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 		1FAFA9DC23830C0800CB85F7 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		1FAFA9DE23830C8700CB85F7 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		1FAFA9E023830FB600CB85F7 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 		1FFFAF5123916E350070EF9E /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
 		1FFFAF53239181AF0070EF9E /* MapWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWrapperView.swift; sourceTree = "<group>"; };
 		1FFFAF55239190390070EF9E /* ButtonLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLineView.swift; sourceTree = "<group>"; };
+		1FFFAF572391DE390070EF9E /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		1FFFAF592391E0270070EF9E /* WaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,7 +223,9 @@
 			children = (
 				1F5369AF238D9AE10007EBB0 /* Properties.swift */,
 				1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */,
-				1F5369BE2391634E0007EBB0 /* SerializerBoh.swift */,
+				1F5369BE2391634E0007EBB0 /* ObjectParser.swift */,
+				1FFFAF572391DE390070EF9E /* StringHelper.swift */,
+				1FAC5437239408750008BE75 /* Serializer.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 			children = (
 				1F5369B82391446D0007EBB0 /* SlipwayViewModel.swift */,
 				1FFFAF5123916E350070EF9E /* StationViewModel.swift */,
+				1FFFAF592391E0270070EF9E /* WaterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -255,7 +264,7 @@
 				1FAFA9DC23830C0800CB85F7 /* HttpService.swift */,
 				1F04943323867B4E005B8D16 /* DataStore.swift */,
 				1F5369B1238FAB4C0007EBB0 /* TokenService.swift */,
-				1F5369B5238FB4960007EBB0 /* Serializer.swift */,
+				1F5369B5238FB4960007EBB0 /* SerializerOld.swift */,
 				1F5369BC23915F2E0007EBB0 /* PegelService.swift */,
 			);
 			path = Services;
@@ -432,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFFAF5A2391E0270070EF9E /* WaterViewModel.swift in Sources */,
 				1FAFA9DD23830C0800CB85F7 /* HttpService.swift in Sources */,
 				1F82304F236ACC0A00E6513F /* AppData.swift in Sources */,
 				1FFFAF56239190390070EF9E /* ButtonLineView.swift in Sources */,
@@ -441,15 +451,17 @@
 				1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */,
 				1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */,
 				1F82305A236AD54600E6513F /* NameSign.swift in Sources */,
-				1F5369B6238FB4960007EBB0 /* Serializer.swift in Sources */,
+				1F5369B6238FB4960007EBB0 /* SerializerOld.swift in Sources */,
 				1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */,
 				1F823051236ACC8100E6513F /* Slipway.swift in Sources */,
 				1F5369BD23915F2E0007EBB0 /* PegelService.swift in Sources */,
+				1FFFAF582391DE390070EF9E /* StringHelper.swift in Sources */,
 				1F729E44238193890068954C /* Link.swift in Sources */,
+				1FAC5438239408750008BE75 /* Serializer.swift in Sources */,
 				1FF4D0682372B28F00B7D1D1 /* SlipwayDb.swift in Sources */,
 				1FAFA9DF23830C8700CB85F7 /* Station.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
-				1F5369BF2391634E0007EBB0 /* SerializerBoh.swift in Sources */,
+				1F5369BF2391634E0007EBB0 /* ObjectParser.swift in Sources */,
 				1FAFA9E3238311AB00CB85F7 /* WelcomeView.swift in Sources */,
 				1F729E46238196950068954C /* WaterListView.swift in Sources */,
 				1F5369B4238FB2760007EBB0 /* Token.swift in Sources */,
