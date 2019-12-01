@@ -9,7 +9,7 @@
 import Foundation
 import os.log
 
-class Serializer{
+class SerializerOld{
     static func parseSingle<T: Codable>(data: Data) -> T? {
         let decoder = JSONDecoder()
         do{

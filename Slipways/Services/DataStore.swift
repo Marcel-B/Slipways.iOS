@@ -35,6 +35,7 @@ final class DataStore: ObservableObject{
         waters = [Water]()
         userSettings = [SlipwayDb]()
     }
+    
     func fetchToken(result: @escaping (_ token: Token?) -> Void ) {
         TokenService.getToken { (token) in
             result(token)

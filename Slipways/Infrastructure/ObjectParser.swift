@@ -1,5 +1,5 @@
 //
-//  SlipwayViewModel.swift
+//  Serializer.swift
 //  Slipways
 //
 //  Created by Marcel Benders on 29.11.19.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class SlipwayViewModel: ObservableObject{
-    @Published var slipays = [Slipway]()
+protocol ObjectParser{
+    func parseObject<T: Codable>(data: Data) -> T?
 }

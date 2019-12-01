@@ -18,8 +18,8 @@ struct WaterDetailsView: View {
             List(dataStore.getStationsByExpression(exp: { (station) -> Bool in
                 self.water.id == station.waterFk
             })) { station in
-                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(nil,nil), station: station, value: "")){
-                    Text(station.longname)
+                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(nil,nil,nil), station: station, value: "")){
+                    Text(station.name)
                 }
             }
         }.navigationBarTitle(water.shortname.lowercased())

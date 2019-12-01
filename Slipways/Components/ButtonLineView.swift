@@ -53,7 +53,7 @@ struct ButtonLineView: View {
             }) {
                 Image(systemName: "car")
                     .resizable()
-                    .frame(width: buttonSize, height: buttonSize, alignment: .trailing)
+                    .frame(width: buttonSize - 2, height: buttonSize - 5, alignment: .trailing)
             }
         }
     }

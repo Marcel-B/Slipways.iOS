@@ -48,7 +48,7 @@ class HttpService<T: Codable> {
                 }
                 if let safeData = data{
                     DispatchQueue.main.async {
-                        self.single = Serializer.parseSingle(data: safeData)
+                        self.single = SerializerOld.parseSingle(data: safeData)
                     }
                 }
             }
@@ -69,7 +69,7 @@ class HttpService<T: Codable> {
                     return
                 }
                 if let safeData = data{
-                    if let type: T = Serializer.parseSingle(data: safeData) {
+                    if let type: T = SerializerOld.parseSingle(data: safeData) {
                         DispatchQueue.main.async{
                             completion(type)
                         }
@@ -97,7 +97,7 @@ class HttpService<T: Codable> {
                         }
                         
                         if let safeData = data {
-                            if let types: [T] = Serializer.parse(data: safeData) {
+                            if let types: [T] = SerializerOld.parse(data: safeData) {
                                 DispatchQueue.main.async {
                                     self.data = types
                                     completion(types)
@@ -118,7 +118,7 @@ class HttpService<T: Codable> {
                     }
                     
                     if let safeData = data {
-                        if let types: [T] = Serializer.parse(data: safeData) {
+                        if let types: [T] = SerializerOld.parse(data: safeData) {
                             DispatchQueue.main.async {
                                 self.data = types
                                 completion(types)
