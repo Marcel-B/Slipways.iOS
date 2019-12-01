@@ -21,7 +21,7 @@ struct WaterListView: View {
             
             List(dataStore.getWaters(filter: self.search)){ water in
                 NavigationLink(destination: WaterDetailsView(water: water)) {
-                    Text(water.longname)
+                    Text(WaterViewModel.formatName(water: water.name))
                 }
             }.navigationBarTitle("Gewässer")
         }

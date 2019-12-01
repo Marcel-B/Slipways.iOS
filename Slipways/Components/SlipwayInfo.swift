@@ -42,7 +42,7 @@ struct SlipwayInfo: View {
                 Text("gewässer")
                     .font(.footnote)
                 Spacer()
-                Text(dataStore.getWater(id: slipway.waterFk)?.longname ?? "")
+                Text(dataStore.getWater(id: slipway.waterFk)?.name ?? "")
             }
         }.padding(.horizontal, 20)
     }

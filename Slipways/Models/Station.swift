@@ -20,4 +20,16 @@ struct Station : Codable, Identifiable{
     let waterFk: String
     
     let water: Water
+    
+    var fAgency: String {
+        get{
+            agency.capitalizingAllFirstLetters()
+        }
+    }
+    
+    var name: String {
+        get{
+            longname.capitalizingAllFirstLetters()
+        }
+    }
 }

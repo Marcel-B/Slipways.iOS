@@ -12,13 +12,22 @@ import Foundation
 class StationViewModel: ObservableObject{
     @Published var stations = [Station]()
     @Published var pegel: String?
-    
+    var stationService: StationProtocol
+
     let pegelService: PegelServiceProtocol
-    let dataService: SerializerBoh
+    let dataService: ObjectParser
     
-    init(_ pegelService: PegelServiceProtocol?, _ dataService: SerializerBoh?){
+    init(_ pegelService: PegelServiceProtocol?, _ dataService: ObjectParser?, _ stationService: StationProtocol?){
         self.pegelService = pegelService ?? PegelService()
-        self.dataService = dataService ?? SerializerBah()
+        self.dataService = dataService ?? Serializer()
+        self.stationService = stationService ?? StationService()
+    }
+    
+    func getStations()-> [Station] {
+        stationService.fetchData(link: Link.stations) { (stations) in
+            self.stations = stations
+        }
+        return self.stations
     }
     
     func pegel(id: String, completion: @escaping (_ result: Double) -> Void) {
