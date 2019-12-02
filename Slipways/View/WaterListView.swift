@@ -10,18 +10,22 @@ import SwiftUI
 
 struct WaterListView: View {
     @ObservedObject var dataStore = DataStore.shared
-    @State var search: String
+    @State var search: String = ""
+    
+    var waterViewModel = WaterViewModel()
     
     var body: some View {
-        VStack {
+        List{
             HStack{
                 TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")
-            }.padding()
+            }
             
-            List(dataStore.getWaters(filter: self.search)){ water in
-                NavigationLink(destination: WaterDetailsView(water: water)) {
-                    Text(WaterViewModel.formatName(water: water.name))
+            ForEach(dataStore.waters){ water in
+                if water.longname.starts(with: self.search.uppercased()) {
+                    NavigationLink(destination: WaterDetailsView(water: water)) {
+                        Text(WaterViewModel.formatName(water: water.name))
+                    }
                 }
             }.navigationBarTitle("Gewässer")
         }
@@ -30,6 +34,6 @@ struct WaterListView: View {
 
 struct WaterListView_Previews: PreviewProvider {
     static var previews: some View {
-        WaterListView(search: "")
+        WaterListView()
     }
 }

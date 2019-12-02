@@ -9,17 +9,21 @@
 import SwiftUI
 
 struct WaterDetailsView: View {
+    
     @ObservedObject var dataStore = DataStore.shared
     let water: Water
+    
     var body: some View {
-        VStack {
+        List{
+            
             Text(water.longname)
                 .padding()
-            List(dataStore.getStationsByExpression(exp: { (station) -> Bool in
-                self.water.id == station.waterFk
-            })) { station in
-                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(nil,nil,nil), station: station, value: "")){
-                    Text(station.name)
+            
+            ForEach(dataStore.stations) { station in
+                if station.waterFk == self.water.id{
+                    NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station)){
+                        Text(station.name)
+                    }
                 }
             }
         }.navigationBarTitle(water.shortname.lowercased())

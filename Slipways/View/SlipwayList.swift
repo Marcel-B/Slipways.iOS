@@ -17,7 +17,7 @@ struct SlipwayList: View {
                 Text("Favoriten anzeigen")
             }
             
-            ForEach(baseDataStore.getSlipways()){ slipway in
+            ForEach(baseDataStore.slipways){ slipway in
                 if !self.baseDataStore.showFavoritesOnly || slipway.isFavorite ?? false {
                     NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.baseDataStore)){
                         SlipwayRow(slipway: slipway)
