@@ -12,22 +12,22 @@ extension String {
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-
+    
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }
     
     func capitalizingAllFirstLetters() -> String{
-         let f = formatBySeparator(water: self.lowercased(), separator: "-")
-         return formatBySeparator(water: f, separator: " ")
-     }
-     
+        let f = formatBySeparator(water: self.lowercased(), separator: "-")
+        return formatBySeparator(water: f, separator: " ")
+    }
+    
     func formatBySeparator(water: String, separator: String) -> String{
-         let words = water.split(separator: separator.first!)
-              let pWords = words.map { (word) -> String in
-                  let lowerWord = String(word)
-                  return lowerWord.capitalizingFirstLetter()
-              }
-              return pWords.joined(separator: separator)
-     }
+        let words = water.split(separator: separator.first!)
+        let pWords = words.map { (word) -> String in
+            let lowerWord = String(word)
+            return lowerWord.capitalizingFirstLetter()
+        }
+        return pWords.joined(separator: separator)
+    }
 }

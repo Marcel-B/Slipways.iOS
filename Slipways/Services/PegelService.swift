@@ -14,10 +14,11 @@ protocol PegelData{
 }
 
 class Pegel: PegelData{
+    
     let serializer: ObjectParser
     
-    init(serializer: ObjectParser?){
-        self.serializer = serializer ?? Serializer()
+    init(serializer: ObjectParser = Serializer()){
+        self.serializer = serializer
     }
     
     func getPegel(data: Data, completion: (CurrentMeasurementResponse?) -> Void) {
@@ -26,20 +27,22 @@ class Pegel: PegelData{
     }
 }
 
-protocol PegelServiceProtocol{
+protocol PegelProtocol{
     func getPegel(station: String, completion: @escaping (_ result: Data?) -> Void)
 }
 
-class PegelService : PegelServiceProtocol {
+class PegelService : PegelProtocol {
+    
     func getPegel(station: String, completion: @escaping (Data?) -> Void) {
         if let url = URL(string: Link.pegel(station: station)){
             let urlSession = URLSession(configuration: .default)
             let task = urlSession.dataTask(with: url) { (data, response, error) in
                 if error != nil{
-                    // TODO - report error
-                    return
+                    debugPrint(error ?? "na")
                 }
-                completion(data)
+                else{
+                    completion(data)
+                }
             }
             task.resume()
         }

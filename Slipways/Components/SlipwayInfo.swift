@@ -11,6 +11,7 @@ import SwiftUI
 struct SlipwayInfo: View {
     var slipway: Slipway
     @EnvironmentObject var dataStore: DataStore
+    let waterViewModel = WaterViewModel()
 
     var body: some View {
         return VStack {
@@ -42,7 +43,7 @@ struct SlipwayInfo: View {
                 Text("gewässer")
                     .font(.footnote)
                 Spacer()
-                Text(dataStore.getWater(id: slipway.waterFk)?.name ?? "")
+                Text(waterViewModel.getWater(id: slipway.waterFk)?.name ?? "")
             }
         }.padding(.horizontal, 20)
     }

@@ -9,28 +9,31 @@
 import SwiftUI
 
 struct StationListView: View {
-    @ObservedObject var dataStore = DataStore.shared
+    @ObservedObject var stationViewModel: StationViewModel
+    @EnvironmentObject var dataStore: DataStore
     @State var search: String
     
     var body: some View {
-        
-        return VStack{
+        List{
             HStack{
                 TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")
-            }.padding()
+            }
             
-            List(dataStore.getStations(filter: self.search)){ station in
-                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(nil, nil, nil), station: station, value: "")){
-                    Text(station.name)
+            ForEach(dataStore.stations) { station in
+                if station.longname.starts(with: self.search.uppercased()) {
+                    NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station, value: "")) {
+                        Text(station.name)
+                    }   
                 }
             }
         }.navigationBarTitle("Stationen")
     }
 }
 
+
 struct StationListView_Previews: PreviewProvider {
     static var previews: some View {
-        StationListView(search: "")
+        StationListView(stationViewModel: StationViewModel.shared, search: "").environmentObject(DataStore.shared)
     }
 }

@@ -7,33 +7,63 @@
 //
 
 import Foundation
-
+import os.log
 
 class StationViewModel: ObservableObject{
-    @Published var stations = [Station]()
     @Published var pegel: String?
-    var stationService: StationProtocol
-
-    let pegelService: PegelServiceProtocol
-    let dataService: ObjectParser
     
-    init(_ pegelService: PegelServiceProtocol?, _ dataService: ObjectParser?, _ stationService: StationProtocol?){
-        self.pegelService = pegelService ?? PegelService()
-        self.dataService = dataService ?? Serializer()
-        self.stationService = stationService ?? StationService()
+    static let shared = StationViewModel(PegelService(), Serializer(), StationService())
+    
+    let stationService: StationProtocol
+    let pegelService: PegelProtocol
+    let serializer: ObjectParser
+    
+    init(_ pegelService: PegelProtocol = PegelService(), _ dataService: ObjectParser = Serializer(), _ stationService: StationProtocol = StationService()){
+        self.pegelService = pegelService
+        self.serializer = dataService
+        self.stationService = stationService
     }
     
-    func getStations()-> [Station] {
-        stationService.fetchData(link: Link.stations) { (stations) in
-            self.stations = stations
+//    func getStations(filter: String) -> [Station] {
+//        let flt = filter.uppercased()
+//        var st = [Station]()
+//        let stations = getStations()
+//        for station in stations{
+//            if station.longname.starts(with: flt){
+//                st.append(station)
+//            }
+//        }
+//        return st
+////        return getStations()
+////            .filter { $0.longname.contains(flt) }
+////            .filter { (station) -> Bool in
+////                station.longname.lowercased().starts(with: filter.lowercased())
+////        }
+//    }
+    
+    func getStations() -> [Station] {
+        let dataStore = DataStore.shared
+        if dataStore.stations.count == 0{
+            stationService.getStations { (stations, error) in
+                if error != nil{
+                    debugPrint("Error while fetching Stations")
+                }
+                else{
+                    if let safeSations = stations{
+                        DispatchQueue.main.async{
+                            dataStore.stations = safeSations
+                        }
+                    }
+                }
+            }
         }
-        return self.stations
+        return dataStore.stations
     }
     
     func pegel(id: String, completion: @escaping (_ result: Double) -> Void) {
         pegelService.getPegel(station: id) { (data) in
             if let safeData = data{
-                let response: CurrentMeasurementResponse? = self.dataService.parseObject(data: safeData)
+                let response: CurrentMeasurementResponse? = self.serializer.parseObject(data: safeData)
                 if let safeResponse = response{
                     DispatchQueue.main.async {
                         let v = String(format: "%.2f", safeResponse.currentMeasurement.value)

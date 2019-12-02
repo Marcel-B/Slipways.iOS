@@ -14,7 +14,7 @@ struct StationDetailsView: View {
     @ObservedObject var stationViewModel: StationViewModel
     
     let station: Station
-    var value: String
+    var value: String = ""
     
     var body: some View {
         VStack {
@@ -47,22 +47,22 @@ struct StationDetailsView: View {
             }.padding()
             
             HStack{
-                Text("pegel").font(.footnote)
+                
+                Text(stationViewModel.pegel == nil ? "" : "pegel").font(.footnote)
                 Spacer()
-                Text(stationViewModel.pegel ?? "-")
+                Text(stationViewModel.pegel ?? "")
+                
             }.padding()
             Spacer()
-        }
-        .onAppear{
-            self.stationViewModel.pegel(id: self.station.id, completion: { (value) in
-                print("\(value)")
-            })
-        }
+        }.onAppear{
+                self.stationViewModel.pegel(id: self.station.id, completion: { (value) in
+                })
+        }.navigationBarTitle(Text(station.name), displayMode: .inline)
     }
 }
 
 struct StationDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        StationDetailsView(stationViewModel: StationViewModel(nil, nil, nil), station: FakeData().station, value: "").environmentObject(DataStore.shared)
+        StationDetailsView(stationViewModel: StationViewModel(), station: FakeData().station, value: "").environmentObject(DataStore.shared)
     }
 }

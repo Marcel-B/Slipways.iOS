@@ -47,7 +47,7 @@ class PegelDataMock: PegelData{
     }
 }
 
-class PegelServiceMock: PegelServiceProtocol{
+class PegelServiceMock: PegelProtocol{
     func getPegel(station: String, completion: @escaping (Data?) -> Void) {
         
     }
