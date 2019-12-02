@@ -21,7 +21,6 @@
 		1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AF238D9AE10007EBB0 /* Properties.swift */; };
 		1F5369B2238FAB4C0007EBB0 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B1238FAB4C0007EBB0 /* TokenService.swift */; };
 		1F5369B4238FB2760007EBB0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B3238FB2760007EBB0 /* Token.swift */; };
-		1F5369B6238FB4960007EBB0 /* SerializerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B5238FB4960007EBB0 /* SerializerOld.swift */; };
 		1F5369B92391446D0007EBB0 /* SlipwayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369B82391446D0007EBB0 /* SlipwayViewModel.swift */; };
 		1F5369BB23915D7B0007EBB0 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */; };
 		1F5369BD23915F2E0007EBB0 /* PegelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BC23915F2E0007EBB0 /* PegelService.swift */; };
@@ -38,7 +37,10 @@
 		1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82305B236B52DF00E6513F /* SlipwayInfo.swift */; };
 		1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA52212388A6DA0065280B /* WaterDetailsView.swift */; };
 		1FAC5438239408750008BE75 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC5437239408750008BE75 /* Serializer.swift */; };
-		1FAFA9DD23830C0800CB85F7 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DC23830C0800CB85F7 /* HttpService.swift */; };
+		1FAC543A239459CA0008BE75 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC5439239459CA0008BE75 /* WebService.swift */; };
+		1FAC543C2394FE620008BE75 /* StationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC543B2394FE620008BE75 /* StationService.swift */; };
+		1FAC543E239566370008BE75 /* WaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC543D239566370008BE75 /* WaterService.swift */; };
+		1FAC5440239570100008BE75 /* SlipwayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC543F239570100008BE75 /* SlipwayService.swift */; };
 		1FAFA9DF23830C8700CB85F7 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9DE23830C8700CB85F7 /* Station.swift */; };
 		1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E023830FB600CB85F7 /* StationListView.swift */; };
 		1FAFA9E3238311AB00CB85F7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */; };
@@ -92,7 +94,6 @@
 		1F5369AF238D9AE10007EBB0 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		1F5369B1238FAB4C0007EBB0 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		1F5369B3238FB2760007EBB0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		1F5369B5238FB4960007EBB0 /* SerializerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerOld.swift; sourceTree = "<group>"; };
 		1F5369B82391446D0007EBB0 /* SlipwayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayViewModel.swift; sourceTree = "<group>"; };
 		1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		1F5369BC23915F2E0007EBB0 /* PegelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegelService.swift; sourceTree = "<group>"; };
@@ -110,7 +111,10 @@
 		1F82305B236B52DF00E6513F /* SlipwayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfo.swift; sourceTree = "<group>"; };
 		1FAA52212388A6DA0065280B /* WaterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDetailsView.swift; sourceTree = "<group>"; };
 		1FAC5437239408750008BE75 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
-		1FAFA9DC23830C0800CB85F7 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		1FAC5439239459CA0008BE75 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		1FAC543B2394FE620008BE75 /* StationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationService.swift; sourceTree = "<group>"; };
+		1FAC543D239566370008BE75 /* WaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterService.swift; sourceTree = "<group>"; };
+		1FAC543F239570100008BE75 /* SlipwayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayService.swift; sourceTree = "<group>"; };
 		1FAFA9DE23830C8700CB85F7 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		1FAFA9E023830FB600CB85F7 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
 		1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -259,13 +263,15 @@
 		1F823048236AC92F00E6513F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FAC543B2394FE620008BE75 /* StationService.swift */,
+				1FAC543D239566370008BE75 /* WaterService.swift */,
+				1FAC543F239570100008BE75 /* SlipwayService.swift */,
+				1F5369B1238FAB4C0007EBB0 /* TokenService.swift */,
 				1F82304E236ACC0A00E6513F /* AppData.swift */,
 				1F5369AC238C8DC10007EBB0 /* DataBase.swift */,
-				1FAFA9DC23830C0800CB85F7 /* HttpService.swift */,
 				1F04943323867B4E005B8D16 /* DataStore.swift */,
-				1F5369B1238FAB4C0007EBB0 /* TokenService.swift */,
-				1F5369B5238FB4960007EBB0 /* SerializerOld.swift */,
 				1F5369BC23915F2E0007EBB0 /* PegelService.swift */,
+				1FAC5439239459CA0008BE75 /* WebService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -442,7 +448,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFFAF5A2391E0270070EF9E /* WaterViewModel.swift in Sources */,
-				1FAFA9DD23830C0800CB85F7 /* HttpService.swift in Sources */,
 				1F82304F236ACC0A00E6513F /* AppData.swift in Sources */,
 				1FFFAF56239190390070EF9E /* ButtonLineView.swift in Sources */,
 				1F5369AD238C8DC10007EBB0 /* DataBase.swift in Sources */,
@@ -451,14 +456,17 @@
 				1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */,
 				1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */,
 				1F82305A236AD54600E6513F /* NameSign.swift in Sources */,
-				1F5369B6238FB4960007EBB0 /* SerializerOld.swift in Sources */,
 				1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */,
 				1F823051236ACC8100E6513F /* Slipway.swift in Sources */,
+				1FAC543E239566370008BE75 /* WaterService.swift in Sources */,
 				1F5369BD23915F2E0007EBB0 /* PegelService.swift in Sources */,
+				1FAC5440239570100008BE75 /* SlipwayService.swift in Sources */,
 				1FFFAF582391DE390070EF9E /* StringHelper.swift in Sources */,
 				1F729E44238193890068954C /* Link.swift in Sources */,
+				1FAC543C2394FE620008BE75 /* StationService.swift in Sources */,
 				1FAC5438239408750008BE75 /* Serializer.swift in Sources */,
 				1FF4D0682372B28F00B7D1D1 /* SlipwayDb.swift in Sources */,
+				1FAC543A239459CA0008BE75 /* WebService.swift in Sources */,
 				1FAFA9DF23830C8700CB85F7 /* Station.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
 				1F5369BF2391634E0007EBB0 /* ObjectParser.swift in Sources */,

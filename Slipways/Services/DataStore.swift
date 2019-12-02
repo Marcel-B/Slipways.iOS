@@ -17,129 +17,17 @@ final class DataStore: ObservableObject{
     
     var token: Token?
     
-    var waterService: WaterProtocol
-    var stationService: StationProtocol
-    var slipwayService: SlipwayProtocol
-    var db: DataBase
+    static let shared = DataStore()
     
-    static let shared = DataStore(WaterService(), StationService(), SlipwayService(), AppData())
-    
-    init(_ waterService: WaterProtocol, _ stationService: StationProtocol, _ slipwayService: SlipwayProtocol, _ db: DataBase)  {
-        self.waterService = waterService
-        self.stationService = stationService
-        self.slipwayService = slipwayService
-        self.db = db
-        
+    init()  {
         stations = [Station]()
         slipways = [Slipway]()
         waters = [Water]()
         userSettings = [SlipwayDb]()
     }
-    
-    func fetchToken(result: @escaping (_ token: Token?) -> Void ) {
-        TokenService.getToken { (token) in
-            result(token)
-        }
-    }
-    
-    func getStations() -> [Station] {
-        if(stations.count == 0){
-            if token == nil{
-                fetchToken { (token) in
-                    self.stationService.fetchData(link: Link.stations) { (stations) in
-                        self.stations = stations
-                    }
-                }
-            }else{
-                stationService.fetchData(link: Link.stations) { (stations) in
-                    self.stations = stations
-                }
-            }
-        }
-        return stations
-    }
-    
-    func getSlipways() -> [Slipway] {
-        if(slipways.count == 0){
-            slipwayService.fetchData(link: Link.slipways) { (slipways) in
-                let updatedSlipways = slipways.map { (slipway) -> Slipway in
-                    var tmpSlipway = slipway
-                    let userData = self.db.getSlipwayById(id: slipway.id)
-                    if let saveUserData = userData{
-                        tmpSlipway.isFavorite = saveUserData.isFavorite
-                    }
-                    return tmpSlipway
-                }
-                DispatchQueue.main.async {
-                    self.slipways = updatedSlipways
-                }
-            }
-        }
-        return slipways
-    }
-    
-    func getWater(id: String) -> Water?{
-        if(waters.count == 0){
-            waterService.fetchData(link: Link.waters) { (waters) in
-                self.waters = waters
-            }
-        }
-        return self.waters.first(where: { $0.id == id})
-    }
-    
-    func getWaters() -> [Water] {
-        if(waters.count == 0){
-            waterService.fetchData(link: Link.waters) { (waters) in
-                self.waters = waters
-            }
-        }
-        return waters
-    }
-    
-    func getStationsByExpression(exp: (_ isIncluded: Station) -> Bool) -> [Station]{
-        getStations()
-            .filter(exp)
-    }
-    
-    func getSlipwaysByExpression(exp: (_ isIncluded: Slipway) -> Bool) -> [Slipway]{
-        getSlipways()
-            .filter(exp)
-    }
-    
-    func getWatersByExpression(exp: (_ isIncluded: Water) -> Bool) -> [Water] {
-        getWaters()
-            .filter(exp)
-    }
-    
-    func getStations(filter: String) -> [Station] {
-        getStations()
-            .filter { (station) -> Bool in
-                station.longname.lowercased().starts(with: filter.lowercased())
-        }
-    }
-    
-    func getSlipways(filter: String) -> [Slipway]{
-        getSlipways()
-            .filter { (slipway) -> Bool in
-                slipway.name.lowercased().starts(with: filter.lowercased())
-        }
-    }
-    
-    func getWaters(filter: String) -> [Water]{
-        getWaters()
-            .filter { (water) -> Bool in
-                water.longname.lowercased().starts(with: filter.lowercased())
-        }
-    }
-    
-    func getWaters(completion: @escaping  (_ result: [Water]) -> Void){
-        if(waters.count == 0){
-            waterService
-                .fetchData(link: Link.waters) { (waters) in
-                    self.waters = waters
-                    completion(waters)
-            }
-        }
-        completion(waters)
-    }
+
+//    func getStationsByExpression(exp: (_ isIncluded: Station) -> Bool) -> [Station]{
+//        getStations()
+//            .filter(exp)
+//    }
 }

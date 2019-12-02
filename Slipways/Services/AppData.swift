@@ -6,9 +6,7 @@
 //  Copyright © 2019 Marcel Benders. All rights reserved.
 //
 import SwiftUI
-//import RealmSwift
 import os.log
-
 
 class AppData: DataBase{
     
