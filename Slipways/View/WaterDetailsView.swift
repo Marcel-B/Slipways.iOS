@@ -16,17 +16,20 @@ struct WaterDetailsView: View {
     var body: some View {
         List{
             
-            Text(water.longname)
-                .padding()
-            
+            HStack{
+                Text("Stationen")
+                Spacer()
+                Image("ruler")
+            }
             ForEach(dataStore.stations) { station in
                 if station.waterFk == self.water.id{
                     NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station)){
                         Text(station.name)
+                            .font(.custom("Exo2-Regular", size: 22))
                     }
                 }
             }
-        }.navigationBarTitle(water.shortname.lowercased())
+        }.navigationBarTitle(water.name)
     }
 }
 

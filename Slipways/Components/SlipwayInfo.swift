@@ -12,7 +12,7 @@ struct SlipwayInfo: View {
     var slipway: Slipway
     @EnvironmentObject var dataStore: DataStore
     let waterViewModel = WaterViewModel()
-
+    
     var body: some View {
         return VStack {
             HStack {
@@ -51,6 +51,7 @@ struct SlipwayInfo: View {
 
 struct SlipwayInfo_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayInfo(slipway: FakeData().slipway).environmentObject(DataStore.shared)
+        return SlipwayInfo(slipway: FakeData().slipway)
+            .previewLayout(.sizeThatFits).environmentObject(DataStore.shared)
     }
 }

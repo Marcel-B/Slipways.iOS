@@ -61,6 +61,8 @@ struct ButtonLineView: View {
 
 struct ButtonLineView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLineView(slipway: FakeData().slipway).environmentObject(DataStore.shared)
+        ButtonLineView(slipway: FakeData().slipway)
+            .previewLayout(.sizeThatFits)
+            .environmentObject(DataStore.shared)
     }
 }

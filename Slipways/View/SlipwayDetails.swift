@@ -16,6 +16,7 @@ struct SlipwayDetails: View {
         VStack{
             MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 320)
+                .padding()
             ButtonLineView(slipway: slipway).environmentObject(self.dataStore)
                 .padding(.horizontal)
             

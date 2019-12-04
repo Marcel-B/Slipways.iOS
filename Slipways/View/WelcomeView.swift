@@ -11,29 +11,49 @@ import SwiftUI
 struct WelcomeView: View {
     @EnvironmentObject var dataStore: DataStore
     var body: some View {
-        
         NavigationView{
             VStack{
-                Spacer()
-                NavigationLink(destination: SlipwayList().environmentObject(self.dataStore)){
-                    HStack{
-                        Text("Slipanlagen")
-                            .font(.system(size: 42))
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: SlipwayList().environmentObject(self.dataStore)){
+                        Image("launch")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                        
                     }
-                }.padding()
-                
-                NavigationLink(destination: StationListView(stationViewModel: StationViewModel.shared, search: "")) {
-                    Text("Stationen")
-                        .font(.system(size: 42))
+                    Spacer()
+                }
+                HStack{
                     
+                    Spacer()
+                    NavigationLink(destination: StationListView(stationViewModel: StationViewModel.shared, search: "")) {
+                        Image("ruler")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                    }
+                    Spacer()
+                    NavigationLink(destination: WaterListView(search: "")){
+                        Image("waves")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                    }
+                    Spacer()
                 }.padding()
-                
-                NavigationLink(destination: WaterListView(search: "")){
-                    Text("Gewässer")
-                        .font(.system(size: 42))
-                }.padding()
-                
-                Spacer()
             }
         }
     }

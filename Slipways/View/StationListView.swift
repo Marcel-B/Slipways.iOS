@@ -23,7 +23,7 @@ struct StationListView: View {
             ForEach(dataStore.stations) { station in
                 if station.longname.starts(with: self.search.uppercased()) {
                     NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station, value: "")) {
-                        Text(station.name)
+                        Text(station.name).font(.custom("Exo2-Regular", size: 22))
                     }   
                 }
             }

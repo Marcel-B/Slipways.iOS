@@ -15,16 +15,32 @@ struct WaterListView: View {
     var waterViewModel = WaterViewModel()
     
     var body: some View {
-        List{
+        return List{
             HStack{
                 TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")
             }
             
             ForEach(dataStore.waters){ water in
-                if water.longname.starts(with: self.search.uppercased()) {
+                if water.longname
+                    .starts(with: self.search.uppercased()) {
+                    
                     NavigationLink(destination: WaterDetailsView(water: water)) {
-                        Text(WaterViewModel.formatName(water: water.name))
+                        VStack{
+                            HStack{
+                                Text(WaterViewModel.formatName(water: water.name))
+                                    .font(.custom("Exo2-Regular", size: 22))
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Text(self.waterViewModel.getStationsCount(waterId: water.id))
+                                Image("ruler")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 20.0, height: 20.0)
+                            }
+                        }
                     }
                 }
             }.navigationBarTitle("Gewässer")

@@ -31,6 +31,14 @@ class WaterViewModel{
         DataStore.shared.waters.first(where: { $0.id == id})
     }
     
+    func getStationsCount(waterId: String) -> String{
+        let store = DataStore.shared
+        let count = store.stations.filter { (station) -> Bool in
+            station.waterFk == waterId
+        }.count
+        return "\(count)"
+    }
+    
     func getWaters() -> [Water] {
         let data = DataStore.shared
         if data.waters.count == 0{

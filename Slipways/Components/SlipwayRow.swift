@@ -16,14 +16,10 @@ struct SlipwayRow: View {
             water.id == self.slipway.waterFk
         }
         return VStack{
-            HStack{
-                Text(slipway.name)
+            HStack{ Text(slipway.name)
+                .font(.custom("Exo2-Regular", size: 22))
                 Spacer()
-                Image(systemName: "waveform")
-                    .imageScale(.medium)
-                Text(dataStore.waters[water ?? 0].name)
-            }
-            HStack{
+                
                 Spacer()
                 if(slipway.costs > 0){
                     Image(systemName: "dollarsign.circle")
@@ -34,6 +30,14 @@ struct SlipwayRow: View {
                         .imageScale(.medium)
                         .foregroundColor(.yellow)
                 }
+                
+            }
+            HStack{
+                Image("waves")
+                    .resizable() .aspectRatio(contentMode: .fit)
+                    .frame(width: 20.0, height: 20.0)
+                Spacer()
+                Text(dataStore.waters[water ?? 0].name)
             }
         }
     }
@@ -42,5 +46,6 @@ struct SlipwayRow: View {
 struct SlipwayRow_Previews: PreviewProvider {
     static var previews: some View {
         return SlipwayRow(slipway: FakeData().slipway, dataStore: DataStore.shared)
+            .previewLayout(.sizeThatFits)
     }
 }

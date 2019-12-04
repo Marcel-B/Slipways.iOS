@@ -46,6 +46,7 @@
 		1FAFA9E3238311AB00CB85F7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */; };
 		1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */; };
 		1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E62383D1E600CB85F7 /* CurrentMeasurementResponse.swift */; };
+		1FDB3EB9239869290043D0EC /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */; };
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
 		1FF4D0682372B28F00B7D1D1 /* SlipwayDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */; };
@@ -121,6 +122,7 @@
 		1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsView.swift; sourceTree = "<group>"; };
 		1FAFA9E62383D1E600CB85F7 /* CurrentMeasurementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMeasurementResponse.swift; sourceTree = "<group>"; };
 		1FB7B4AF237F591A0065302D /* Slipways.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slipways.entitlements; sourceTree = "<group>"; };
+		1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo2-Regular.ttf"; sourceTree = "<group>"; };
 		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
 		1FF4D0672372B28F00B7D1D1 /* SlipwayDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayDb.swift; sourceTree = "<group>"; };
 		1FFFAF5123916E350070EF9E /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		1F0D5B33236AC54E00EA9476 /* Slipways */ = {
 			isa = PBXGroup;
 			children = (
+				1FDB3EB72398684B0043D0EC /* Fonts */,
 				1F5369B7239143B20007EBB0 /* ViewModel */,
 				1F5369AE238D9AD10007EBB0 /* Infrastructure */,
 				1FB7B4AF237F591A0065302D /* Slipways.entitlements */,
@@ -311,6 +314,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1FDB3EB72398684B0043D0EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,6 +434,7 @@
 				1F0D5B41236AC54F00EA9476 /* LaunchScreen.storyboard in Resources */,
 				1F0D5B3E236AC54F00EA9476 /* Preview Assets.xcassets in Resources */,
 				1F0D5B3B236AC54F00EA9476 /* Assets.xcassets in Resources */,
+				1FDB3EB9239869290043D0EC /* Exo2-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +666,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
@@ -678,7 +690,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
