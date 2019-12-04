@@ -10,18 +10,30 @@ import SwiftUI
 
 struct SlipwayRow: View {
     var slipway: Slipway
+    @ObservedObject var dataStore: DataStore = DataStore.shared
     var body: some View {
-        HStack{
-            Text(slipway.name)
-            Spacer()
-            if(slipway.costs > 0){
-                Image(systemName: "dollarsign.circle")
+        let water = dataStore.waters.firstIndex { (water) -> Bool in
+            water.id == self.slipway.waterFk
+        }
+        return VStack{
+            HStack{
+                Text(slipway.name)
+                Spacer()
+                Image(systemName: "waveform")
                     .imageScale(.medium)
+                Text(dataStore.waters[water ?? 0].name)
             }
-            if(slipway.isFavorite ?? false){
-                Image(systemName: "star.fill")
-                    .imageScale(.medium)
-                    .foregroundColor(.yellow)
+            HStack{
+                Spacer()
+                if(slipway.costs > 0){
+                    Image(systemName: "dollarsign.circle")
+                        .imageScale(.medium)
+                }
+                if(slipway.isFavorite ?? false){
+                    Image(systemName: "star.fill")
+                        .imageScale(.medium)
+                        .foregroundColor(.yellow)
+                }
             }
         }
     }
@@ -29,6 +41,6 @@ struct SlipwayRow: View {
 
 struct SlipwayRow_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayRow(slipway: FakeData().slipway)
+        return SlipwayRow(slipway: FakeData().slipway, dataStore: DataStore.shared)
     }
 }
