@@ -16,6 +16,7 @@ struct MapWrapperView: View {
     var body: some View {
         VStack{
             MapView(coordinate: coordinate)
+            
             Button(action: {
                 let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.coordinate))
                 mapItem.name = self.targetName
@@ -26,9 +27,8 @@ struct MapWrapperView: View {
                     Image(systemName: "car")
                         .padding()
                 }
-                
             }
-        }.padding()
+        }
     }
 }
 

@@ -10,12 +10,13 @@ import SwiftUI
 
 struct SlipwayDetails: View {
     @EnvironmentObject var dataStore: DataStore
-    var slipway: Slipway
+    var slipway: SlipwayQl
     
     var body: some View {
         VStack{
             MapView(coordinate: slipway.locationCoordinate)
                 .frame(height: 320)
+                .padding()
             ButtonLineView(slipway: slipway).environmentObject(self.dataStore)
                 .padding(.horizontal)
             

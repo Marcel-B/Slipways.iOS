@@ -10,11 +10,11 @@ import SwiftUI
 
 struct NameSign: View {
     @EnvironmentObject var dataStore: DataStore
-    var slipway: Slipway
+    var slipway: SlipwayQl
     var db = AppData()
     
     var slipwayIndex: Int {
-        dataStore.slipways.firstIndex(where: { $0.id == slipway.id })!
+        dataStore.data.slipways.firstIndex(where: { $0.id == slipway.id })!
     }
     
     var body: some View {
@@ -26,14 +26,14 @@ struct NameSign: View {
                 let tmpSlipwayDb = self.db.getSlipwayById(id: self.slipway.id)
                 if let safe = tmpSlipwayDb{
                     self.db.updateSlipway(id: self.slipway.id, value: !safe.isFavorite)
-                    self.dataStore.slipways[self.slipwayIndex].isFavorite = !safe.isFavorite
+                    self.dataStore.data.slipways[self.slipwayIndex].isFavorite = !safe.isFavorite
                 }else{
                     self.db.updateSlipway(id: self.slipway.id, value: true)
-                    self.dataStore.slipways[self.slipwayIndex].isFavorite = true
+                    self.dataStore.data.slipways[self.slipwayIndex].isFavorite = true
                 }
             })
             {
-                if self.dataStore.slipways[self.slipwayIndex].isFavorite ?? false{
+                if self.dataStore.data.slipways[self.slipwayIndex].isFavorite ?? false{
                     Image(systemName: "star.fill").foregroundColor(Color.yellow)
                 }else{
                     Image(systemName: "star").foregroundColor(Color.gray)

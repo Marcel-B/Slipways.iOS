@@ -9,32 +9,29 @@
 import Foundation
 
 class SlipwayViewModel{
+    let appData: InternDataStore
     
-    let slipwayService: SlipwayProtocol
-    let serializer: ObjectParser
-    let appData: DataBase
-    
-    init(_ slipwayService: SlipwayProtocol = SlipwayService(), _ serializer: ObjectParser = Serializer(), _ appData: DataBase = AppData()){
-        self.slipwayService = slipwayService
-        self.serializer = serializer
+    init(_ appData: InternDataStore = AppData.shared){
         self.appData = appData
     }
     
-    func getSlipways() -> [Slipway]{
-        let dataStore = DataStore.shared
-        if dataStore.slipways.count == 0{
-            slipwayService.getSlipways { (slipways, error) in
-                if error != nil{
-                    debugPrint("Failed to fetch Slipways")
-                }else{
-                    if let safeSlipways = slipways{
-                        DispatchQueue.main.async {
-                            dataStore.slipways = safeSlipways
-                        }
-                    }
-                }
-            }
+    func hasFavorites() -> Bool {
+        let slipways = appData
+            .getSlipways()
+            .filter { (slipwayDb) -> Bool in
+                slipwayDb.isFavorite
         }
-        return dataStore.slipways
+        return slipways.count > 0
+    }
+    
+    func getSlipways() -> [SlipwayQl]{
+        let dataStore = DataStore.shared
+        return dataStore.data.slipways
+    }
+    
+    func hasCampingSite(with slipway: SlipwayQl) -> Bool {
+        slipway.extras.contains { (extra) -> Bool in
+            extra.name == "Campingplatz"
+        }
     }
 }

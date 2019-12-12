@@ -9,9 +9,7 @@
 import Foundation
 
 struct Link{
-    static let waters = "https://slipways.de/api/water"
-    static let stations = "https://slipways.de/api/station"
-    static let slipways = "https://slipways.de/api/slipway"
+    static let graphQL = "https://data.slipways.de/graphql"
 
     static func pegel(station: String) -> String{
         "https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/\(station)/W.json?includeCurrentMeasurement=true"
