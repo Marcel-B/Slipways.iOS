@@ -13,6 +13,15 @@ struct SlipwayInfo: View {
     @EnvironmentObject var dataStore: DataStore
     let waterViewModel = WaterViewModel()
     
+    init(slipway: SlipwayQl) {
+        // To remove only extra separators below the list:
+        UITableView.appearance().tableFooterView = UIView()
+        
+        // To remove all separators including the actual ones:
+        UITableView.appearance().separatorStyle = .none
+        self.slipway = slipway
+    }
+    
     var body: some View {
         List {
             Text("Straße: \(slipway.street)")
@@ -20,7 +29,7 @@ struct SlipwayInfo: View {
             Text("PLZ: \(slipway.postalcode)")
             Text("Kosten: \(NSDecimalNumber(decimal: slipway.costs).stringValue) €")
             Text("Gewässer: \(slipway.water.name)")
-        }.padding(.horizontal, 20)
+        }
     }
 }
 

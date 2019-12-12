@@ -23,15 +23,4 @@ class SlipwayViewModel{
         }
         return slipways.count > 0
     }
-    
-    func getSlipways() -> [SlipwayQl]{
-        let dataStore = DataStore.shared
-        return dataStore.data.slipways
-    }
-    
-    func hasCampingSite(with slipway: SlipwayQl) -> Bool {
-        slipway.extras.contains { (extra) -> Bool in
-            extra.name == "Campingplatz"
-        }
-    }
 }
