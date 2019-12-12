@@ -11,7 +11,7 @@ import SwiftUI
 struct WaterDetailsView: View {
     
     @ObservedObject var dataStore = DataStore.shared
-    let water: Water
+    let water: WaterQl
     
     var body: some View {
         List{
@@ -21,12 +21,11 @@ struct WaterDetailsView: View {
                 Spacer()
                 Image("ruler")
             }
-            ForEach(dataStore.stations) { station in
-                if station.waterFk == self.water.id{
-                    NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station)){
-                        Text(station.name)
-                            .font(.custom("Exo2-Regular", size: 22))
-                    }
+            ForEach(water.stations!) { station in
+                
+                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station)){
+                    Text(station.name)
+                        .font(.custom("Exo2-Regular", size: 22))
                 }
             }
         }.navigationBarTitle(water.name)

@@ -12,16 +12,14 @@ import os.log
 class StationViewModel: ObservableObject{
     @Published var pegel: String?
     
-    static let shared = StationViewModel(PegelService(), Serializer(), StationService())
+    static let shared = StationViewModel(PegelService(), Serializer())
     
-    let stationService: StationProtocol
     let pegelService: PegelProtocol
     let serializer: ObjectParser
     
-    init(_ pegelService: PegelProtocol = PegelService(), _ dataService: ObjectParser = Serializer(), _ stationService: StationProtocol = StationService()){
+    init(_ pegelService: PegelProtocol = PegelService(), _ dataService: ObjectParser = Serializer()){
         self.pegelService = pegelService
         self.serializer = dataService
-        self.stationService = stationService
     }
     
 //    func getStations(filter: String) -> [Station] {
@@ -41,23 +39,13 @@ class StationViewModel: ObservableObject{
 ////        }
 //    }
     
-    func getStations() -> [Station] {
-        let dataStore = DataStore.shared
-        if dataStore.stations.count == 0{
-            stationService.getStations { (stations, error) in
-                if error != nil{
-                    debugPrint("Error while fetching Stations")
-                }
-                else{
-                    if let safeSations = stations{
-                        DispatchQueue.main.async{
-                            dataStore.stations = safeSations
-                        }
-                    }
-                }
-            }
+    func getStations() -> [StationQl] {
+        let store = DataStore.shared
+        var stations = [StationQl]()
+        for water in store.data.waters{
+            stations.append(contentsOf: water.stations!)
         }
-        return dataStore.stations
+        return stations
     }
     
     func pegel(id: String, completion: @escaping (_ result: Double) -> Void) {
@@ -68,7 +56,7 @@ class StationViewModel: ObservableObject{
                     DispatchQueue.main.async {
                         let v = String(format: "%.2f", safeResponse.currentMeasurement.value)
                         let b = String(format: "%.2f", safeResponse.gaugeZero.value)
-                        self.pegel = "\(v)\(safeResponse.unit)/\(b)\(safeResponse.gaugeZero.unit)"
+                        self.pegel = "\(v)\(safeResponse.unit) ~ \(b)\(safeResponse.gaugeZero.unit)"
                     }
                     completion(safeResponse.currentMeasurement.value)
                 }

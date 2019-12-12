@@ -9,35 +9,49 @@
 import SwiftUI
 
 struct SlipwayRow: View {
-    var slipway: Slipway
+    var slipway: SlipwayQl
     @ObservedObject var dataStore: DataStore = DataStore.shared
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     var body: some View {
-        let water = dataStore.waters.firstIndex { (water) -> Bool in
-            water.id == self.slipway.waterFk
-        }
         return VStack{
-            HStack{ Text(slipway.name)
-                .font(.custom("Exo2-Regular", size: 22))
+            HStack{
+                Text(slipway.name)
+                    .font(.custom("Exo2-Regular", size: 22))
                 Spacer()
                 
-                Spacer()
-                if(slipway.costs > 0){
+                
+                if slipway.extras.contains(where: { (extra) -> Bool in
+                    extra.name == "Campingplatz"
+                }){
+                    Image(self.colorScheme == .light ? "campingLight" :  "campingDark")
+                }
+                
+                if slipway.extras.contains(where: { (extra) -> Bool in
+                    extra.name == "Parkplatz"
+                }){
+                    Image(self.colorScheme == .light ? "parkingLight" :  "parkingDark")
+                }
+                
+                if slipway.costs > 0 {
                     Image(systemName: "dollarsign.circle")
                         .imageScale(.medium)
                 }
-                if(slipway.isFavorite ?? false){
+                
+                if slipway.isFavorite ?? false {
                     Image(systemName: "star.fill")
                         .imageScale(.medium)
                         .foregroundColor(.yellow)
                 }
-                
             }
             HStack{
-                Image("waves")
-                    .resizable() .aspectRatio(contentMode: .fit)
-                    .frame(width: 20.0, height: 20.0)
+                Image(systemName: "mappin.and.ellipse")
+                    .imageScale(.small)
+                Text(slipway.city)
+                    .font(.footnote)
                 Spacer()
-                Text(dataStore.waters[water ?? 0].name)
+                Text(slipway.water.name)
+                    .font(.footnote)
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DataBase{
+protocol InternDataStore{
     func getSlipways() -> [SlipwayDb]
     func getSlipwayById(id: String) -> SlipwayDb?
     func updateSlipway(id: String, value: Bool)

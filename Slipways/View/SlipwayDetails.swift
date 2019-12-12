@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SlipwayDetails: View {
     @EnvironmentObject var dataStore: DataStore
-    var slipway: Slipway
+    var slipway: SlipwayQl
     
     var body: some View {
         VStack{

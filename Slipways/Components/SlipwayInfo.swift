@@ -9,42 +9,17 @@
 import SwiftUI
 
 struct SlipwayInfo: View {
-    var slipway: Slipway
+    var slipway: SlipwayQl
     @EnvironmentObject var dataStore: DataStore
     let waterViewModel = WaterViewModel()
     
     var body: some View {
-        return VStack {
-            HStack {
-                Text("straße")
-                    .font(.footnote)
-                Spacer()
-                Text(slipway.street ?? "-")
-            }
-            HStack {
-                Text("stadt / ort")
-                    .font(.footnote)
-                Spacer()
-                Text(slipway.city ?? "-")
-            }
-            HStack {
-                Text("postleitzahl")
-                    .font(.footnote)
-                Spacer()
-                Text(slipway.postalcode ?? "-")
-            }
-            HStack {
-                Text("kosten")
-                    .font(.footnote)
-                Spacer()
-                Text("\(NSDecimalNumber(decimal: slipway.costs).stringValue) €")
-            }
-            HStack {
-                Text("gewässer")
-                    .font(.footnote)
-                Spacer()
-                Text(waterViewModel.getWater(id: slipway.waterFk)?.name ?? "")
-            }
+        List {
+            Text("Straße: \(slipway.street)")
+            Text("Stadt / Ort: \(slipway.city)")
+            Text("PLZ: \(slipway.postalcode)")
+            Text("Kosten: \(NSDecimalNumber(decimal: slipway.costs).stringValue) €")
+            Text("Gewässer: \(slipway.water.name)")
         }.padding(.horizontal, 20)
     }
 }

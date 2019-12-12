@@ -20,12 +20,15 @@ struct StationListView: View {
                 Image(systemName: "magnifyingglass")
             }
             
-            ForEach(dataStore.stations) { station in
-                if station.longname.starts(with: self.search.uppercased()) {
-                    NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station, value: "")) {
-                        Text(station.name).font(.custom("Exo2-Regular", size: 22))
-                    }   
+            ForEach(dataStore.data.waters) { water in
+                ForEach(water.stations!) { station in 
+                    if station.longname.starts(with: self.search.uppercased()) {
+                        NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station, value: "")) {
+                            Text(station.name).font(.custom("Exo2-Regular", size: 22))
+                        }
+                    }
                 }
+                
             }
         }.navigationBarTitle("Stationen")
     }

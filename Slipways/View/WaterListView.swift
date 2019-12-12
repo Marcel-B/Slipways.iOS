@@ -13,15 +13,16 @@ struct WaterListView: View {
     @State var search: String = ""
     
     var waterViewModel = WaterViewModel()
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
-        return List{
+        List{
             HStack{
                 TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")
             }
             
-            ForEach(dataStore.waters){ water in
+            ForEach(dataStore.data.waters) { water in
                 if water.longname
                     .starts(with: self.search.uppercased()) {
                     
@@ -34,8 +35,8 @@ struct WaterListView: View {
                             }
                             HStack{
                                 Spacer()
-                                Text(self.waterViewModel.getStationsCount(waterId: water.id))
-                                Image("ruler")
+                                Text(water.stations?.count == nil ? "n/a" : "\(water.stations!.count)")
+                                Image(self.colorScheme == .light ? "ruler" : "rulerDarkMode")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 20.0, height: 20.0)

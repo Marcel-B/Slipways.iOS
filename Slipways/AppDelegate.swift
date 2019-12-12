@@ -14,54 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let dataStore = DataStore.shared
-        let tokenService = TokenService()
-        tokenService.getToken { (token) in
-            dataStore.token = token
-            
-            let waterService = WaterService()
-            waterService.getWaters { (waters, error) in
-                if error != nil{
-                    debugPrint(error ?? "na")
-                }
-                else{
-                    if let safeWaters = waters{
-                        DispatchQueue.main.async{
-                            dataStore.waters = safeWaters
-                        }
-                    }
-                }
-            }
-            
-            let stationService = StationService()
-            stationService.getStations { (stations, error) in
-                if error != nil{
-                    debugPrint(error ?? "na")
-                }else{
-                    if let safeStations = stations{
-                        DispatchQueue.main.async {
-                            dataStore.stations = safeStations
-                        }
-                    }
-                }
-            }
-            
-            let slipwayService = SlipwayService()
-            slipwayService.getSlipways { (slipways, error) in
-                if error != nil{
-                    debugPrint(error ?? "na")
-                }else{
-                    if let safeSlipways = slipways{
-                        DispatchQueue.main.async {
-                            dataStore.slipways = safeSlipways
-                        }
-                    }
-                }
-            }
-            
-        }
+        let query = Data("{\"query\": \"{ slipways { id name street city postalcode costs longitude latitude water { id longname } extras { name } } waters { id longname stations { id agency number longname longitude latitude } } }\" }".utf8)
         
-        // debugPrint(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last)
+        let graphQLService = GraphQLService()
+        let appData = AppData.shared
+        graphQLService.fetchEntity(with: query) { (data, error) in
+            if let safeData = data{
+                let serializer = Serializer()
+                if var importedData: ImportData = serializer.parseObject(data: safeData){
+                    let updatedSlipways = importedData.data.slipways.map { (slipway) -> SlipwayQl in
+                        var tmpSlipway = slipway
+                        let userData = appData.getSlipwayById(id: slipway.id)
+                        if let saveUserData = userData{
+                            tmpSlipway.isFavorite = saveUserData.isFavorite
+                        }
+                        return tmpSlipway
+                    }
+                    importedData.data.slipways = updatedSlipways
+                    let store = DataStore.shared
+                    DispatchQueue.main.async{
+                        store.data = importedData.data
+                    }
+                }
+            }
+            else{
+                print("Error")
+            }
+        }
         return true
     }
     

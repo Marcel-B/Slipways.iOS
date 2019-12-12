@@ -10,17 +10,22 @@ import SwiftUI
 
 struct SlipwayList: View {
     @EnvironmentObject var baseDataStore: DataStore
+    let slipwayViewModel = SlipwayViewModel()
     
     var body: some View {
         List{
-            Toggle(isOn: $baseDataStore.showFavoritesOnly){
-                Text("Favoriten anzeigen")
+            // TODO: Check Toggle is really needed dynamically
+            if self.slipwayViewModel.hasFavorites(){
+                Toggle(isOn: $baseDataStore.showFavoritesOnly){
+                    Text("Favoriten anzeigen")
+                }
             }
-            
-            ForEach(baseDataStore.slipways){ slipway in
+        
+            ForEach(baseDataStore.data.slipways){ slipway in
                 if !self.baseDataStore.showFavoritesOnly || slipway.isFavorite ?? false {
-                    NavigationLink(destination: SlipwayDetails(slipway: slipway).environmentObject(self.baseDataStore)){
-                        SlipwayRow(slipway: slipway)
+                    NavigationLink(destination: SlipwayDetails(slipway: slipway)
+                        .environmentObject(self.baseDataStore)){
+                            SlipwayRow(slipway: slipway)
                     }
                 }
             }

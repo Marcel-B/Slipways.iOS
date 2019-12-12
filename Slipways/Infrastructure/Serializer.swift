@@ -16,6 +16,7 @@ class Serializer: ObjectParser{
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
         }catch{
+            print(error)
             os_log("[Serializer] - Error while parsing single element.", log: OSLog.default, type: .error)
             return nil
         }

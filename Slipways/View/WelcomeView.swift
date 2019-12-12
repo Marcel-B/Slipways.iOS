@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @EnvironmentObject var dataStore: DataStore
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -20,26 +21,16 @@ struct WelcomeView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100.0, height: 100.0)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                            .overlay(
-                                Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
-                        
                     }
                     Spacer()
                 }
                 HStack{
-                    
                     Spacer()
                     NavigationLink(destination: StationListView(stationViewModel: StationViewModel.shared, search: "")) {
                         Image("ruler")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100.0, height: 100.0)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                            .overlay(
-                                Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
                     }
                     Spacer()
                     NavigationLink(destination: WaterListView(search: "")){
@@ -47,10 +38,6 @@ struct WelcomeView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100.0, height: 100.0)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                            .overlay(
-                                Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
                     }
                     Spacer()
                 }.padding()
