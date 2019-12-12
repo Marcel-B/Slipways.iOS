@@ -8,7 +8,10 @@
 import SwiftUI
 import os.log
 
-class AppData: DataBase{
+class AppData: InternDataStore{
+    
+    static let shared = AppData()
+    var favorites = [SlipwayDb]()
     
     func updateSlipway(id: String, value: Bool) {
         let defaults = UserDefaults.standard
@@ -18,7 +21,7 @@ class AppData: DataBase{
     }
     
     func getSlipways() -> [SlipwayDb]{
-        return [SlipwayDb]()
+        return favorites
     }
     
     func getSlipwayById(id: String) -> SlipwayDb?{
@@ -33,6 +36,8 @@ class AppData: DataBase{
         guard let slipwayDb = try? PropertyListDecoder().decode(SlipwayDb.self, from: slipwayDbData) else {
             return nil
         }
+        
+        favorites.append(slipwayDb)
         return slipwayDb
     }
 }

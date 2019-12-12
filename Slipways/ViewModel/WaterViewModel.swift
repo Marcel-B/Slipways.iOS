@@ -10,44 +10,22 @@ import Foundation
 
 class WaterViewModel{
     
-    var waterService: WaterProtocol
-    let serializer: ObjectParser
+    static let shared = WaterViewModel()
     
-    static let shared = WaterViewModel(WaterService(), Serializer())
-    
-    init(_ waterService: WaterProtocol = WaterService(), _ serializer: ObjectParser = Serializer()){
-        self.waterService = waterService
-        self.serializer = serializer
-    }
-    
-    func getWaters(filter: String) -> [Water] {
+    func getWaters(filter: String) -> [WaterQl] {
         getWaters()
             .filter { (water) -> Bool in
                 water.longname.lowercased().starts(with: filter.lowercased())
         }
     }
     
-    func getWater(id: String) -> Water?{
-        DataStore.shared.waters.first(where: { $0.id == id})
+    func getWater(id: String) -> WaterQl?{
+        DataStore.shared.data.waters.first(where: { $0.id == id})
     }
     
-    func getWaters() -> [Water] {
-        let data = DataStore.shared
-        if data.waters.count == 0{
-            waterService.getWaters { (waters, error) in
-                if error != nil{
-                    debugPrint("Sorry, an error occurred")
-                }else{
-                    
-                    if let safeWaters = waters{
-                        DispatchQueue.main.async {
-                            data.waters = safeWaters
-                        }
-                    }
-                }
-            }
-        }
-        return data.waters
+    func getWaters() -> [WaterQl] {
+        let store = DataStore.shared
+        return store.data.waters
     }
     
     static func formatName(water: String) -> String{

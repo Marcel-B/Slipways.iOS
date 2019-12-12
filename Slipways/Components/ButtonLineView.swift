@@ -11,11 +11,13 @@ import MapKit
 
 struct ButtonLineView: View {
     @EnvironmentObject var dataStore: DataStore
-    var slipway: Slipway
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    var slipway: SlipwayQl
     var db = AppData()
     
     var slipwayIndex: Int {
-        dataStore.slipways.firstIndex(where: { $0.id == slipway.id })!
+        dataStore.data.slipways.firstIndex(where: { $0.id == slipway.id })!
     }
     let buttonSize: CGFloat = 30.0
     
@@ -25,13 +27,13 @@ struct ButtonLineView: View {
                 let tmpSlipwayDb = self.db.getSlipwayById(id: self.slipway.id)
                 if let safe = tmpSlipwayDb{
                     self.db.updateSlipway(id: self.slipway.id, value: !safe.isFavorite)
-                    self.dataStore.slipways[self.slipwayIndex].isFavorite = !safe.isFavorite
+                    self.dataStore.data.slipways[self.slipwayIndex].isFavorite = !safe.isFavorite
                 }else{
                     self.db.updateSlipway(id: self.slipway.id, value: true)
-                    self.dataStore.slipways[self.slipwayIndex].isFavorite = true
+                    self.dataStore.data.slipways[self.slipwayIndex].isFavorite = true
                 }
             }) {
-                if self.dataStore.slipways[self.slipwayIndex].isFavorite ?? false{
+                if self.dataStore.data.slipways[self.slipwayIndex].isFavorite ?? false{
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: buttonSize, height: buttonSize, alignment: .leading)
@@ -45,6 +47,21 @@ struct ButtonLineView: View {
             }
             
             Spacer()
+            
+            if slipway.extras.contains(where: { (extra) -> Bool in
+                extra.name == "Campingplatz"
+            }){
+                Image(self.colorScheme == .light ? "campingLight" :  "campingDark")
+                Spacer()
+            }
+            
+            if slipway.extras.contains(where: { (extra) -> Bool in
+                extra.name == "Parkplatz"
+            }){
+                Image(self.colorScheme == .light ? "parkingLight" :  "parkingDark")
+                Spacer()
+                
+            }
             
             Button(action: {
                 let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.slipway.locationCoordinate))
@@ -61,6 +78,8 @@ struct ButtonLineView: View {
 
 struct ButtonLineView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLineView(slipway: FakeData().slipway).environmentObject(DataStore.shared)
+        ButtonLineView(slipway: FakeData().slipway)
+            .previewLayout(.sizeThatFits)
+            .environmentObject(DataStore.shared)
     }
 }

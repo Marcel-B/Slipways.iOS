@@ -9,25 +9,15 @@
 import Foundation
 
 final class DataStore: ObservableObject{
-    @Published var stations: [Station]
-    @Published var slipways: [Slipway]
-    @Published var waters: [Water]
     @Published var userSettings: [SlipwayDb]
     @Published var showFavoritesOnly: Bool = false
-    
-    var token: Token?
-    
+    @Published var data: DataQl
+        
     static let shared = DataStore()
     
     init()  {
-        stations = [Station]()
-        slipways = [Slipway]()
-        waters = [Water]()
+//        stations = [Station]()
         userSettings = [SlipwayDb]()
+        data = DataQl(slipways: [SlipwayQl](), waters: [WaterQl]())
     }
-
-//    func getStationsByExpression(exp: (_ isIncluded: Station) -> Bool) -> [Station]{
-//        getStations()
-//            .filter(exp)
-//    }
 }
