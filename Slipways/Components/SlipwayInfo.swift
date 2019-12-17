@@ -35,7 +35,7 @@ struct SlipwayInfo: View {
 
 struct SlipwayInfo_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayInfo(slipway: FakeData().slipway)
+        return SlipwayInfo(slipway: FakeData.slipway)
             .previewLayout(.sizeThatFits).environmentObject(DataStore.shared)
     }
 }

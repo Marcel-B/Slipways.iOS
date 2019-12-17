@@ -37,6 +37,6 @@ struct StationDetailsView: View {
 
 struct StationDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        StationDetailsView(stationViewModel: StationViewModel(), station: FakeData().station, value: "").environmentObject(DataStore.shared)
+        StationDetailsView(stationViewModel: StationViewModel(), station: FakeData.station, value: "").environmentObject(DataStore.shared)
     }
 }

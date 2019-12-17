@@ -23,6 +23,13 @@ struct WelcomeView: View {
                             .frame(width: 100.0, height: 100.0)
                     }
                     Spacer()
+                    NavigationLink(destination: ServiceView().environmentObject(self.dataStore)){
+                        Image("wrench100")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                    }
+                    Spacer()
                 }
                 HStack{
                     Spacer()

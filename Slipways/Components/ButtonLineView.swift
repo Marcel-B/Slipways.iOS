@@ -33,7 +33,7 @@ struct ButtonLineView: View {
                     self.dataStore.data.slipways[self.slipwayIndex].isFavorite = true
                 }
             }) {
-                if self.dataStore.data.slipways[self.slipwayIndex].isFavorite ?? false{
+                if self.dataStore.data.slipways[self.slipwayIndex].favorite {
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: buttonSize, height: buttonSize, alignment: .leading)
@@ -78,7 +78,7 @@ struct ButtonLineView: View {
 
 struct ButtonLineView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLineView(slipway: FakeData().slipway)
+        ButtonLineView(slipway: FakeData.slipway)
             .previewLayout(.sizeThatFits)
             .environmentObject(DataStore.shared)
     }
