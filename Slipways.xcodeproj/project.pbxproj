@@ -17,6 +17,8 @@
 		1F0D5B4C236AC55000EA9476 /* SlipwaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B4B236AC55000EA9476 /* SlipwaysTests.swift */; };
 		1F0D5B57236AC55000EA9476 /* SlipwaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */; };
 		1F12F44C23A0DC9B00068A25 /* GraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12F44B23A0DC9B00068A25 /* GraphQLService.swift */; };
+		1F4C696123A80DE400374749 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C696023A80DE400374749 /* ServiceView.swift */; };
+		1F4C696323A80DF600374749 /* ServiceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C696223A80DF600374749 /* ServiceDetails.swift */; };
 		1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369A5238BC1430007EBB0 /* FakeData.swift */; };
 		1F5369AD238C8DC10007EBB0 /* InternDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AC238C8DC10007EBB0 /* InternDataStore.swift */; };
 		1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AF238D9AE10007EBB0 /* Properties.swift */; };
@@ -26,6 +28,8 @@
 		1F5369BF2391634E0007EBB0 /* ObjectParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BE2391634E0007EBB0 /* ObjectParser.swift */; };
 		1F729E44238193890068954C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E43238193890068954C /* Link.swift */; };
 		1F729E46238196950068954C /* WaterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F729E45238196950068954C /* WaterListView.swift */; };
+		1F7C243B23AA0CFE00AA8855 /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C243A23AA0CFE00AA8855 /* ServiceInfo.swift */; };
+		1F7C243D23AA14F900AA8855 /* SignsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C243C23AA14F900AA8855 /* SignsListView.swift */; };
 		1F82304F236ACC0A00E6513F /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F82304E236ACC0A00E6513F /* AppData.swift */; };
 		1F823051236ACC8100E6513F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823050236ACC8100E6513F /* Model.swift */; };
 		1F823053236ACCA900E6513F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F823052236ACCA900E6513F /* Coordinates.swift */; };
@@ -68,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F04826923B801FF00DC0FC6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1F04943323867B4E005B8D16 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		1F0D5B31236AC54E00EA9476 /* Slipways.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slipways.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0D5B34236AC54E00EA9476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +89,8 @@
 		1F0D5B56236AC55000EA9476 /* SlipwaysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwaysUITests.swift; sourceTree = "<group>"; };
 		1F0D5B58236AC55000EA9476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F12F44B23A0DC9B00068A25 /* GraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLService.swift; sourceTree = "<group>"; };
+		1F4C696023A80DE400374749 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		1F4C696223A80DF600374749 /* ServiceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetails.swift; sourceTree = "<group>"; };
 		1F5369A5238BC1430007EBB0 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		1F5369AC238C8DC10007EBB0 /* InternDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternDataStore.swift; sourceTree = "<group>"; };
 		1F5369AF238D9AE10007EBB0 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
@@ -93,6 +100,8 @@
 		1F5369BE2391634E0007EBB0 /* ObjectParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectParser.swift; sourceTree = "<group>"; };
 		1F729E43238193890068954C /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		1F729E45238196950068954C /* WaterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterListView.swift; sourceTree = "<group>"; };
+		1F7C243A23AA0CFE00AA8855 /* ServiceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfo.swift; sourceTree = "<group>"; };
+		1F7C243C23AA14F900AA8855 /* SignsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignsListView.swift; sourceTree = "<group>"; };
 		1F82304A236AC96C00E6513F /* slipways.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = slipways.json; sourceTree = "<group>"; };
 		1F82304E236ACC0A00E6513F /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		1F823050236ACC8100E6513F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -275,6 +284,7 @@
 				1F82305B236B52DF00E6513F /* SlipwayInfo.swift */,
 				1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */,
 				1FFFAF55239190390070EF9E /* ButtonLineView.swift */,
+				1F7C243A23AA0CFE00AA8855 /* ServiceInfo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -289,6 +299,9 @@
 				1FAA52212388A6DA0065280B /* WaterDetailsView.swift */,
 				1FAFA9E023830FB600CB85F7 /* StationListView.swift */,
 				1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */,
+				1F4C696023A80DE400374749 /* ServiceView.swift */,
+				1F4C696223A80DF600374749 /* ServiceDetails.swift */,
+				1F7C243C23AA14F900AA8855 /* SignsListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +402,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 1F0D5B28236AC54E00EA9476;
 			packageReferences = (
@@ -439,7 +453,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFFAF5A2391E0270070EF9E /* WaterViewModel.swift in Sources */,
+				1F7C243D23AA14F900AA8855 /* SignsListView.swift in Sources */,
 				1F12F44C23A0DC9B00068A25 /* GraphQLService.swift in Sources */,
+				1F4C696323A80DF600374749 /* ServiceDetails.swift in Sources */,
 				1F82304F236ACC0A00E6513F /* AppData.swift in Sources */,
 				1FFFAF56239190390070EF9E /* ButtonLineView.swift in Sources */,
 				1F5369AD238C8DC10007EBB0 /* InternDataStore.swift in Sources */,
@@ -466,8 +482,10 @@
 				1FFFAF54239181AF0070EF9E /* MapWrapperView.swift in Sources */,
 				1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */,
 				1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */,
+				1F7C243B23AA0CFE00AA8855 /* ServiceInfo.swift in Sources */,
 				1F82305C236B52DF00E6513F /* SlipwayInfo.swift in Sources */,
 				1F04943423867B4F005B8D16 /* DataStore.swift in Sources */,
+				1F4C696123A80DE400374749 /* ServiceView.swift in Sources */,
 				1FFFAF5223916E350070EF9E /* StationViewModel.swift in Sources */,
 				1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */,
 				1F5369BB23915D7B0007EBB0 /* HttpMethod.swift in Sources */,
@@ -511,6 +529,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F0D5B40236AC54F00EA9476 /* Base */,
+				1F04826923B801FF00DC0FC6 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -522,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -582,6 +602,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -638,7 +659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
@@ -648,11 +669,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.b-velop.slipways";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -662,7 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
@@ -672,11 +694,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.b-velop.slipways";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -34,6 +34,6 @@ struct WaterDetailsView: View {
 
 struct WaterDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        WaterDetailsView(water: FakeData().water)
+        WaterDetailsView(water: FakeData.water)
     }
 }

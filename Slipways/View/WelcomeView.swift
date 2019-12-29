@@ -23,6 +23,13 @@ struct WelcomeView: View {
                             .frame(width: 100.0, height: 100.0)
                     }
                     Spacer()
+                    NavigationLink(destination: ServiceView().environmentObject(self.dataStore)){
+                        Image("wrench100")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                    }
+                    Spacer()
                 }
                 HStack{
                     Spacer()
@@ -41,10 +48,23 @@ struct WelcomeView: View {
                     }
                     Spacer()
                 }.padding()
+                
+                
+//                HStack{
+//                    Spacer()
+//                    NavigationLink(destination: SignsListView()) {
+//                        Image("ruler")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(width: 100.0, height: 100.0)
+//                    }
+//                    Spacer()
+//                }
             }
         }
     }
 }
+
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {

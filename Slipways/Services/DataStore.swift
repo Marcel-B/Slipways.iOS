@@ -18,6 +18,6 @@ final class DataStore: ObservableObject{
     init()  {
 //        stations = [Station]()
         userSettings = [SlipwayDb]()
-        data = DataQl(slipways: [SlipwayQl](), waters: [WaterQl]())
+        data = DataQl(slipways: [SlipwayQl](), waters: [WaterQl](), services: [ServiceQl]())
     }
 }

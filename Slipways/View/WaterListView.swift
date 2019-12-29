@@ -17,6 +17,7 @@ struct WaterListView: View {
     
     var body: some View {
         List{
+            
             HStack{
                 TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")

@@ -24,14 +24,13 @@ class SlipwayViewModel{
         return slipways.count > 0
     }
     
-    func getSlipways() -> [SlipwayQl]{
-        let dataStore = DataStore.shared
-        return dataStore.data.slipways
-    }
-    
-    func hasCampingSite(with slipway: SlipwayQl) -> Bool {
-        slipway.extras.contains { (extra) -> Bool in
-            extra.name == "Campingplatz"
+    func getCosts(slipway: SlipwayQl) -> String {
+        if slipway.costs > 0{
+            return "\(NSDecimalNumber(decimal: slipway.costs).stringValue) €"
         }
+        else if slipway.costs == 0{
+            return "kostenlos"
+        }
+        return "keine Angaben"
     }
 }

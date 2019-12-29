@@ -25,7 +25,7 @@ struct MapWrapperView: View {
                 HStack{
                     Spacer()
                     Image(systemName: "car")
-                        .padding()
+                        .padding(.vertical)
                 }
             }
         }
@@ -34,6 +34,6 @@ struct MapWrapperView: View {
 
 struct MapWrapperView_Previews: PreviewProvider {
     static var previews: some View {
-        MapWrapperView(coordinate: FakeData().slipway.locationCoordinate, targetName: "Essen")
+        MapWrapperView(coordinate: FakeData.slipway.locationCoordinate, targetName: "Essen")
     }
 }

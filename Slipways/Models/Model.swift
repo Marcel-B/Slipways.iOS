@@ -16,6 +16,37 @@ struct ImportData: Codable{
 struct DataQl: Codable{
     var slipways: [SlipwayQl]
     var waters: [WaterQl]
+    var services: [ServiceQl]
+}
+
+struct ServiceQl: Codable, Identifiable{
+    var id: String
+    var name: String
+    var longitude: Double
+    var latitude: Double
+    var phone: String?
+    var url: String?
+    var street: String
+    var postalcode: String
+    var city: String
+    var email: String?
+    var manufacturers: [ManufacturerQl]?
+    
+    var manufacturersList: [ManufacturerQl] {
+        get{
+            manufacturers ?? [ManufacturerQl]()
+        }
+    }
+    
+    var locationCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D (
+            latitude: latitude, longitude: longitude)
+    }
+}
+
+struct ManufacturerQl: Codable, Identifiable{
+    var id: String
+    var name: String
 }
 
 struct ExtraQl: Codable{
@@ -65,7 +96,14 @@ struct SlipwayQl: Codable, Identifiable{
     var costs: Decimal
     var extras: [ExtraQl]
     var water: WaterQl
+    
     var isFavorite: Bool?
+    
+    var favorite: Bool {
+        get {
+            isFavorite ?? false
+        }
+    }
     
     var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D (
