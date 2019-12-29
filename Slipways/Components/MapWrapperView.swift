@@ -25,7 +25,7 @@ struct MapWrapperView: View {
                 HStack{
                     Spacer()
                     Image(systemName: "car")
-                        .padding()
+                        .padding(.vertical)
                 }
             }
         }

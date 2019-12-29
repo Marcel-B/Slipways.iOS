@@ -23,4 +23,14 @@ class SlipwayViewModel{
         }
         return slipways.count > 0
     }
+    
+    func getCosts(slipway: SlipwayQl) -> String {
+        if slipway.costs > 0{
+            return "\(NSDecimalNumber(decimal: slipway.costs).stringValue) €"
+        }
+        else if slipway.costs == 0{
+            return "kostenlos"
+        }
+        return "keine Angaben"
+    }
 }

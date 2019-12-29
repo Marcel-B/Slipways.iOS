@@ -51,17 +51,24 @@ struct ButtonLineView: View {
             if slipway.extras.contains(where: { (extra) -> Bool in
                 extra.name == "Campingplatz"
             }){
-                Image(self.colorScheme == .light ? "campingLight" :  "campingDark")
+                Image(self.colorScheme == .light ? "camping96Light" :  "camping96Dark")
                 Spacer()
             }
             
             if slipway.extras.contains(where: { (extra) -> Bool in
                 extra.name == "Parkplatz"
             }){
-                Image(self.colorScheme == .light ? "parkingLight" :  "parkingDark")
+                Image(self.colorScheme == .light ? "parking96Light" :  "parking96Dark")
                 Spacer()
                 
             }
+            if slipway.extras.contains(where: { (extra) -> Bool in
+                        extra.name == "Steg"
+                    }){
+                        Image(self.colorScheme == .light ? "pier96Light" :  "pier96Dark")
+                        Spacer()
+                        
+                    }
             
             Button(action: {
                 let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.slipway.locationCoordinate))
