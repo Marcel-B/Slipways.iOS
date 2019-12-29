@@ -11,23 +11,69 @@ import SwiftUI
 struct SlipwayList: View {
     @EnvironmentObject var baseDataStore: DataStore
     let slipwayViewModel = SlipwayViewModel()
+    @State var search =  ""
     
     var body: some View {
         List{
-            // TODO: Check Toggle is really needed dynamically
-            if self.slipwayViewModel.hasFavorites(){
-                Toggle(isOn: $baseDataStore.showFavoritesOnly){
-                    Text("Favoriten anzeigen")
-                }
+            HStack{
+                TextField("Suche", text: $search)
+                Image(systemName: "magnifyingglass")
             }
-        
-            ForEach(baseDataStore.data.slipways){ slipway in
-                if !self.baseDataStore.showFavoritesOnly || slipway.isFavorite ?? false {
-                    NavigationLink(destination: SlipwayDetails(slipway: slipway)
-                        .environmentObject(self.baseDataStore)){
-                            SlipwayRow(slipway: slipway)
+            
+            HStack{
+                Image(systemName: "star.fill")
+                    .imageScale(.medium)
+                    .foregroundColor(.yellow)
+                Spacer()
+                Text("Favoriten")
+                    .font(.title)
+                Spacer()
+                Image(systemName: "star.fill")
+                    .imageScale(.medium)
+                    .foregroundColor(.yellow)
+            }
+            
+            Group{
+                ForEach(baseDataStore.data.slipways){ slipway in
+                    if slipway.favorite{
+                        if self.search.count == 0{
+                            NavigationLink(destination: SlipwayDetails(slipway: slipway)
+                                .environmentObject(self.baseDataStore)){
+                                    SlipwayRow(slipway: slipway)
+                            }
+                        }else if slipway.city.lowercased().contains(self.search.lowercased()) ||
+                            slipway.name.lowercased().contains(self.search.lowercased())||slipway.water.name.lowercased().contains(self.search.lowercased()){
+                            NavigationLink(destination: SlipwayDetails(slipway: slipway)
+                                .environmentObject(self.baseDataStore)){
+                                    SlipwayRow(slipway: slipway)
+                            }
+                        }
                     }
                 }
+            }
+            HStack{
+                Spacer()
+                Text("Sonstige")
+                    .font(.title)
+                Spacer()
+            }
+            Group{
+                 ForEach(baseDataStore.data.slipways){ slipway in
+                              if !slipway.favorite{
+                                  if self.search.count == 0{
+                                      NavigationLink(destination: SlipwayDetails(slipway: slipway)
+                                          .environmentObject(self.baseDataStore)){
+                                              SlipwayRow(slipway: slipway)
+                                      }
+                                  }else if slipway.city.lowercased().contains(self.search.lowercased()) ||
+                                      slipway.name.lowercased().contains(self.search.lowercased())||slipway.water.name.lowercased().contains(self.search.lowercased()){
+                                      NavigationLink(destination: SlipwayDetails(slipway: slipway)
+                                          .environmentObject(self.baseDataStore)){
+                                              SlipwayRow(slipway: slipway)
+                                      }
+                                  }
+                              }
+                          }
             }
         }.navigationBarTitle("Slipanlagen")
     }

@@ -30,6 +30,6 @@ struct SlipwayDetails: View {
 
 struct SlipwayDetails_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayDetails(slipway: FakeData().slipway).environmentObject(DataStore.shared)
+        return SlipwayDetails(slipway: FakeData.slipway).environmentObject(DataStore.shared)
     }
 }

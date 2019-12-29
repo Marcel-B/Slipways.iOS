@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let query = Data("{\"query\": \"{ slipways { id name street city postalcode costs longitude latitude water { id longname } extras { name } } waters { id longname stations { id agency number longname longitude latitude } } }\" }".utf8)
+        let query = Data("{\"query\": \"{ slipways { id name street city postalcode costs longitude latitude water { id longname } extras { name } } waters { id longname stations { id agency number longname longitude latitude } } services { id name street city postalcode phone longitude latitude email url manufacturers { id name } } }\" }".utf8)
         
         let graphQLService = GraphQLService()
         let appData = AppData.shared

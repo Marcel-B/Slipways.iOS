@@ -33,7 +33,7 @@ struct ButtonLineView: View {
                     self.dataStore.data.slipways[self.slipwayIndex].isFavorite = true
                 }
             }) {
-                if self.dataStore.data.slipways[self.slipwayIndex].isFavorite ?? false{
+                if self.dataStore.data.slipways[self.slipwayIndex].favorite {
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: buttonSize, height: buttonSize, alignment: .leading)
@@ -51,17 +51,24 @@ struct ButtonLineView: View {
             if slipway.extras.contains(where: { (extra) -> Bool in
                 extra.name == "Campingplatz"
             }){
-                Image(self.colorScheme == .light ? "campingLight" :  "campingDark")
+                Image(self.colorScheme == .light ? "camping96Light" :  "camping96Dark")
                 Spacer()
             }
             
             if slipway.extras.contains(where: { (extra) -> Bool in
                 extra.name == "Parkplatz"
             }){
-                Image(self.colorScheme == .light ? "parkingLight" :  "parkingDark")
+                Image(self.colorScheme == .light ? "parking96Light" :  "parking96Dark")
                 Spacer()
                 
             }
+            if slipway.extras.contains(where: { (extra) -> Bool in
+                        extra.name == "Steg"
+                    }){
+                        Image(self.colorScheme == .light ? "pier96Light" :  "pier96Dark")
+                        Spacer()
+                        
+                    }
             
             Button(action: {
                 let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.slipway.locationCoordinate))
@@ -78,7 +85,7 @@ struct ButtonLineView: View {
 
 struct ButtonLineView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLineView(slipway: FakeData().slipway)
+        ButtonLineView(slipway: FakeData.slipway)
             .previewLayout(.sizeThatFits)
             .environmentObject(DataStore.shared)
     }

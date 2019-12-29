@@ -33,7 +33,7 @@ struct NameSign: View {
                 }
             })
             {
-                if self.dataStore.data.slipways[self.slipwayIndex].isFavorite ?? false{
+                if self.dataStore.data.slipways[self.slipwayIndex].favorite {
                     Image(systemName: "star.fill").foregroundColor(Color.yellow)
                 }else{
                     Image(systemName: "star").foregroundColor(Color.gray)
@@ -48,6 +48,6 @@ struct NameSign: View {
 
 struct NameSign_Previews: PreviewProvider {
     static var previews: some View {
-        return NameSign(slipway: FakeData().slipway).environmentObject(DataStore.shared)
+        return NameSign(slipway: FakeData.slipway).environmentObject(DataStore.shared)
     }
 }

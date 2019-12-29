@@ -22,23 +22,6 @@ class StationViewModel: ObservableObject{
         self.serializer = dataService
     }
     
-//    func getStations(filter: String) -> [Station] {
-//        let flt = filter.uppercased()
-//        var st = [Station]()
-//        let stations = getStations()
-//        for station in stations{
-//            if station.longname.starts(with: flt){
-//                st.append(station)
-//            }
-//        }
-//        return st
-////        return getStations()
-////            .filter { $0.longname.contains(flt) }
-////            .filter { (station) -> Bool in
-////                station.longname.lowercased().starts(with: filter.lowercased())
-////        }
-//    }
-    
     func getStations() -> [StationQl] {
         let store = DataStore.shared
         var stations = [StationQl]()

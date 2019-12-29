@@ -9,44 +9,44 @@
 import XCTest
 @testable import Slipways
 
-class StationServiceMock: StationProtocol{
-    func getStations(completion: @escaping ([Station]?, Error?) -> Void) {
-        
-    }
-    
-    
-    func fetchData(link: String, completion: @escaping ([Station]) -> Void) {
-        let stations = [Station(id: "12345", number: "001", shortname: "Test", longname: "Teststation", km: 22.2, agency: "Riga", longitude: 2.2, latitude: 2.2, waterFk: "abc", water: Water(id: "12345", shortname: "RUHR", longname: "RUHR"))]
-        completion(stations)
-    }
-    
-    func fetchSecureSingleData(link: String, completion: @escaping (Station?) -> Void) {
-        completion(nil)
-    }
-    
-    func fetchSingleData(link: String) {
-        print("fetchSingleData called")
-    }
-}
+//class StationServiceMock: StationProtocol{
+//    func getStations(completion: @escaping ([Station]?, Error?) -> Void) {
+//
+//    }
+//
+//
+//    func fetchData(link: String, completion: @escaping ([Station]) -> Void) {
+//        let stations = [Station(id: "12345", number: "001", shortname: "Test", longname: "Teststation", km: 22.2, agency: "Riga", longitude: 2.2, latitude: 2.2, waterFk: "abc", water: Water(id: "12345", shortname: "RUHR", longname: "RUHR"))]
+//        completion(stations)
+//    }
+//
+//    func fetchSecureSingleData(link: String, completion: @escaping (Station?) -> Void) {
+//        completion(nil)
+//    }
+//
+//    func fetchSingleData(link: String) {
+//        print("fetchSingleData called")
+//    }
+//}
 
-class WaterServiceMock : WaterProtocol{
-    func getWaters(completion: @escaping ([Water]?, Error?) -> Void) {
-            
-    }
-    
-    func fetchData(link: String, completion: @escaping ([Water]) -> Void) {
-        completion([Water]())
-    }
-    
-    func fetchSecureSingleData(link: String, completion: @escaping (Water?) -> Void) {
-        completion(nil)
-    }
-    
-    func fetchSingleData(link: String) {
-        print("fetchSingleData called")
-    }
-    
-}
+//class WaterServiceMock : WaterProtocol{
+//    func getWaters(completion: @escaping ([Water]?, Error?) -> Void) {
+//            
+//    }
+//    
+//    func fetchData(link: String, completion: @escaping ([Water]) -> Void) {
+//        completion([Water]())
+//    }
+//    
+//    func fetchSecureSingleData(link: String, completion: @escaping (Water?) -> Void) {
+//        completion(nil)
+//    }
+//    
+//    func fetchSingleData(link: String) {
+//        print("fetchSingleData called")
+//    }
+//    
+//}
 
 class PegelDataMock: PegelData{
     func getPegel(data: Data, completion: @escaping (CurrentMeasurementResponse?) -> Void) {
