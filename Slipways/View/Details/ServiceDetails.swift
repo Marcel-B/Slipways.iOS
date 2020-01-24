@@ -7,25 +7,26 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ServiceDetails: View {
-    let service: ServiceQl
+    let service: Service
     
     var body: some View {
         ScrollView{
             VStack{
-                MapWrapperView(coordinate: service.locationCoordinate, targetName: service.name)
+                MapWrapperView(coordinate: CLLocationCoordinate2D (latitude: service.latitude, longitude: service.longitude), targetName: service.name ?? "n/a")
                     .frame(height: 400)
                     .padding(.horizontal)
                 ServiceInfo(service: service)
                     .padding(.horizontal)
             }
-        }.navigationBarTitle(service.name)
+        }.navigationBarTitle(service.name ?? "n/a")
     }
 }
 
 struct ServiceDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetails(service: FakeData.service)
+        ServiceDetails(service: Service())
     }
 }

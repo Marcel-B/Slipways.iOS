@@ -9,21 +9,26 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @EnvironmentObject var dataStore: DataStore
+    static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)
+    static let gradientEnd = Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255)
     
     var body: some View {
+        
+        
+//        RadialGradient(gradient: Gradient(colors: [.orange, .red]), center: .center, startRadius: 100, endRadius: 470)
         NavigationView{
             VStack{
+                Spacer()
                 HStack{
                     Spacer()
-                    NavigationLink(destination: SlipwayList().environmentObject(self.dataStore)){
+                    NavigationLink(destination: SlipwayList()){
                         Image("launch")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100.0, height: 100.0)
                     }
                     Spacer()
-                    NavigationLink(destination: ServiceView().environmentObject(self.dataStore)){
+                    NavigationLink(destination: ServiceView()){
                         Image("wrench100")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -33,7 +38,7 @@ struct WelcomeView: View {
                 }
                 HStack{
                     Spacer()
-                    NavigationLink(destination: StationListView(stationViewModel: StationViewModel.shared, search: "")) {
+                    NavigationLink(destination: StationListView(search: "")) {
                         Image("ruler")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -48,19 +53,25 @@ struct WelcomeView: View {
                     }
                     Spacer()
                 }.padding()
-                
-                
-//                HStack{
-//                    Spacer()
-//                    NavigationLink(destination: SignsListView()) {
-//                        Image("ruler")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 100.0, height: 100.0)
-//                    }
-//                    Spacer()
-//                }
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: InfoView()){
+                        Image("info100Dark")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                    }
+                    Spacer()
+                }.padding()
+                Spacer()
             }
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [.secondary, .white, .secondary]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                ))
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -68,6 +79,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView().environmentObject(DataStore.shared)
+        WelcomeView()
     }
 }

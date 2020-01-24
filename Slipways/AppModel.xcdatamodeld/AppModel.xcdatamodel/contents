@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Extra" representedClassName=".Extra" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="slipway" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Slipway" inverseName="extra" inverseEntity="Slipway"/>
+    </entity>
+    <entity name="Manufacturer" representedClassName=".Manufacturer" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="service" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Service" inverseName="manufacturers" inverseEntity="Service"/>
+    </entity>
+    <entity name="Port" representedClassName=".Port" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="postalcode" optional="YES" attributeType="String"/>
+        <attribute name="street" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+        <relationship name="slipway" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Port" inverseName="slipway" inverseEntity="Port"/>
+        <relationship name="water" maxCount="1" deletionRule="Nullify" destinationEntity="Water" inverseName="port" inverseEntity="Water"/>
+    </entity>
+    <entity name="Service" representedClassName=".Service" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="postalcode" optional="YES" attributeType="String"/>
+        <attribute name="street" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+        <relationship name="manufacturers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Manufacturer" inverseName="service" inverseEntity="Manufacturer"/>
+    </entity>
+    <entity name="Slipway" representedClassName=".Slipway" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="costs" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="postalcode" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="street" optional="YES" attributeType="String"/>
+        <relationship name="extra" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Extra" inverseName="slipway" inverseEntity="Extra"/>
+        <relationship name="port" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Port"/>
+        <relationship name="water" maxCount="1" deletionRule="Nullify" destinationEntity="Water" inverseName="slipway" inverseEntity="Water"/>
+    </entity>
+    <entity name="Station" representedClassName=".Station" syncable="YES" codeGenerationType="class">
+        <attribute name="agency" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <relationship name="water" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Water" inverseName="station" inverseEntity="Water"/>
+    </entity>
+    <entity name="Water" representedClassName=".Water" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="port" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Port" inverseName="water" inverseEntity="Port"/>
+        <relationship name="slipway" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Slipway" inverseName="water" inverseEntity="Slipway"/>
+        <relationship name="station" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Station" inverseName="water" inverseEntity="Station"/>
+    </entity>
+    <elements>
+        <element name="Extra" positionX="277.61328125" positionY="97.4140625" width="128" height="103"/>
+        <element name="Manufacturer" positionX="129.08203125" positionY="-94.5625" width="128" height="103"/>
+        <element name="Port" positionX="10.71484375" positionY="216.28515625" width="128" height="238"/>
+        <element name="Service" positionX="364.97265625" positionY="-216.33203125" width="128" height="223"/>
+        <element name="Slipway" positionX="482.6171875" positionY="114" width="128" height="253"/>
+        <element name="Station" positionX="-142.86328125" positionY="339.69140625" width="128" height="163"/>
+        <element name="Water" positionX="186.7578125" positionY="339.46484375" width="128" height="133"/>
+    </elements>
+</model>

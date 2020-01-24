@@ -34,6 +34,6 @@ struct MapWrapperView: View {
 
 struct MapWrapperView_Previews: PreviewProvider {
     static var previews: some View {
-        MapWrapperView(coordinate: FakeData.slipway.locationCoordinate, targetName: "Essen")
+        MapWrapperView(coordinate: CLLocationCoordinate2D(latitude: 2, longitude: 2), targetName: "Essen")
     }
 }

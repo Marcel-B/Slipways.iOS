@@ -9,31 +9,27 @@
 import SwiftUI
 
 struct WaterDetailsView: View {
-    
-    @ObservedObject var dataStore = DataStore.shared
-    let water: WaterQl
-    
+    let water: Water
     var body: some View {
         List{
-            
             HStack{
                 Text("Stationen")
                 Spacer()
                 Image("ruler")
             }
-            ForEach(water.stations!) { station in
-                
-                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station)){
-                    Text(station.name)
-                        .font(.custom("Exo2-Regular", size: 22))
+            ForEach(water.station?.allObjects as! [Station], id: \.self) { station in
+                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel() ,station: station )){
+                    Text(station.name ?? "n/a")
+                            .font(.custom("Exo2-Regular", size: 22))
                 }
             }
-        }.navigationBarTitle(water.name)
+        }.navigationBarTitle(water.name ?? "n/a")
     }
 }
 
 struct WaterDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        WaterDetailsView(water: FakeData.water)
+        WaterDetailsView(water: Water())
     }
 }
+

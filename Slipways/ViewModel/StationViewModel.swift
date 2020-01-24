@@ -22,15 +22,6 @@ class StationViewModel: ObservableObject{
         self.serializer = dataService
     }
     
-    func getStations() -> [StationQl] {
-        let store = DataStore.shared
-        var stations = [StationQl]()
-        for water in store.data.waters{
-            stations.append(contentsOf: water.stations!)
-        }
-        return stations
-    }
-    
     func pegel(id: String, completion: @escaping (_ result: Double) -> Void) {
         pegelService.getPegel(station: id) { (data) in
             if let safeData = data{

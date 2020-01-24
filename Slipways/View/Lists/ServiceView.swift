@@ -9,22 +9,22 @@
 import SwiftUI
 
 struct ServiceView: View {
-    @EnvironmentObject var baseDataStore: DataStore
-    
+    @FetchRequest(entity: Service.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Service.name, ascending: true)]) var services: FetchedResults<Service>
+
     var body: some View {
         List{
-            ForEach(baseDataStore.data.services) { service in
+            ForEach(services, id: \.self.id!) { service in
                 NavigationLink(destination: ServiceDetails(service: service)){
                     VStack{
                         HStack{
-                            Text(service.name)
+                            Text(service.name ?? "n/a")
                                 .font(.custom("Exo2-Regular", size: 22))
                             Spacer()
                         }
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
                                 .imageScale(.small)
-                            Text(service.city)
+                            Text(service.city ?? "n/a")
                                 .font(.footnote)
                             Spacer()
                         }
@@ -38,6 +38,5 @@ struct ServiceView: View {
 struct ServiceView_Previews: PreviewProvider {
     static var previews: some View {
         ServiceView()
-            .environmentObject(DataStore.shared)
     }
 }

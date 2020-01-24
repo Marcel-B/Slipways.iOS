@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct StationListView: View {
-    @ObservedObject var stationViewModel: StationViewModel
-    @EnvironmentObject var dataStore: DataStore
+    @FetchRequest(entity: Station.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Station.name, ascending: true)]) var stations: FetchedResults<Station>
     @State var search: String
     
     var body: some View {
@@ -19,16 +18,12 @@ struct StationListView: View {
                 TextField("Suche", text: $search)
                 Image(systemName: "magnifyingglass")
             }
-            
-            ForEach(dataStore.data.waters) { water in
-                ForEach(water.stations!) { station in 
-                    if station.longname.starts(with: self.search.uppercased()) {
+            ForEach(stations, id: \.self.id!) { station in
+//                    if station.name.starts(with: self.search.uppercased()) {
                         NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(), station: station, value: "")) {
-                            Text(station.name).font(.custom("Exo2-Regular", size: 22))
+                            Text(station.name ?? "n/a").font(.custom("Exo2-Regular", size: 22))
                         }
-                    }
-                }
-                
+//                }
             }
         }.navigationBarTitle("Stationen")
     }
@@ -37,6 +32,6 @@ struct StationListView: View {
 
 struct StationListView_Previews: PreviewProvider {
     static var previews: some View {
-        StationListView(stationViewModel: StationViewModel.shared, search: "").environmentObject(DataStore.shared)
+        StationListView(search: "")
     }
 }

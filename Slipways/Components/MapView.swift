@@ -31,6 +31,6 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinate: FakeData.slipway.locationCoordinate)
+        MapView(coordinate: CLLocationCoordinate2D(latitude: 2, longitude: 2))
     }
 }
