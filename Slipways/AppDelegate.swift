@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
 //                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            print("No errors, go!")
         })
         return container
     }()

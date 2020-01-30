@@ -9,6 +9,12 @@
 import Foundation
 
 extension String {
+    static var Empty: String {
+        get {
+            return "-"
+        }
+    }
+    
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }

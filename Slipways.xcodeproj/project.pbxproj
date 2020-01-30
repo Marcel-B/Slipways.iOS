@@ -23,7 +23,7 @@
 		1F49BB9B23CC549A00B100AF /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49BB9A23CC549A00B100AF /* Query.swift */; };
 		1F49BB9D23CC57FD00B100AF /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49BB9C23CC57FD00B100AF /* Entity.swift */; };
 		1F4C696123A80DE400374749 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C696023A80DE400374749 /* ServiceView.swift */; };
-		1F4C696323A80DF600374749 /* ServiceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C696223A80DF600374749 /* ServiceDetails.swift */; };
+		1F4C696323A80DF600374749 /* ServiceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C696223A80DF600374749 /* ServiceDetailsView.swift */; };
 		1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369A5238BC1430007EBB0 /* FakeData.swift */; };
 		1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369AF238D9AE10007EBB0 /* Properties.swift */; };
 		1F5369BB23915D7B0007EBB0 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */; };
@@ -51,6 +51,20 @@
 		1FAFA9E3238311AB00CB85F7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */; };
 		1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */; };
 		1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA9E62383D1E600CB85F7 /* CurrentMeasurementResponse.swift */; };
+		1FC50D7023DECBAF00B99C59 /* PortListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D6F23DECBAF00B99C59 /* PortListView.swift */; };
+		1FC50D7223DECBBF00B99C59 /* PortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7123DECBBF00B99C59 /* PortDetailsView.swift */; };
+		1FC50D7423E016EA00B99C59 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7323E016EA00B99C59 /* Protocols.swift */; };
+		1FC50D7623E0186900B99C59 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7523E0186900B99C59 /* ContactDetailsView.swift */; };
+		1FC50D7823E15BB300B99C59 /* PortExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7723E15BB300B99C59 /* PortExtensions.swift */; };
+		1FC50D7A23E165DF00B99C59 /* MapOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7923E165DF00B99C59 /* MapOverviewView.swift */; };
+		1FC50D7E23E199DB00B99C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC50D8023E199DB00B99C59 /* Localizable.strings */; };
+		1FC50D8323E19A1800B99C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC50D8523E19A1800B99C59 /* Localizable.strings */; };
+		1FC50D8823E19A4600B99C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC50D8A23E19A4600B99C59 /* Localizable.strings */; };
+		1FC50D8C23E2C3F700B99C59 /* SlipwayInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D8B23E2C3F700B99C59 /* SlipwayInfoViewModel.swift */; };
+		1FC50D8E23E34C8C00B99C59 /* PortRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D8D23E34C8C00B99C59 /* PortRow.swift */; };
+		1FC50D9023E351C300B99C59 /* StationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D8F23E351C300B99C59 /* StationInfoView.swift */; };
+		1FC50D9223E363F100B99C59 /* StationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D9123E363F100B99C59 /* StationInfoViewModel.swift */; };
+		1FC50D9423E3643900B99C59 /* PortRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D9323E3643900B99C59 /* PortRowViewModel.swift */; };
 		1FDB3EB9239869290043D0EC /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */; };
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
@@ -101,7 +115,7 @@
 		1F49BB9A23CC549A00B100AF /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		1F49BB9C23CC57FD00B100AF /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		1F4C696023A80DE400374749 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
-		1F4C696223A80DF600374749 /* ServiceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetails.swift; sourceTree = "<group>"; };
+		1F4C696223A80DF600374749 /* ServiceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailsView.swift; sourceTree = "<group>"; };
 		1F5369A5238BC1430007EBB0 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		1F5369AF238D9AE10007EBB0 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		1F5369BA23915D7B0007EBB0 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -131,6 +145,21 @@
 		1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsView.swift; sourceTree = "<group>"; };
 		1FAFA9E62383D1E600CB85F7 /* CurrentMeasurementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMeasurementResponse.swift; sourceTree = "<group>"; };
 		1FB7B4AF237F591A0065302D /* Slipways.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slipways.entitlements; sourceTree = "<group>"; };
+		1FC50D6F23DECBAF00B99C59 /* PortListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortListView.swift; sourceTree = "<group>"; };
+		1FC50D7123DECBBF00B99C59 /* PortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortDetailsView.swift; sourceTree = "<group>"; };
+		1FC50D7323E016EA00B99C59 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		1FC50D7523E0186900B99C59 /* ContactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
+		1FC50D7723E15BB300B99C59 /* PortExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortExtensions.swift; sourceTree = "<group>"; };
+		1FC50D7923E165DF00B99C59 /* MapOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOverviewView.swift; sourceTree = "<group>"; };
+		1FC50D7D23E195C300B99C59 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1FC50D7F23E199DB00B99C59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FC50D8423E19A1800B99C59 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FC50D8923E19A4600B99C59 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FC50D8B23E2C3F700B99C59 /* SlipwayInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfoViewModel.swift; sourceTree = "<group>"; };
+		1FC50D8D23E34C8C00B99C59 /* PortRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortRow.swift; sourceTree = "<group>"; };
+		1FC50D8F23E351C300B99C59 /* StationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoView.swift; sourceTree = "<group>"; };
+		1FC50D9123E363F100B99C59 /* StationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewModel.swift; sourceTree = "<group>"; };
+		1FC50D9323E3643900B99C59 /* PortRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortRowViewModel.swift; sourceTree = "<group>"; };
 		1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo2-Regular.ttf"; sourceTree = "<group>"; };
 		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
 		1FFFAF5123916E350070EF9E /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
@@ -192,7 +221,6 @@
 				1F5369B7239143B20007EBB0 /* ViewModel */,
 				1F5369AE238D9AD10007EBB0 /* Infrastructure */,
 				1FB7B4AF237F591A0065302D /* Slipways.entitlements */,
-				1F823056236ACFB200E6513F /* Components */,
 				1F823047236AC92600E6513F /* Models */,
 				1FB7B4AE237F519E0065302D /* View */,
 				1F823048236AC92F00E6513F /* Services */,
@@ -204,6 +232,9 @@
 				1F823049236AC94800E6513F /* Resources */,
 				1F0D5B3C236AC54F00EA9476 /* Preview Content */,
 				1F22FA9F23C8675600D8BEEC /* AppModel.xcdatamodeld */,
+				1FC50D8A23E19A4600B99C59 /* Localizable.strings */,
+				1FC50D8023E199DB00B99C59 /* Localizable.strings */,
+				1FC50D8523E19A1800B99C59 /* Localizable.strings */,
 			);
 			path = Slipways;
 			sourceTree = "<group>";
@@ -242,6 +273,7 @@
 				1FAFA9E023830FB600CB85F7 /* StationListView.swift */,
 				1F729E45238196950068954C /* WaterListView.swift */,
 				1F4C696023A80DE400374749 /* ServiceView.swift */,
+				1FC50D6F23DECBAF00B99C59 /* PortListView.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -249,11 +281,13 @@
 		1F265F6D23D3456600305830 /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				1F4C696223A80DF600374749 /* ServiceDetails.swift */,
+				1F4C696223A80DF600374749 /* ServiceDetailsView.swift */,
 				1F823054236ACF5200E6513F /* SlipwayDetails.swift */,
 				1FAFA9E4238317C300CB85F7 /* StationDetailsView.swift */,
 				1FAA52212388A6DA0065280B /* WaterDetailsView.swift */,
 				1F5C34B723DA18790052A75C /* InfoView.swift */,
+				1FC50D7123DECBBF00B99C59 /* PortDetailsView.swift */,
+				1FC50D7923E165DF00B99C59 /* MapOverviewView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -278,6 +312,9 @@
 			isa = PBXGroup;
 			children = (
 				1FFFAF5123916E350070EF9E /* StationViewModel.swift */,
+				1FC50D8B23E2C3F700B99C59 /* SlipwayInfoViewModel.swift */,
+				1FC50D9123E363F100B99C59 /* StationInfoViewModel.swift */,
+				1FC50D9323E3643900B99C59 /* PortRowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,6 +328,8 @@
 				1F5C34BB23DAE6E50052A75C /* StationExtensions.swift */,
 				1F5C34BD23DAE7590052A75C /* ExtraExtensions.swift */,
 				1F5C34BF23DAE7750052A75C /* ManufacturerExtensions.swift */,
+				1FC50D7723E15BB300B99C59 /* PortExtensions.swift */,
+				1FC50D7323E016EA00B99C59 /* Protocols.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -332,8 +371,11 @@
 				1FFFAF53239181AF0070EF9E /* MapWrapperView.swift */,
 				1F82305B236B52DF00E6513F /* SlipwayInfo.swift */,
 				1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */,
+				1FC50D8D23E34C8C00B99C59 /* PortRow.swift */,
 				1FFFAF55239190390070EF9E /* ButtonLineView.swift */,
 				1F7C243A23AA0CFE00AA8855 /* ServiceInfo.swift */,
+				1FC50D7523E0186900B99C59 /* ContactDetailsView.swift */,
+				1FC50D8F23E351C300B99C59 /* StationInfoView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -341,6 +383,7 @@
 		1FB7B4AE237F519E0065302D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F823056236ACFB200E6513F /* Components */,
 				1F265F6D23D3456600305830 /* Details */,
 				1F265F6C23D3455E00305830 /* Lists */,
 				1FAFA9E2238311AB00CB85F7 /* WelcomeView.swift */,
@@ -445,6 +488,7 @@
 				en,
 				Base,
 				de,
+				nl,
 			);
 			mainGroup = 1F0D5B28236AC54E00EA9476;
 			packageReferences = (
@@ -466,8 +510,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */,
+				1FC50D7E23E199DB00B99C59 /* Localizable.strings in Resources */,
 				1F0D5B41236AC54F00EA9476 /* LaunchScreen.storyboard in Resources */,
+				1FC50D8323E19A1800B99C59 /* Localizable.strings in Resources */,
 				1F0D5B3E236AC54F00EA9476 /* Preview Assets.xcassets in Resources */,
+				1FC50D8823E19A4600B99C59 /* Localizable.strings in Resources */,
 				1F0D5B3B236AC54F00EA9476 /* Assets.xcassets in Resources */,
 				1FDB3EB9239869290043D0EC /* Exo2-Regular.ttf in Resources */,
 			);
@@ -497,21 +544,27 @@
 				1F14253823D82FB400EF96F7 /* PortData.swift in Sources */,
 				1F7C243D23AA14F900AA8855 /* SignsListView.swift in Sources */,
 				1F49BB9D23CC57FD00B100AF /* Entity.swift in Sources */,
+				1FC50D9223E363F100B99C59 /* StationInfoViewModel.swift in Sources */,
 				1F22FAA123C8675600D8BEEC /* AppModel.xcdatamodeld in Sources */,
 				1F12F44C23A0DC9B00068A25 /* GraphQLService.swift in Sources */,
-				1F4C696323A80DF600374749 /* ServiceDetails.swift in Sources */,
+				1F4C696323A80DF600374749 /* ServiceDetailsView.swift in Sources */,
+				1FC50D7423E016EA00B99C59 /* Protocols.swift in Sources */,
 				1FFFAF56239190390070EF9E /* ButtonLineView.swift in Sources */,
 				1F823053236ACCA900E6513F /* Coordinates.swift in Sources */,
 				1F5C34B823DA18790052A75C /* InfoView.swift in Sources */,
 				1F5369A6238BC1430007EBB0 /* FakeData.swift in Sources */,
 				1FAFA9E123830FB600CB85F7 /* StationListView.swift in Sources */,
+				1FC50D7A23E165DF00B99C59 /* MapOverviewView.swift in Sources */,
+				1FC50D7823E15BB300B99C59 /* PortExtensions.swift in Sources */,
 				1F0D5B35236AC54E00EA9476 /* AppDelegate.swift in Sources */,
 				1F5C34BC23DAE6E50052A75C /* StationExtensions.swift in Sources */,
 				1F823051236ACC8100E6513F /* Model.swift in Sources */,
 				1F5369BD23915F2E0007EBB0 /* PegelService.swift in Sources */,
+				1FC50D7623E0186900B99C59 /* ContactDetailsView.swift in Sources */,
 				1FFFAF582391DE390070EF9E /* StringHelper.swift in Sources */,
 				1F729E44238193890068954C /* Link.swift in Sources */,
 				1FAC5438239408750008BE75 /* Serializer.swift in Sources */,
+				1FC50D7023DECBAF00B99C59 /* PortListView.swift in Sources */,
 				1F0D5B37236AC54E00EA9476 /* SceneDelegate.swift in Sources */,
 				1F5C34BA23DAE2780052A75C /* WaterExtensions.swift in Sources */,
 				1F5C34B423D9850F0052A75C /* ServiceExtensions.swift in Sources */,
@@ -520,13 +573,17 @@
 				1FAFA9E3238311AB00CB85F7 /* WelcomeView.swift in Sources */,
 				1F5C34BE23DAE7590052A75C /* ExtraExtensions.swift in Sources */,
 				1F729E46238196950068954C /* WaterListView.swift in Sources */,
+				1FC50D8C23E2C3F700B99C59 /* SlipwayInfoViewModel.swift in Sources */,
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
+				1FC50D7223DECBBF00B99C59 /* PortDetailsView.swift in Sources */,
 				1F49BB9B23CC549A00B100AF /* Query.swift in Sources */,
 				1F5C34C023DAE7750052A75C /* ManufacturerExtensions.swift in Sources */,
 				1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */,
 				1F823058236ACFD100E6513F /* MapView.swift in Sources */,
 				1F5369B0238D9AE10007EBB0 /* Properties.swift in Sources */,
 				1FFFAF54239181AF0070EF9E /* MapWrapperView.swift in Sources */,
+				1FC50D9023E351C300B99C59 /* StationInfoView.swift in Sources */,
+				1FC50D9423E3643900B99C59 /* PortRowViewModel.swift in Sources */,
 				1FAFA9E5238317C300CB85F7 /* StationDetailsView.swift in Sources */,
 				1FAFA9E72383D1E600CB85F7 /* CurrentMeasurementResponse.swift in Sources */,
 				1F5C34B623D9853A0052A75C /* SlipwayExtensions.swift in Sources */,
@@ -536,6 +593,7 @@
 				1FFFAF5223916E350070EF9E /* StationViewModel.swift in Sources */,
 				1FAA52222388A6DA0065280B /* WaterDetailsView.swift in Sources */,
 				1F14253A23D8BAAA00EF96F7 /* DataProvider.swift in Sources */,
+				1FC50D8E23E34C8C00B99C59 /* PortRow.swift in Sources */,
 				1F5369BB23915D7B0007EBB0 /* HttpMethod.swift in Sources */,
 				1F0D5B39236AC54E00EA9476 /* SlipwayList.swift in Sources */,
 			);
@@ -578,8 +636,33 @@
 			children = (
 				1F0D5B40236AC54F00EA9476 /* Base */,
 				1F04826923B801FF00DC0FC6 /* de */,
+				1FC50D7D23E195C300B99C59 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1FC50D8023E199DB00B99C59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC50D7F23E199DB00B99C59 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1FC50D8523E19A1800B99C59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC50D8423E19A1800B99C59 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1FC50D8A23E19A4600B99C59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC50D8923E19A4600B99C59 /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -707,7 +790,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.6;
+				CURRENT_PROJECT_VERSION = 0.11;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
@@ -732,7 +815,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.6;
+				CURRENT_PROJECT_VERSION = 0.11;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;

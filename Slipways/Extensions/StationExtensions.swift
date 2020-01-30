@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MapKit
 
-extension Station {
+extension Station: Mapable {
     func fromStationQl(_ ql: StationQl) {
         self.name = ql.name
         self.lastUpdate = ql.updated
@@ -16,5 +17,12 @@ extension Station {
         self.latitude = ql.latitude
         self.longitude = ql.longitude
         self.number = ql.number
+    }
+    func locationCoordinate() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationCoordinates() -> [CLLocationCoordinate2D] {
+        [locationCoordinate()]
     }
 }

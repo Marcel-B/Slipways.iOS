@@ -15,18 +15,17 @@ struct SlipwayDetails: View {
     var body: some View {
         ScrollView{
             VStack{
-                MapView(coordinate: CLLocationCoordinate2D (latitude: slipway.latitude, longitude: slipway.longitude))
+                MapView(coordinates: slipway.locationCoordinates())
                     .frame(height: 320)
                     .padding()
                 
                 ButtonLineView(favorite: slipway.favorite, slipway: slipway)
                     .padding(.horizontal)
                 
-                SlipwayInfo(slipway: slipway)
+                SlipwayInfo(viewModel: SlipwayInfoViewModel(slipway))
                     .padding()
-//                Spacer()
             }
-        }.navigationBarTitle(slipway.name ?? "n/a")
+        }.navigationBarTitle(slipway.name ?? String.Empty)
     }
 }
 

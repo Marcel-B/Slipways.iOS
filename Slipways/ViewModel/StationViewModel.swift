@@ -8,33 +8,31 @@
 
 import Foundation
 import os.log
+import MapKit
 
-class StationViewModel: ObservableObject{
-    @Published var pegel: String?
-    
-    static let shared = StationViewModel(PegelService(), Serializer())
-    
+class StationViewModel{
     let pegelService: PegelProtocol
     let serializer: ObjectParser
+    let station: Station
     
-    init(_ pegelService: PegelProtocol = PegelService(), _ dataService: ObjectParser = Serializer()){
-        self.pegelService = pegelService
-        self.serializer = dataService
+    var locationCoordinates: [CLLocationCoordinate2D] {
+        get {
+            station.locationCoordinates()
+        }
     }
     
-    func pegel(id: String, completion: @escaping (_ result: Double) -> Void) {
-        pegelService.getPegel(station: id) { (data) in
-            if let safeData = data{
-                let response: CurrentMeasurementResponse? = self.serializer.parseObject(data: safeData)
-                if let safeResponse = response{
-                    DispatchQueue.main.async {
-                        let v = String(format: "%.2f", safeResponse.currentMeasurement.value)
-                        let b = String(format: "%.2f", safeResponse.gaugeZero.value)
-                        self.pegel = "\(v)\(safeResponse.unit) ~ \(b)\(safeResponse.gaugeZero.unit)"
-                    }
-                    completion(safeResponse.currentMeasurement.value)
-                }
+    var name: String {
+        get{
+            if let n = station.name{
+                return n
             }
+            return String.Empty
         }
+    }
+    
+    init(_ station: Station, _ pegelService: PegelProtocol = PegelService(), _ dataService: ObjectParser = Serializer()){
+        self.pegelService = pegelService
+        self.serializer = dataService
+        self.station = station
     }
 }

@@ -13,13 +13,13 @@ struct WaterDetailsView: View {
     var body: some View {
         List{
             HStack{
-                Text("Stationen")
+                Text("Stations")
                 Spacer()
                 Image("ruler")
             }
             ForEach(water.station?.allObjects as! [Station], id: \.self) { station in
-                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel() ,station: station )){
-                    Text(station.name ?? "n/a")
+                NavigationLink(destination: StationDetailsView(stationViewModel: StationViewModel(station))){
+                    Text(station.name ?? String.Empty)
                             .font(.custom("Exo2-Regular", size: 22))
                 }
             }

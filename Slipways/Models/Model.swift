@@ -9,7 +9,6 @@
 import SwiftUI
 import CoreLocation
 
-
 struct FetchResult: Codable{
     var data: DataDataQl
 }
@@ -36,7 +35,6 @@ struct AppDataQl: Codable{
     var services: [ServiceQl]
     var extras: [ExtraQl]
     var manufacturers: [ManufacturerQl]
-    
 }
 
 struct DataQl: Codable{

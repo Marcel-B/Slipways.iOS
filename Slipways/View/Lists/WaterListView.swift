@@ -17,13 +17,11 @@ struct WaterListView: View {
         List{
             
             HStack{
-                TextField("Suche", text: $search)
+                TextField("Search", text: $search)
                 Image(systemName: "magnifyingglass")
             }
 
-            ForEach(waters, id: \.self.id!) { water in
-                //                if let name = water.name{
-                //                    if name.starts(with: self.search.uppercased(){
+            ForEach(self.waters.filter({ water in self.search(water.name) }), id: \.self.id!) { water in
                 NavigationLink(destination: WaterDetailsView(water: water)) {
                     VStack{
                         HStack{
@@ -41,11 +39,17 @@ struct WaterListView: View {
                         }
                     }
                 }
-                //            }
-                //                }else{
-                //                }
-            }.navigationBarTitle("Gewässer")
+            }.navigationBarTitle("Waters")
         }
+    }
+    
+    func search(_ value: String?) -> Bool {
+        if let name = value{
+            if name.starts(with: self.search.uppercased()) {
+                return true
+            }
+        }
+        return false
     }
 }
 

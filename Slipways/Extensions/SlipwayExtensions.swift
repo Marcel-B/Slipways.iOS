@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import MapKit
 
-extension Slipway{
+extension Slipway: Named, Identifiable, Locateable{
+    
+    func locationCoordinate() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationCoordinates() -> [CLLocationCoordinate2D] {
+        [locationCoordinate()]
+    }
+    
     func fromSlipwayQl(_ ql: SlipwayQl){
         self.lastUpdate = ql.updated
         self.longitude = ql.longitude

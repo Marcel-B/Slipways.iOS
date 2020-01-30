@@ -7,8 +7,9 @@
 //
 
 import Foundation
-
-extension Service {
+import MapKit
+extension Service: Contactable, Identifiable {
+  
     // new functionality to add to SomeType goes here
     func fromServiceQl(_ ql: ServiceQl) {
         self.name = ql.name
@@ -30,4 +31,13 @@ extension Service {
             }
         }
     }
+    
+    func locationCoordinate() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationCoordinates() -> [CLLocationCoordinate2D] {
+        [locationCoordinate()]
+    }
+    
 }

@@ -17,12 +17,54 @@ struct InfoView: View {
     
     var body: some View {
         VStack{
-            Text("\(slipways.count) Slipanlagen")
-            Text("\(waters.count) Gewässer")
-            Text("\(services.count) Werkstätten")
-            Text("\(stations.count) Stationen")
-            Text("\(ports.count) Marinas")
+            HStack{
+                Text("Slipways")
+                Spacer()
+                Text("\(slipways.count)")
+            }
+            HStack{
+                Text("Waters")
+                Spacer()
+                Text("\(waters.count)")
+            }
+            HStack{
+                
+                Text("Workshops")
+                Spacer()
+                Text("\(services.count)")
+            }
+            HStack{
+                
+                Text("Stations")
+                Spacer()
+                Text("\(stations.count)")
+            }
+            HStack{
+                
+                Text("Marinas")
+                Spacer()
+                Text("\(ports.count)")
+            }
+            HStack{
+                Text("https://slipways.de")
+                    .onTapGesture {
+                        let url = URL(string: "https://slipways.de?origin=application")!
+                        UIApplication.shared.open(url)
+                        
+                }.foregroundColor(.accentColor)
+            }.padding(.vertical)
+            Spacer()
+            Text("Donate a beer")
+                .onTapGesture {
+                    if let uri = URL(string: "https://paypal.me/MBenders/2"){
+                        UIApplication.shared.open(uri)
+                    }   
+            }.foregroundColor(.accentColor)
+            Text("Copyright 2020 - Marcel Benders")
         }
+        .font(.custom("Exo2-Regular", size: 22))
+        .padding()
+        .navigationBarTitle("Info")
     }
 }
 

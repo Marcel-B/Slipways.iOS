@@ -23,7 +23,7 @@ protocol DataProvider{
     func getServices() -> [Service]
     func insertService(_ serviceQl: ServiceQl)
     func insertServices(_ servicesQl: [ServiceQl])
-
+    
     func getManufacturers() -> [Manufacturer]
     func insertManufacturer(_ manufacturerQl: ManufacturerQl)
     func insertManufacturers(_ manufacturersQl: [ManufacturerQl])
@@ -45,7 +45,7 @@ protocol DataProvider{
 
 class DbDataProvider: DataProvider{
     var managedObjectContext: NSManagedObjectContext
-
+    
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
     }
@@ -67,22 +67,22 @@ class DbDataProvider: DataProvider{
     }
     
     func getFetchResult<T>(entityName: String) -> [T]{
-            do{
-                let fetch = getFetch(entityName: entityName)
-                let fetchResult = try managedObjectContext.fetch(fetch)
-                let result = fetchResult as! [T]
-                return result
-            }catch{
-                print(error)
-            }
-            return [T]()
+        do{
+            let fetch = getFetch(entityName: entityName)
+            let fetchResult = try managedObjectContext.fetch(fetch)
+            let result = fetchResult as! [T]
+            return result
+        }catch{
+            print(error)
+        }
+        return [T]()
     }
     
     // MARK: - Section Water
     func getWaters() -> [Water]{
-         let water: [Water] = getFetchResult(entityName: Entity.Water)
-         return water
-     }
+        let water: [Water] = getFetchResult(entityName: Entity.Water)
+        return water
+    }
     
     func insertWater(_ waterQl: WaterQl) {
         managedObjectContext.perform {
@@ -183,7 +183,7 @@ class DbDataProvider: DataProvider{
             self.save()
         }
     }
-
+    
     func insertStation(_ stationQl: StationQl) {
     }
     
@@ -214,7 +214,7 @@ class DbDataProvider: DataProvider{
                 if let url = serviceQl.url{
                     service.url = URL(string: url)
                 }
-          
+                
                 if let manufacturersQl = serviceQl.manufacturers{
                     for manufacturerQl in manufacturersQl {
                         if let manufacturer = manufacturers.first(where: { $0.id == manufacturerQl.uuid }){
@@ -240,31 +240,39 @@ class DbDataProvider: DataProvider{
             let waters = self.getWaters()
             let extras = self.getExtras()
             let ports = self.getPorts()
+            let slipways = self.getSlipways()
             
             for slipwayQl in slipwaysQl{
-                let slipway = Slipway(context: self.managedObjectContext)
-                
-                slipway.id = slipwayQl.uuid
-                slipway.name = slipwayQl.name
-                slipway.city = slipwayQl.city
-                slipway.longitude = slipwayQl.longitude
-                slipway.latitude = slipwayQl.latitude
-                slipway.postalcode = slipwayQl.postalcode
-                slipway.lastUpdate = slipwayQl.updated
-                slipway.street = slipwayQl.street
-                
-                let water = waters.first{$0.id == slipwayQl.water.uuid}
-                slipway.water = water
-                
-                if let portQl = slipwayQl.port{
-                    if let port = ports.first(where: { $0.id == portQl.uuid }) {
-                        slipway.port = port
+                let hasSlipway = slipways.contains { $0.id == slipwayQl.uuid}
+                if hasSlipway{
+                    let slipway = slipways.first { $0.id == slipwayQl.uuid }
+                    slipway?.fromSlipwayQl(slipwayQl)
+                }else{
+                    let slipway = Slipway(context: self.managedObjectContext)
+                    
+                    slipway.id = slipwayQl.uuid
+                    slipway.name = slipwayQl.name
+                    slipway.city = slipwayQl.city
+                    slipway.longitude = slipwayQl.longitude
+                    slipway.latitude = slipwayQl.latitude
+                    slipway.postalcode = slipwayQl.postalcode
+                    slipway.lastUpdate = slipwayQl.updated
+                    slipway.street = slipwayQl.street
+                    slipway.costs = NSDecimalNumber(decimal: slipwayQl.costs)
+                    
+                    let water = waters.first{$0.id == slipwayQl.water.uuid}
+                    slipway.water = water
+                    
+                    if let portQl = slipwayQl.port{
+                        if let port = ports.first(where: { $0.id == portQl.uuid }) {
+                            slipway.port = port
+                        }
                     }
-                }
-                
-                for extraQl in slipwayQl.extras {
-                    if let extra = extras.first(where: { $0.id == extraQl.uuid }){
-                        slipway.addToExtra(extra)
+                    
+                    for extraQl in slipwayQl.extras {
+                        if let extra = extras.first(where: { $0.id == extraQl.uuid }){
+                            slipway.addToExtra(extra)
+                        }
                     }
                 }
             }
@@ -288,8 +296,18 @@ class DbDataProvider: DataProvider{
     func insertPorts(_ portsQl: [PortQl]){
         managedObjectContext.perform {
             let waters = self.getWaters()
+            let slipways = self.getSlipways()
             
             for portQl in portsQl{
+                let portSlipways = slipways.filter { (slipway) -> Bool in
+                    if let port = slipway.port{
+                        if port.id == portQl.uuid{
+                            return true
+                        }
+                    }
+                    return false
+                }
+                
                 let port = Port(context: self.managedObjectContext)
                 
                 port.id = portQl.uuid
@@ -309,6 +327,9 @@ class DbDataProvider: DataProvider{
                 if let waterQl = portQl.water{
                     let water = waters.first{$0.id == waterQl.uuid}
                     port.water = water
+                }
+                for slipway in portSlipways{
+                    port.addToSlipway(slipway)
                 }
             }
             self.save()

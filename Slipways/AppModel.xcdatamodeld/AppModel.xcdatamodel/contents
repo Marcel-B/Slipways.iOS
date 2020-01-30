@@ -24,7 +24,7 @@
         <attribute name="postalcode" optional="YES" attributeType="String"/>
         <attribute name="street" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="URI"/>
-        <relationship name="slipway" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Port" inverseName="slipway" inverseEntity="Port"/>
+        <relationship name="slipway" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Slipway" inverseName="port" inverseEntity="Slipway"/>
         <relationship name="water" maxCount="1" deletionRule="Nullify" destinationEntity="Water" inverseName="port" inverseEntity="Water"/>
     </entity>
     <entity name="Service" representedClassName=".Service" syncable="YES" codeGenerationType="class">
@@ -54,7 +54,7 @@
         <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="street" optional="YES" attributeType="String"/>
         <relationship name="extra" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Extra" inverseName="slipway" inverseEntity="Extra"/>
-        <relationship name="port" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Port"/>
+        <relationship name="port" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Port" inverseName="slipway" inverseEntity="Port"/>
         <relationship name="water" maxCount="1" deletionRule="Nullify" destinationEntity="Water" inverseName="slipway" inverseEntity="Water"/>
     </entity>
     <entity name="Station" representedClassName=".Station" syncable="YES" codeGenerationType="class">

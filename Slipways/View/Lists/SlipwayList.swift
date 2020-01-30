@@ -20,13 +20,12 @@ struct ForEachBuilder<Content>: View where Content: View {
 
 struct SlipwayList: View {
     @FetchRequest(entity: Slipway.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Slipway.name, ascending: true)]) var slipways: FetchedResults<Slipway>
-//    let slipwayViewModel = SlipwayViewModel()
     @State var search =  ""
     
     var body: some View {
         List{
             HStack{
-                TextField("Suche", text: $search)
+                TextField("Search", text: $search)
                 Image(systemName: "magnifyingglass")
             }
             
@@ -35,7 +34,7 @@ struct SlipwayList: View {
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
                 Spacer()
-                Text("Favoriten")
+                Text("Favorites")
                     .font(.title)
                 Spacer()
                 Image(systemName: "star.fill")
@@ -44,7 +43,7 @@ struct SlipwayList: View {
             }
             
             Group{
-                ForEach(slipways, id: \.self){ slipway in
+                ForEach(slipways.filter({ slipway in self.match(slipway) })){ slipway in
                     ForEachBuilder{
                         if slipway.favorite{
                             NavigationLink(destination: SlipwayDetails(slipway: slipway)){
@@ -56,12 +55,12 @@ struct SlipwayList: View {
             }
             HStack{
                 Spacer()
-                Text("Sonstige")
+                Text("Others")
                     .font(.title)
                 Spacer()
             }
             Group{
-                ForEach(slipways, id: \.self){ slipway in
+                ForEach(slipways.filter({ slipway in self.match(slipway) }), id: \.self){ slipway in
                     ForEachBuilder{
                         if !slipway.favorite{
                             NavigationLink(destination: SlipwayDetails(slipway: slipway)){
@@ -71,7 +70,32 @@ struct SlipwayList: View {
                     }
                 }
             }
-        }.navigationBarTitle("Slipanlagen")
+        }.navigationBarTitle("Slipways")
+    }
+    
+    func match(_ slipway: Slipway) -> Bool {
+        let search = self.search.uppercased()
+        if search == "" {
+            return true
+        }
+        if let name = slipway.name{
+            if name.uppercased().starts(with: search){
+                return true
+            }
+        }
+        if let water = slipway.water {
+            if let name = water.name {
+                if name.uppercased().starts(with: search){
+                    return true
+                }
+            }
+        }
+        if let city = slipway.city{
+            if city.uppercased().starts(with: search){
+                return true
+            }
+        }
+        return false
     }
 }
 

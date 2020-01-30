@@ -15,7 +15,7 @@ struct WelcomeView: View {
     var body: some View {
         
         
-//        RadialGradient(gradient: Gradient(colors: [.orange, .red]), center: .center, startRadius: 100, endRadius: 470)
+        //        RadialGradient(gradient: Gradient(colors: [.orange, .red]), center: .center, startRadius: 100, endRadius: 470)
         NavigationView{
             VStack{
                 Spacer()
@@ -23,6 +23,16 @@ struct WelcomeView: View {
                     Spacer()
                     NavigationLink(destination: SlipwayList()){
                         Image("launch")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                    }
+                    Spacer()
+                }
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: PortListView()){
+                        Image("anchor100Light")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100.0, height: 100.0)
@@ -38,14 +48,14 @@ struct WelcomeView: View {
                 }
                 HStack{
                     Spacer()
-                    NavigationLink(destination: StationListView(search: "")) {
+                    NavigationLink(destination: StationListView()) {
                         Image("ruler")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100.0, height: 100.0)
                     }
                     Spacer()
-                    NavigationLink(destination: WaterListView(search: "")){
+                    NavigationLink(destination: WaterListView()){
                         Image("waves")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -54,6 +64,13 @@ struct WelcomeView: View {
                     Spacer()
                 }.padding()
                 HStack{
+                    Spacer()
+                    NavigationLink(destination: MapOverviewView()){
+                        Image("map100")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0, height: 100.0)
+                    }
                     Spacer()
                     NavigationLink(destination: InfoView()){
                         Image("info100Dark")
@@ -65,17 +82,17 @@ struct WelcomeView: View {
                 }.padding()
                 Spacer()
             }
-            .background(
-                LinearGradient(
-                    gradient: Gradient(colors: [.secondary, .white, .secondary]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ))
-            .edgesIgnoringSafeArea(.all)
+//            .background(
+//                LinearGradient(
+//                    gradient: Gradient(colors: [.secondary, .white, .secondary]),
+//                    startPoint: .leading,
+//                    endPoint: .trailing
+//            ))
+                .edgesIgnoringSafeArea(.all)
+                .navigationBarTitle("Slipways.de")
         }
     }
 }
-
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
