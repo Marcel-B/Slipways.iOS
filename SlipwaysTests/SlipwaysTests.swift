@@ -62,12 +62,37 @@ class PegelServiceMock: PegelProtocol{
     
     
 }
-    
+class Eins{
+    var name: String
+    var vorname: String
+    init(name: String, vorname: String) {
+        self.name = name
+        self.vorname = vorname
+    }
+}
+
+class EinsQl{
+    init() {
+        nameQl = ""
+        vornameQl = ""
+    }
+    var nameQl: String
+    var vornameQl: String
+}
+
+extension Eins{
+    func wrapIt(_ einsQl: EinsQl){
+        self.name = einsQl.nameQl
+        self.vorname = einsQl.vornameQl
+    }
+}
+
 class SlipwaysTests: XCTestCase {
 
-    var dataStore: DataStore?
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+
         
     }
 
@@ -78,9 +103,16 @@ class SlipwaysTests: XCTestCase {
     func testGetStationsReturnsInstanceWithZeroValues() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let a = Eins(name: "Benders", vorname: "Marcel")
+        let b = EinsQl()
         
+        b.nameQl = "Floppes"
+        b.vornameQl = "Harry"
         
+        a.wrapIt(b)
         
+        print(a.name)
+        print(a.vorname)
         
     }
     
