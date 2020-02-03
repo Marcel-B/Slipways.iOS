@@ -47,7 +47,7 @@ struct SlipwayList: View {
                     ForEachBuilder{
                         if slipway.favorite{
                             NavigationLink(destination: SlipwayDetails(slipway: slipway)){
-                                    SlipwayRow(slipway: slipway)
+                                SlipwayRow(viewModel: SlipwayRowViewModel(slipway))
                             }
                         }
                     }
@@ -64,7 +64,7 @@ struct SlipwayList: View {
                     ForEachBuilder{
                         if !slipway.favorite{
                             NavigationLink(destination: SlipwayDetails(slipway: slipway)){
-                                    SlipwayRow(slipway: slipway)
+                                SlipwayRow(viewModel: SlipwayRowViewModel(slipway))
                             }
                         }
                     }

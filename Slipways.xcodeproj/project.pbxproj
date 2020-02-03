@@ -65,6 +65,7 @@
 		1FC50D9023E351C300B99C59 /* StationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D8F23E351C300B99C59 /* StationInfoView.swift */; };
 		1FC50D9223E363F100B99C59 /* StationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D9123E363F100B99C59 /* StationInfoViewModel.swift */; };
 		1FC50D9423E3643900B99C59 /* PortRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D9323E3643900B99C59 /* PortRowViewModel.swift */; };
+		1FC50D9623E4119A00B99C59 /* SlipwayRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D9523E4119A00B99C59 /* SlipwayRowViewModel.swift */; };
 		1FDB3EB9239869290043D0EC /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */; };
 		1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F82304A236AC96C00E6513F /* slipways.json */; };
 		1FF4D05D2371E14E00B7D1D1 /* SlipwayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */; };
@@ -160,6 +161,7 @@
 		1FC50D8F23E351C300B99C59 /* StationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoView.swift; sourceTree = "<group>"; };
 		1FC50D9123E363F100B99C59 /* StationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewModel.swift; sourceTree = "<group>"; };
 		1FC50D9323E3643900B99C59 /* PortRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortRowViewModel.swift; sourceTree = "<group>"; };
+		1FC50D9523E4119A00B99C59 /* SlipwayRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRowViewModel.swift; sourceTree = "<group>"; };
 		1FDB3EB8239869290043D0EC /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo2-Regular.ttf"; sourceTree = "<group>"; };
 		1FF4D05C2371E14E00B7D1D1 /* SlipwayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayRow.swift; sourceTree = "<group>"; };
 		1FFFAF5123916E350070EF9E /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				1FC50D8B23E2C3F700B99C59 /* SlipwayInfoViewModel.swift */,
 				1FC50D9123E363F100B99C59 /* StationInfoViewModel.swift */,
 				1FC50D9323E3643900B99C59 /* PortRowViewModel.swift */,
+				1FC50D9523E4119A00B99C59 /* SlipwayRowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				1F5C34BE23DAE7590052A75C /* ExtraExtensions.swift in Sources */,
 				1F729E46238196950068954C /* WaterListView.swift in Sources */,
 				1FC50D8C23E2C3F700B99C59 /* SlipwayInfoViewModel.swift in Sources */,
+				1FC50D9623E4119A00B99C59 /* SlipwayRowViewModel.swift in Sources */,
 				1F823055236ACF5200E6513F /* SlipwayDetails.swift in Sources */,
 				1FC50D7223DECBBF00B99C59 /* PortDetailsView.swift in Sources */,
 				1F49BB9B23CC549A00B100AF /* Query.swift in Sources */,
@@ -791,6 +795,7 @@
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.11;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
@@ -803,9 +808,9 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.b-velop.slipways";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -816,6 +821,7 @@
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.11;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
 				ENABLE_PREVIEWS = YES;
@@ -828,9 +834,9 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.b-velop.slipways";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

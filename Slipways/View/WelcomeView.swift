@@ -8,6 +8,22 @@
 
 import SwiftUI
 
+extension View {
+    
+    public func currentDeviceNavigationViewStyle() -> AnyView {
+        #if targetEnvironment(macCatalyst)
+        return AnyView(self.navigationViewStyle(DefaultNavigationViewStyle()))
+        #else
+        return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
+        #endif
+        //        if UIDevice.current.userInterfaceIdiom == .pad {
+        //            return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
+        //        } else {
+        //            return AnyView(self.navigationViewStyle(DefaultNavigationViewStyle()))
+        //        }
+    }
+}
+
 struct WelcomeView: View {
     static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)
     static let gradientEnd = Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255)
@@ -22,75 +38,61 @@ struct WelcomeView: View {
                 HStack{
                     Spacer()
                     NavigationLink(destination: SlipwayList()){
-                        Image("launch")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("boatLaunch360")
                     }
                     Spacer()
                 }
                 HStack{
                     Spacer()
                     NavigationLink(destination: PortListView()){
-                        Image("anchor100Light")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("anchor360")
                     }
                     Spacer()
                     NavigationLink(destination: ServiceView()){
-                        Image("wrench100")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("maintenance360")
                     }
                     Spacer()
                 }
                 HStack{
                     Spacer()
                     NavigationLink(destination: StationListView()) {
-                        Image("ruler")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("ruler360")
                     }
                     Spacer()
                     NavigationLink(destination: WaterListView()){
-                        Image("waves")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("seaWaves360")
                     }
                     Spacer()
                 }.padding()
                 HStack{
                     Spacer()
                     NavigationLink(destination: MapOverviewView()){
-                        Image("map100")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("mapMarker360")
                     }
                     Spacer()
                     NavigationLink(destination: InfoView()){
-                        Image("info100Dark")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0, height: 100.0)
+                        Image("information360")
                     }
                     Spacer()
                 }.padding()
                 Spacer()
             }
-//            .background(
-//                LinearGradient(
-//                    gradient: Gradient(colors: [.secondary, .white, .secondary]),
-//                    startPoint: .leading,
-//                    endPoint: .trailing
-//            ))
-                .edgesIgnoringSafeArea(.all)
+                // .background(
+                // LinearGradient(
+                // gradient: Gradient(colors: [.secondary, .white, .secondary]),
+                // startPoint: .leading,
+                // endPoint: .trailing
+                // ))
+//                .edgesIgnoringSafeArea(.all)
                 .navigationBarTitle("Slipways.de")
-        }
+        }.currentDeviceNavigationViewStyle()
+     
+//            #if targetEnvironment(macCatalyst)
+//                print("UIKit running on macOS")
+//            #else
+//
+//            #endif
+        
     }
 }
 

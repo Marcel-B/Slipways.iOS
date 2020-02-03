@@ -68,9 +68,9 @@ class DbDataProvider: DataProvider{
     
     func getFetchResult<T>(entityName: String) -> [T]{
         do{
-            let fetch = getFetch(entityName: entityName)
-            let fetchResult = try managedObjectContext.fetch(fetch)
-            let result = fetchResult as! [T]
+            let fetch = self.getFetch(entityName: entityName)
+            let fetchResult = try self.managedObjectContext.fetch(fetch)
+            let  result = fetchResult as! [T]
             return result
         }catch{
             print(error)

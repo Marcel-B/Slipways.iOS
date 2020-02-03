@@ -9,16 +9,16 @@
 import SwiftUI
 
 struct SlipwayRow: View {
-    var slipway: Slipway
+    let viewModel: SlipwayRowViewModel
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         VStack{
             HStack{
-                Text(slipway.name ?? "n/a")
+                Text(viewModel.name)
                     .font(.custom("Exo2-Regular", size: 22))
                 Spacer()
-                if slipway.favorite {
+                if viewModel.favorite {
                     Image(systemName: "star.fill")
                         .imageScale(.medium)
                         .foregroundColor(.yellow)
@@ -26,35 +26,28 @@ struct SlipwayRow: View {
             }
             
             HStack{
-                if Int(truncating: slipway.costs!) > 0 {
+                if Int(truncating: viewModel.rawCosts) > 0 {
                     Image(self.colorScheme == .light ? "dollar54Light" : "dollar54Dark")
                         .imageScale(.medium)
-                }else if Int(truncating: slipway.costs!) < 0 {
+                }else if Int(truncating: viewModel.rawCosts) < 0 {
                     Image(self.colorScheme == .light ? "sad54Light" : "sad54Dark")
                         .imageScale(.medium)
                 }else{
                     Image(self.colorScheme == .light ? "happy54Light" : "happy54Dark")
                         .imageScale(.medium)
                 }
-                
-                if (slipway.extra?.allObjects as! [Extra]).contains(where: { (extra) -> Bool in
-                    extra.name == "Campingplatz"
-                }){
+                if (viewModel.camping){
                     Image(self.colorScheme == .light ? "camping54Light" :  "camping54Dark")
                 }
                 
-                if (slipway.extra?.allObjects as! [Extra]).contains(where: { (extra) -> Bool in
-                    extra.name == "Parkplatz"
-                }){
+                if (viewModel.parking){
                     Image(self.colorScheme == .light ? "parking54Light" :  "parking54Dark")
                 }
                 
-                if (slipway.extra?.allObjects as! [Extra]).contains(where: { (extra) -> Bool in
-                    extra.name == "Steg"
-                }){
+                if (viewModel.pier){
                     Image(self.colorScheme == .light ? "pier54Light" :  "pier54Dark")
                 }
-                if (slipway.port != nil){
+                if (viewModel.hasPort){
                     Image(self.colorScheme == .light ? "anchor54Light" :  "anchor54Dark")
                 }
                 Spacer()
@@ -63,10 +56,10 @@ struct SlipwayRow: View {
             HStack{
                 Image(systemName: "mappin.and.ellipse")
                     .imageScale(.small)
-                Text(slipway.city ?? "n/a")
+                Text(viewModel.city)
                     .font(.footnote)
                 Spacer()
-                Text(slipway.water!.name ?? "n/a")
+                Text(viewModel.water)
                     .font(.footnote)
             }
         }
@@ -75,7 +68,7 @@ struct SlipwayRow: View {
 
 struct SlipwayRow_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayRow(slipway: Slipway())
+        return SlipwayRow(viewModel: SlipwayRowViewModel(Slipway()))
             .previewLayout(.sizeThatFits)
     }
 }
