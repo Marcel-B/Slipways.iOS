@@ -84,7 +84,7 @@ struct WelcomeView: View {
                 // endPoint: .trailing
                 // ))
 //                .edgesIgnoringSafeArea(.all)
-                .navigationBarTitle("Slipways.de")
+                .navigationBarTitle("Slipways.de", displayMode: .inline)
         }.currentDeviceNavigationViewStyle()
      
 //            #if targetEnvironment(macCatalyst)

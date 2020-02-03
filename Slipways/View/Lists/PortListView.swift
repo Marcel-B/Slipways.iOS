@@ -23,7 +23,7 @@ struct PortListView: View {
                     PortRow(viewModel: PortRowViewModel(port))
                 }
             }
-        }.navigationBarTitle("Marinas")
+        }.navigationBarTitle("Marinas", displayMode: .large)
     }
     
     func input(_ value: Port) -> Bool{

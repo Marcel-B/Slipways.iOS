@@ -23,7 +23,7 @@ struct StationListView: View {
                     Text(station.name ?? "n/a").font(.custom("Exo2-Regular", size: 22))
                 }
             }
-        }.navigationBarTitle("Stations")
+        }.navigationBarTitle("Stations", displayMode: .large)
     }
     
     func search(_ value: String?) -> Bool {

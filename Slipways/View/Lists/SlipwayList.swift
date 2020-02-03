@@ -70,7 +70,7 @@ struct SlipwayList: View {
                     }
                 }
             }
-        }.navigationBarTitle("Slipways")
+        }.navigationBarTitle("Slipways", displayMode: .large)
     }
     
     func match(_ slipway: Slipway) -> Bool {

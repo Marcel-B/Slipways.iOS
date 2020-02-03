@@ -37,7 +37,7 @@ struct ServiceView: View {
                     }
                 }
             }
-        }.navigationBarTitle("Workshops")
+        }.navigationBarTitle("Workshops", displayMode: .large)
     }
     
     func match(_ service: Service) -> Bool {

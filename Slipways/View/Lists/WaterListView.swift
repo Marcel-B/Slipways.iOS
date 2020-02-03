@@ -39,7 +39,7 @@ struct WaterListView: View {
                         }
                     }
                 }
-            }.navigationBarTitle("Waters")
+            }.navigationBarTitle("Waters", displayMode: .large)
         }
     }
     
