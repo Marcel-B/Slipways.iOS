@@ -57,7 +57,6 @@
 		1FC50D7623E0186900B99C59 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7523E0186900B99C59 /* ContactDetailsView.swift */; };
 		1FC50D7823E15BB300B99C59 /* PortExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7723E15BB300B99C59 /* PortExtensions.swift */; };
 		1FC50D7A23E165DF00B99C59 /* MapOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D7923E165DF00B99C59 /* MapOverviewView.swift */; };
-		1FC50D7E23E199DB00B99C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC50D8023E199DB00B99C59 /* Localizable.strings */; };
 		1FC50D8323E19A1800B99C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC50D8523E19A1800B99C59 /* Localizable.strings */; };
 		1FC50D8823E19A4600B99C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC50D8A23E19A4600B99C59 /* Localizable.strings */; };
 		1FC50D8C23E2C3F700B99C59 /* SlipwayInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC50D8B23E2C3F700B99C59 /* SlipwayInfoViewModel.swift */; };
@@ -153,7 +152,6 @@
 		1FC50D7723E15BB300B99C59 /* PortExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortExtensions.swift; sourceTree = "<group>"; };
 		1FC50D7923E165DF00B99C59 /* MapOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOverviewView.swift; sourceTree = "<group>"; };
 		1FC50D7D23E195C300B99C59 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		1FC50D7F23E199DB00B99C59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FC50D8423E19A1800B99C59 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FC50D8923E19A4600B99C59 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FC50D8B23E2C3F700B99C59 /* SlipwayInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipwayInfoViewModel.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				1F0D5B3C236AC54F00EA9476 /* Preview Content */,
 				1F22FA9F23C8675600D8BEEC /* AppModel.xcdatamodeld */,
 				1FC50D8A23E19A4600B99C59 /* Localizable.strings */,
-				1FC50D8023E199DB00B99C59 /* Localizable.strings */,
 				1FC50D8523E19A1800B99C59 /* Localizable.strings */,
 			);
 			path = Slipways;
@@ -466,6 +463,9 @@
 		1F0D5B29236AC54E00EA9476 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Marcel Benders";
@@ -513,7 +513,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF4D05B2371677D00B7D1D1 /* slipways.json in Resources */,
-				1FC50D7E23E199DB00B99C59 /* Localizable.strings in Resources */,
 				1F0D5B41236AC54F00EA9476 /* LaunchScreen.storyboard in Resources */,
 				1FC50D8323E19A1800B99C59 /* Localizable.strings in Resources */,
 				1F0D5B3E236AC54F00EA9476 /* Preview Assets.xcassets in Resources */,
@@ -643,14 +642,6 @@
 				1FC50D7D23E195C300B99C59 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		1FC50D8023E199DB00B99C59 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FC50D7F23E199DB00B99C59 /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		1FC50D8523E19A1800B99C59 /* Localizable.strings */ = {
@@ -794,7 +785,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.11;
+				CURRENT_PROJECT_VERSION = 0.12;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;
@@ -820,7 +811,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slipways/Slipways.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.11;
+				CURRENT_PROJECT_VERSION = 0.12;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Slipways/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6GGU8ET2C4;

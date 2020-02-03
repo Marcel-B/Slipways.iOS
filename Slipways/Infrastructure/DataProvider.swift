@@ -85,7 +85,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertWater(_ waterQl: WaterQl) {
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             let water = Water(context: self.managedObjectContext)
             water.id = UUID(uuidString: waterQl.id)
             water.name = waterQl.name
@@ -95,7 +95,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertWaters(_ watersQl: [WaterQl]) {
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             for waterQl in watersQl{
                 let water = Water(context: self.managedObjectContext)
                 water.id = UUID(uuidString: waterQl.id)
@@ -113,7 +113,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertExtra(_ extraQl: ExtraQl)  {
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             let extra = Extra(context: self.managedObjectContext)
             extra.id =  UUID(uuidString: extraQl.id)
             extra.name = extraQl.name
@@ -123,7 +123,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertExtras(_ extrasQl: [ExtraQl]){
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             for extraQl in extrasQl{
                 let extra = Extra(context: self.managedObjectContext)
                 extra.id =  UUID(uuidString: extraQl.id)
@@ -149,7 +149,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertManufacturers(_ manufacturersQl: [ManufacturerQl]){
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             for manufacturerQl in manufacturersQl{
                 let manufacturer = Manufacturer(context: self.managedObjectContext)
                 manufacturer.id = manufacturerQl.uuid
@@ -167,7 +167,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertStations(_ stationsQl: [StationQl]){
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             let waters = self.getWaters()
             for stationQl in stationsQl{
                 let station = Station(context: self.managedObjectContext)
@@ -194,7 +194,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertServices(_ servicesQl: [ServiceQl]) {
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             let manufacturers = self.getManufacturers()
             
             for serviceQl in servicesQl{
@@ -236,7 +236,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertSlipways(_ slipwaysQl:[SlipwayQl]){
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             let waters = self.getWaters()
             let extras = self.getExtras()
             let ports = self.getPorts()
@@ -294,7 +294,7 @@ class DbDataProvider: DataProvider{
     }
     
     func insertPorts(_ portsQl: [PortQl]){
-        managedObjectContext.perform {
+        managedObjectContext.performAndWait {
             let waters = self.getWaters()
             let slipways = self.getSlipways()
             
