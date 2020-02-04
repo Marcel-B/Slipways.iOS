@@ -140,8 +140,18 @@ class DbUpdater : Updater{
                         print("Alter Data")
                         updated += 1
                     }
-                }else{
-                    old += 1
+                }else {
+                    // Sonderlocke - Wert kam erst ab version 1.2.1.0 hinzu
+                    let slipway = slipways.first(where: { $0.id == slipwayQl.uuid})!
+                    if slipway.country == nil {
+                        slipway.country = slipwayQl.country
+                        newSlipways.append(slipwayQl)
+                        print("Alter Data")
+                        updated += 1
+                    // Kann entfernt werden wenn alle kleinen Versionen nicht mehr da sind
+                    }else{
+                        old += 1
+                    }
                 }
             }
         }

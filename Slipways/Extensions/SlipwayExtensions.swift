@@ -27,6 +27,7 @@ extension Slipway: Named, Identifiable, Locateable{
         self.latitude = ql.latitude
         self.name = ql.name
         self.postalcode = ql.postalcode
+        self.country = ql.country
         if let rating = ql.rating{
             self.rating = Int32(rating)
         }

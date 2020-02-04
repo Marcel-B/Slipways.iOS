@@ -29,9 +29,7 @@ struct WelcomeView: View {
     static let gradientEnd = Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255)
     
     var body: some View {
-        
-        
-        //        RadialGradient(gradient: Gradient(colors: [.orange, .red]), center: .center, startRadius: 100, endRadius: 470)
+        // RadialGradient(gradient: Gradient(colors: [.orange, .red]), center: .center, startRadius: 100, endRadius: 470)
         NavigationView{
             VStack{
                 Spacer()
@@ -83,16 +81,9 @@ struct WelcomeView: View {
                 // startPoint: .leading,
                 // endPoint: .trailing
                 // ))
-//                .edgesIgnoringSafeArea(.all)
+                // .edgesIgnoringSafeArea(.all)
                 .navigationBarTitle("Slipways.de", displayMode: .inline)
         }.currentDeviceNavigationViewStyle()
-     
-//            #if targetEnvironment(macCatalyst)
-//                print("UIKit running on macOS")
-//            #else
-//
-//            #endif
-        
     }
 }
 

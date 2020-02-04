@@ -55,4 +55,20 @@ class SlipwayRowViewModel: SlipwayInfoViewModel {
         }
         return [Extra]()
     }
+    
+    func getCountry() -> String {
+        if let country = slipway.country {
+            switch country {
+                case "DE":
+                return "germany54"
+                case "NL":
+                return "netherlands54"
+                case "FR":
+                return "france54"
+                default:
+                return ""
+            }
+        }
+        return "europe54"
+    }
 }

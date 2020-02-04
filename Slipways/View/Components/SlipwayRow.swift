@@ -54,8 +54,7 @@ struct SlipwayRow: View {
             }
             
             HStack{
-                Image(systemName: "mappin.and.ellipse")
-                    .imageScale(.small)
+                Image(viewModel.getCountry())
                 Text(viewModel.city)
                     .font(.footnote)
                 Spacer()

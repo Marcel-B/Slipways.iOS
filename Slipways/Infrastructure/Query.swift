@@ -9,7 +9,7 @@
 import Foundation
 
 struct Query{
-    static let AppData = "{\"query\": \"{ appData { extras { id name updated } manufacturers { id name updated } services { id name street city postalcode phone longitude latitude updated email url manufacturers { id name updated } } ports { id name longitude latitude updated street postalcode city url phone email water { id longname updated } } slipways { id name street city postalcode costs longitude latitude rating port { id name longitude latitude updated } water { id longname updated } extras { id name updated } } waters { id longname stations { id agency number longname longitude latitude } } stations { id agency number updated longname longitude latitude water { id longname}}}} \"}"
+    static let AppData = "{\"query\": \"{ appData { extras { id name updated } manufacturers { id name updated } services { id name street city postalcode phone longitude latitude updated email url manufacturers { id name updated } } ports { id name longitude latitude updated street postalcode city url phone email water { id longname updated } } slipways { id name street city postalcode costs longitude latitude country rating port { id name longitude latitude updated } water { id longname updated } extras { id name updated } } waters { id longname stations { id agency number longname longitude latitude } } stations { id agency number updated longname longitude latitude water { id longname}}}} \"}"
    
     static let Extras = "{\"query\": \"{ extras { id name updated } } \"}"
     static let Ports = "{\"query\":  \"{ ports  { id name longitude latitude updated street postalcode city url phone email } }\"}"

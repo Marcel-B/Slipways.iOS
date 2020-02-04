@@ -182,6 +182,7 @@ struct SlipwayQl: Codable, Identifiable{
     var extras: [ExtraQl]
     var water: WaterQl
     var rating: Int?
+    var country: String?
     
     var isFavorite: Bool?
     
