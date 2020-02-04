@@ -64,5 +64,4 @@ class SlipwayInfoViewModel{
             return String.Empty
         }
     }
-    
 }

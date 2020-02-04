@@ -28,6 +28,19 @@ struct StationDetailsView: View {
 
 struct StationDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        StationDetailsView(stationViewModel: StationViewModel(Station()))
+        let station = FakeData.getStation()
+        return Group{
+            StationDetailsView(stationViewModel: StationViewModel(station))
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            StationDetailsView(stationViewModel: StationViewModel(station))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            StationDetailsView(stationViewModel: StationViewModel(station))
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

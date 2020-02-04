@@ -45,6 +45,21 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinates: [CLLocationCoordinate2D(latitude: 2, longitude: 2)], overview: true)
+        Group {
+            MapView(coordinates: [CLLocationCoordinate2D(latitude: 2, longitude: 2)], overview: true)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            MapView(coordinates: [CLLocationCoordinate2D(latitude: 2, longitude: 2)], overview: true)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            MapView(coordinates: [CLLocationCoordinate2D(latitude: 2, longitude: 2)], overview: true)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

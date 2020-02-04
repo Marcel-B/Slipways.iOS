@@ -24,11 +24,8 @@ struct ServiceInfo: View {
     @State private var showDetail = false
     
     var body: some View {
-        //        ScrollView{
         VStack{
-            
             ContactDetailsView(content: service)
-            
             HStack{
                 Text("Manufacturer")
                 
@@ -63,6 +60,22 @@ struct ServiceInfo: View {
 
 struct ServiceInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceInfo(service: Service())
+        let service = FakeData.getService()
+        return Group {
+            ServiceInfo(service: service)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            ServiceInfo(service: service)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            ServiceInfo(service: service)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

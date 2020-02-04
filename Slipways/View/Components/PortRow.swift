@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PortRow: View {
     let viewModel: PortRowViewModel
+    
     var body: some View {
         VStack{
             HStack{
@@ -30,6 +31,22 @@ struct PortRow: View {
 
 struct PortRow_Previews: PreviewProvider {
     static var previews: some View {
-        PortRow(viewModel: PortRowViewModel(Port()))
+        let port = FakeData.getPort()
+        return Group {
+            PortRow(viewModel: PortRowViewModel(port))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            PortRow(viewModel: PortRowViewModel(port))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            PortRow(viewModel: PortRowViewModel(port))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

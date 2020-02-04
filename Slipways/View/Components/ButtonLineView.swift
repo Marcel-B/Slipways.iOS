@@ -88,7 +88,22 @@ struct ButtonLineView: View {
 
 struct ButtonLineView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLineView(favorite: false, slipway: Slipway())
-            .previewLayout(.sizeThatFits)
+        let slipway = FakeData.getSlipway()
+        return Group {
+            ButtonLineView(favorite: false, slipway: slipway)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            ButtonLineView(favorite: false, slipway: slipway)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            ButtonLineView(favorite: false, slipway: slipway)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

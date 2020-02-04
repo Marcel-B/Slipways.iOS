@@ -7,13 +7,82 @@
 //
 
 import Foundation
+import SwiftUI
+import CoreData
 
 struct FakeData{
-//    static let slipway = SlipwayQl(id: "1", lastUpdate: nil, name: "Kettwig", postalcode: "47111", street: "Fuchsbaustr. 22",  city: "Essen", longitude: 2.2, latitude: 2.2, costs: 1.2, port: nil, extras: [ExtraQl](), water: water , rating: 1, isFavorite: true )
     
-    static let station = StationQl(id: "1", longname: "foobar", agency: "hello", number: "123",  latitude: 2.2,  longitude: 2.2, water: water)
     
-    static let water = WaterQl(id: "123-123", longname: "RUHR")
+
+    static func getPort() -> Port {
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+            fatalError("Unable to read managed object context.")
+        }
+        
+        let dataProvider = DbDataProvider(managedObjectContext: context)
+        let ports = dataProvider.getPorts()
+        
+        let port =  ports.first { (port) -> Bool in
+            true
+        }
+        return port!
+    }
+    
+    static func getSlipway() -> Slipway {
+         guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+             fatalError("Unable to read managed object context.")
+         }
+         
+         let dataProvider = DbDataProvider(managedObjectContext: context)
+         let slipways = dataProvider.getSlipways()
+         
+         let slipway =  slipways.first { (slipway) -> Bool in
+             true
+         }
+         return slipway!
+     }
+    
+    static func getService() -> Service {
+          guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+              fatalError("Unable to read managed object context.")
+          }
+          
+          let dataProvider = DbDataProvider(managedObjectContext: context)
+          let services = dataProvider.getServices()
+          
+          let service =  services.first { (service) -> Bool in
+              true
+          }
+          return service!
+      }
+    
+    static func getStation() -> Station {
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+            fatalError("Unable to read managed object context.")
+        }
+        
+        let dataProvider = DbDataProvider(managedObjectContext: context)
+        let stations = dataProvider.getStations()
+        
+        let station =  stations.first { (service) -> Bool in
+            true
+        }
+        return station!
+    }
+    
+    static func getWater() -> Water {
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+            fatalError("Unable to read managed object context.")
+        }
+        
+        let dataProvider = DbDataProvider(managedObjectContext: context)
+        let waters = dataProvider.getWaters()
+        
+        let water =  waters.first { (water) -> Bool in
+            true
+        }
+        return water!
+    }
     
     static let service = ServiceQl(id: "123-123", name: "Meyer Motoren", longitude: 2.2, latitude: 1.1, phone: "0020-3342 242", url: "https://foo.de", street: "Musterstr. 111", postalcode: "47800", city: "Krefeld", email: "Mopa@foo.de", manufacturers: manufacturers)
     

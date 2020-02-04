@@ -40,6 +40,19 @@ struct PortDetailsView: View {
 
 struct PortDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PortDetailsView(port: Port())
+        let port = FakeData.getPort()
+        return Group{
+            PortDetailsView(port: port)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            PortDetailsView(port: port)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            PortDetailsView(port: port)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

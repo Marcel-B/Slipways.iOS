@@ -41,6 +41,20 @@ struct MapWrapperView: View {
 
 struct MapWrapperView_Previews: PreviewProvider {
     static var previews: some View {
-        MapWrapperView(coordinates: [ CLLocationCoordinate2D(latitude: 2, longitude: 2)], targetName: "Essen")
+        Group {
+            MapWrapperView(coordinates: [ CLLocationCoordinate2D(latitude: 2, longitude: 2)], targetName: "Essen")
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            MapWrapperView(coordinates: [ CLLocationCoordinate2D(latitude: 2, longitude: 2)], targetName: "Essen")
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            MapWrapperView(coordinates: [ CLLocationCoordinate2D(latitude: 2, longitude: 2)], targetName: "Essen")                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

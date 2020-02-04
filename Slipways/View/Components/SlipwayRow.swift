@@ -68,7 +68,21 @@ struct SlipwayRow: View {
 
 struct SlipwayRow_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayRow(viewModel: SlipwayRowViewModel(Slipway()))
-            .previewLayout(.sizeThatFits)
+        Group {  
+            SlipwayRow(viewModel: SlipwayRowViewModel(FakeData.getSlipway()))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            SlipwayRow(viewModel: SlipwayRowViewModel(FakeData.getSlipway()))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            SlipwayRow(viewModel: SlipwayRowViewModel(FakeData.getSlipway()))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

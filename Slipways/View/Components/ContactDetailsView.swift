@@ -74,6 +74,22 @@ struct ContactDetailsView: View {
 
 struct ContactDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactDetailsView(content: Service())
+        let service = FakeData.getService()
+        return Group {
+            ContactDetailsView(content: service)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            ContactDetailsView(content: service)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            ContactDetailsView(content: service)
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

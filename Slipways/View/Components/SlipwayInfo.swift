@@ -8,34 +8,10 @@
 
 import SwiftUI
 
-//class SlipwayViewModel{
-//    func getCosts(slipway: Slipway) -> String {
-//        if Int(truncating: slipway.costs!) > 0{
-//            return "\(slipway.costs!.stringValue) €"
-//        }
-//        else if slipway.costs == 0{
-//            return "kostenlos"
-//        }
-//        return "keine Angaben"
-//    }
-//}
-
 struct SlipwayInfo: View {
     let viewModel: SlipwayInfoViewModel
     
-    init(viewModel: SlipwayInfoViewModel) {
-//        // To remove only extra separators below the list:
-//        UITableView.appearance().tableFooterView = UIView()
-//        
-//        // To remove all separators including the actual ones:
-//        UITableView.appearance().separatorStyle = .none
-        self.viewModel = viewModel
-    }
-    
-  
-    
     var body: some View {
-        //        List {
         VStack{
             
             HStack {
@@ -60,16 +36,16 @@ struct SlipwayInfo: View {
             }.padding(.top)
             HStack {
                 Text("Costs")
-                + Text(": ")
-                + Text(viewModel.costs)
+                    + Text(": ")
+                    + Text(viewModel.costs)
                 Spacer()
             }.padding(.top)
             
             HStack{
                 
                 Text("Water")
-                + Text(": ")
-                + Text(viewModel.water)
+                    + Text(": ")
+                    + Text(viewModel.water)
                 Image(systemName: "w.square")
                     .foregroundColor(.accentColor)
                     .onTapGesture {
@@ -86,7 +62,21 @@ struct SlipwayInfo: View {
 
 struct SlipwayInfo_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayInfo(viewModel: SlipwayInfoViewModel(Slipway()))
-            .previewLayout(.sizeThatFits)
+        Group {
+            SlipwayInfo(viewModel: SlipwayInfoViewModel(FakeData.getSlipway()))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            SlipwayInfo(viewModel: SlipwayInfoViewModel(FakeData.getSlipway()))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            SlipwayInfo(viewModel: SlipwayInfoViewModel(FakeData.getSlipway()))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

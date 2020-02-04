@@ -31,6 +31,19 @@ struct SlipwayDetails: View {
 
 struct SlipwayDetails_Previews: PreviewProvider {
     static var previews: some View {
-        return SlipwayDetails(slipway: Slipway())
+        let slipway = FakeData.getSlipway()
+        return Group{
+            SlipwayDetails(slipway: slipway)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            SlipwayDetails(slipway: slipway)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            SlipwayDetails(slipway: slipway)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

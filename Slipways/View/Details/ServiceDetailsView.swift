@@ -27,6 +27,19 @@ struct ServiceDetailsView: View {
 
 struct ServiceDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetailsView(service: Service())
+        let service = FakeData.getService()
+        return Group{
+            ServiceDetailsView(service: service)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            ServiceDetailsView(service: service)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            ServiceDetailsView(service: service)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }

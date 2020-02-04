@@ -12,7 +12,7 @@ struct StationInfoView: View {
     @ObservedObject var viewModel: StationInfoViewModel
     
     var body: some View {
-        Group{
+        VStack{
             HStack{
                 Text("Gauge Name")
                     + Text(": ")
@@ -51,6 +51,23 @@ struct StationInfoView: View {
 
 struct StationInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        StationInfoView(viewModel: StationInfoViewModel(Station()))
+        let station = FakeData.getStation()
+        
+        return Group {            
+            StationInfoView(viewModel: StationInfoViewModel(station))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            StationInfoView(viewModel: StationInfoViewModel(station))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            StationInfoView(viewModel: StationInfoViewModel(station))
+                .previewLayout(.sizeThatFits)
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+        }
     }
 }
